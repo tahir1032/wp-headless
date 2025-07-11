@@ -1,0 +1,22 @@
+@import "../styles/main.scss";
+
+.home-page {
+  @extend .container-page;
+
+  h1 {
+    font-size: 15rem;
+    color: #031e48;
+  }
+
+  p {
+    max-width: 700px;
+  }
+
+  .btn-primary {
+    margin-top: 1rem;
+  }
+}
+
+.home-container{
+  min-height: 100vh;
+}
