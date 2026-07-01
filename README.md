@@ -1,16 +1,66 @@
-<<<<<<< HEAD
-# React + Vite
+# tahirhafeez.com — Next.js Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portfolio site for [tahirhafeez.com](https://www.tahirhafeez.com), built with **Next.js** and powered by headless WordPress at `cms.tahirhafeez.com`.
 
-Currently, two official plugins are available:
+## Where you work on frontend code
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+**This repo (`wp-headless`) = all Next.js frontend work.**
 
-## Expanding the ESLint configuration
+```
+wp-headless/                 ← GitHub repo (this project)
+├── src/
+│   ├── app/                 ← pages & API routes
+│   ├── components/          ← UI sections (Hero, Services, etc.)
+│   └── lib/                 ← WordPress API + static data
+├── public/                  ← images, favicon
+├── package.json
+└── next.config.ts
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# wp-headless
->>>>>>> fe48e5659182ef9f818b8628019f2c436d03a2f2
+**WordPress CMS** is separate — managed at `cms.tahirhafeez.com` (plugin uploaded manually, not via this repo).
+
+## Stack
+
+| Layer | Technology |
+|-------|------------|
+| Frontend | Next.js 16 + TypeScript + Tailwind |
+| Hosting | Vercel → www.tahirhafeez.com |
+| CMS | WordPress headless → cms.tahirhafeez.com |
+| Content | Case studies via REST API |
+
+## Local development
+
+```bash
+npm install
+cp .env.local.example .env.local
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000)
+
+## Environment variables (Vercel)
+
+| Variable | Example |
+|----------|---------|
+| `WORDPRESS_API_URL` | `https://cms.tahirhafeez.com` |
+| `REVALIDATE_SECONDS` | `3600` |
+| `REVALIDATE_SECRET` | your-secret |
+| `NEXT_PUBLIC_BOOKING_URL` | GHL calendar link |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | hello@tahirhafeez.com |
+
+## Deploy flow
+
+```
+Edit code locally → commit → push to GitHub (tahir1032/wp-headless) → Vercel auto-deploys
+```
+
+**Vercel settings:**
+- Repository: `tahir1032/wp-headless`
+- Root Directory: **leave empty** (Next.js is at repo root)
+- Branch: `main`
+
+## WordPress CMS setup
+
+See [CONNECT.md](./CONNECT.md) for connecting case studies from WordPress.
+
+WordPress plugin files are kept locally in `wordpress/` (gitignored) — upload to cms via Hostinger when updated.
