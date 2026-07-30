@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import "./globals.css";
 import Preloader from "@/components/shell/Preloader";
 import Header from "@/components/shell/Header";
@@ -56,16 +55,27 @@ export default function RootLayout({
         <VideoModal />
         <ScrollTopButton />
 
-        <Script src="/vendor/gsap/gsap.min.js" strategy="afterInteractive" />
-        <Script src="/vendor/gsap/ScrollTrigger.min.js" strategy="afterInteractive" />
-        <Script src="/vendor/gsap/MotionPathPlugin.min.js" strategy="afterInteractive" />
-        <Script src="/vendor/gsap/ScrollSmoother.js" strategy="afterInteractive" />
-        <Script src="/vendor/SplitText/SplitText.min.js" strategy="afterInteractive" />
-        <Script src="/vendor/wow/wow.js" strategy="afterInteractive" />
-        <Script src="/vendor/three/three.js" strategy="afterInteractive" />
-        <Script src="/vendor/hovereffect/hover-effect.js" strategy="afterInteractive" />
-        <Script src="/js/animation.js" strategy="afterInteractive" />
-        <Script src="/js/custom.js" strategy="afterInteractive" />
+        {/*
+          Plain classic <script> tags (not next/script) on purpose: these are
+          legacy, non-module scripts that depend on strict load order (GSAP
+          core must finish before its plugins, which must finish before
+          animation.js references them). next/script's "afterInteractive"
+          strategy loads scripts asynchronously and does NOT guarantee this
+          order in production, which was breaking the animation/preloader
+          init entirely. Plain <script src> tags without async/defer execute
+          synchronously in document order, exactly like the original static
+          template's bottom-of-body scripts.
+        */}
+        <script src="/vendor/gsap/gsap.min.js" />
+        <script src="/vendor/gsap/ScrollTrigger.min.js" />
+        <script src="/vendor/gsap/MotionPathPlugin.min.js" />
+        <script src="/vendor/gsap/ScrollSmoother.js" />
+        <script src="/vendor/SplitText/SplitText.min.js" />
+        <script src="/vendor/wow/wow.js" />
+        <script src="/vendor/three/three.js" />
+        <script src="/vendor/hovereffect/hover-effect.js" />
+        <script src="/js/animation.js" />
+        <script src="/js/custom.js" />
       </body>
     </html>
   );
