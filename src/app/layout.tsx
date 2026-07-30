@@ -6,6 +6,7 @@ import ContactSidebar from "@/components/shell/ContactSidebar";
 import Footer from "@/components/shell/Footer";
 import VideoModal from "@/components/shell/VideoModal";
 import ScrollTopButton from "@/components/shell/ScrollTopButton";
+import VendorScripts from "@/components/shell/VendorScripts";
 
 export const metadata: Metadata = {
   title: "Tahir Hafeez | Portfolio",
@@ -22,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className="dark" suppressHydrationWarning>
       <head>
         <link rel="stylesheet" href="/icons/fontawesome/css/all.min.css" />
         <link rel="stylesheet" href="/icons/line-awesome/css/line-awesome.min.css" />
@@ -35,7 +36,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="selection:bg-primary selection:text-white">
+      <body className="selection:bg-primary selection:text-white" suppressHydrationWarning>
         <Preloader />
 
         <div className="page-wraper">
@@ -55,27 +56,7 @@ export default function RootLayout({
         <VideoModal />
         <ScrollTopButton />
 
-        {/*
-          Plain classic <script> tags (not next/script) on purpose: these are
-          legacy, non-module scripts that depend on strict load order (GSAP
-          core must finish before its plugins, which must finish before
-          animation.js references them). next/script's "afterInteractive"
-          strategy loads scripts asynchronously and does NOT guarantee this
-          order in production, which was breaking the animation/preloader
-          init entirely. Plain <script src> tags without async/defer execute
-          synchronously in document order, exactly like the original static
-          template's bottom-of-body scripts.
-        */}
-        <script src="/vendor/gsap/gsap.min.js" />
-        <script src="/vendor/gsap/ScrollTrigger.min.js" />
-        <script src="/vendor/gsap/MotionPathPlugin.min.js" />
-        <script src="/vendor/gsap/ScrollSmoother.js" />
-        <script src="/vendor/SplitText/SplitText.min.js" />
-        <script src="/vendor/wow/wow.js" />
-        <script src="/vendor/three/three.js" />
-        <script src="/vendor/hovereffect/hover-effect.js" />
-        <script src="/js/animation.js" />
-        <script src="/js/custom.js" />
+        <VendorScripts />
       </body>
     </html>
   );

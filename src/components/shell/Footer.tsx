@@ -63,7 +63,7 @@ export default function Footer() {
               <div className="!text-gray text-base font-normal py-7.5 flex sm:justify-between justify-center max-sm:text-center flex-wrap">
                 <a className="block text-primary" href="/">© Amara</a>
                 <p className="copyright-text">
-                  © <span className="current-year">{new Date().getFullYear()}</span> <a href="/" className="text-primary font-medium border-b">Amara</a> All Rights Reserved Copyright
+                  © <span className="current-year" suppressHydrationWarning>{new Date().getFullYear()}</span> <a href="/" className="text-primary font-medium border-b">Amara</a> All Rights Reserved Copyright
                 </p>
               </div>
             </div>
