@@ -1,5 +1,7 @@
 "use client";
 
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_LINK, LINKEDIN_URL } from "@/lib/site-config";
+
 export default function Footer() {
   return (
     <footer className="bg-snowwhite lg:pt-37 pt-15 overflow-hidden relative z-1 footer site-footer">
@@ -32,8 +34,8 @@ export default function Footer() {
             <div className="sm:flex xl:justify-center justify-between 2xl:gap-50 md:gap-30 gap-25 xl:pb-25 pb-15">
               <div className="max-sm:mb-12">
                 <h5 className="text-xl font-semibold text-black pb-2 border-b border-lightgray mb-5 inline-block">Contact Us</h5>
-                <a href="mailto:info@Dexigzone.com" className="text-base text-gray block mb-3 relative hover:text-primary duration-500"><span className="link-hover">info@Dexigzone.com</span></a>
-                <a href="tel:+1456123789" className="text-base text-gray block relative hover:text-primary duration-500"><span className="link-hover">+1 9 256 309 077</span></a>
+                <a href={`mailto:${CONTACT_EMAIL}`} className="text-base text-gray block mb-3 relative hover:text-primary duration-500"><span className="link-hover">{CONTACT_EMAIL}</span></a>
+                <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="text-base text-gray block relative hover:text-primary duration-500"><span className="link-hover">{WHATSAPP_DISPLAY}</span></a>
               </div>
               <div className="max-sm:mb-12">
                 <h5 className="text-xl font-semibold text-black pb-2 border-b border-lightgray mb-5 inline-block">Company</h5>
@@ -43,11 +45,7 @@ export default function Footer() {
               </div>
               <div className="relative">
                 <h5 className="text-xl font-semibold text-black pb-2 border-b border-lightgray mb-5 inline-block">Social Media</h5>
-                <a href="https://www.instagram.com/dexignzone" className="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span className="link-hover">Instagram</span></a>
-                <a href="https://www.x.com" className="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span className="link-hover">x</span></a>
-                <a href="https://www.linkedin.com" className="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span className="link-hover">Linkedin</span></a>
-                <a href="https://clutch.co/profile/w3itexperts" className="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span className="link-hover">Clutch</span></a>
-                <a href="https://dribbble.com/dexignzone" className="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span className="link-hover">Dribbble</span></a>
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span className="link-hover">Linkedin</span></a>
               </div>
             </div>
             <div className="relative">

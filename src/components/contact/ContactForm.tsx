@@ -85,7 +85,7 @@ export default function ContactForm() {
         <div className="sm:w-1/2 w-full">
           <div className="mb-7.5 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
             <label htmlFor="emailaddress" className="block text-mediumgray font-normal text-base">Email Address</label>
-            <input required autoComplete="email" type="email" name="dzEmail" id="emailaddress" placeholder="info@dexigzone.com" className="text-lg placeholder:text-primary text-primary w-full" />
+            <input required autoComplete="email" type="email" name="dzEmail" id="emailaddress" placeholder="you@example.com" className="text-lg placeholder:text-primary text-primary w-full" />
           </div>
         </div>
         <div className="sm:w-1/2 w-full">

@@ -1,13 +1,9 @@
 import ContactForm from "@/components/contact/ContactForm";
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_LINK, LINKEDIN_URL } from "@/lib/site-config";
 
 const CURSOR_IMAGES = Array.from({ length: 10 }, (_, i) => `/images/image-scroll/${i + 1}.webp`);
 
-const SOCIAL_LINKS = [
-  { label: "Instagram", href: "https://www.instagram.com/dexignzone" },
-  { label: "Facebook", href: "https://www.facebook.com" },
-  { label: "LinkedIn", href: "https://www.linkedin.com" },
-  { label: "X", href: "https://x.com" },
-];
+const SOCIAL_LINKS = [{ label: "LinkedIn", href: LINKEDIN_URL }];
 
 export default function ContactUsPage() {
   return (
@@ -49,8 +45,8 @@ export default function ContactUsPage() {
               <div className="px-5 pt-15 flex xl:items-center flex-wrap max-xl:justify-between gap-15">
                 <div className="xl:w-[60%] sm:w-[21%] w-full">
                   <h3 className="text-sm font-normal uppercase text-mediumgray pb-2 border-b border-lightgray mb-5 inline-block">Contact Us</h3>
-                  <a href="mailto:info@dexigzone.com" className="text-base text-primary font-medium block mb-2"><span className="link-hover">info@Dexigzone.com</span></a>
-                  <a href="tel:+9256309077" className="text-base text-primary font-medium block"><span className="link-hover">+9 256 309 077</span></a>
+                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-base text-primary font-medium block mb-2"><span className="link-hover">{CONTACT_EMAIL}</span></a>
+                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="text-base text-primary font-medium block"><span className="link-hover">{WHATSAPP_DISPLAY}</span></a>
                 </div>
                 <div className="xl:w-[60%] sm:w-[21%] w-full">
                   <h3 className="text-sm font-normal uppercase text-mediumgray pb-2 border-b border-lightgray mb-5 inline-block">location</h3>
@@ -59,7 +55,7 @@ export default function ContactUsPage() {
                 <div className="xl:w-[60%] sm:w-[21%] w-full">
                   <h3 className="text-sm font-normal uppercase text-mediumgray pb-2 border-b border-lightgray mb-5 inline-block">Social</h3>
                   {SOCIAL_LINKS.map((s) => (
-                    <a key={s.label} href={s.href} className="text-base text-primary font-medium mb-2 group flex items-center">
+                    <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="text-base text-primary font-medium mb-2 group flex items-center">
                       {s.label}
                       <span className="size-8.75 ml-1.25 flex items-center justify-center rounded-full bg-primary -translate-x-full rotate-[-360deg] opacity-0 group-hover:translate-x-0 group-hover:rotate-0 group-hover:opacity-100 overflow-hidden group/second duration-500">
                         <svg className="group-hover/second:animate-toTopFromBottom" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">

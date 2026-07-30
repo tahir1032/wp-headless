@@ -1,3 +1,5 @@
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_LINK, LINKEDIN_URL } from "@/lib/site-config";
+
 export default function Header() {
   return (
     <header className="absolute top-0 left-0 w-full z-98 site-header">
@@ -21,11 +23,11 @@ export default function Header() {
                   <span className="group-hover:bg-white bg-black block h-px w-8.25 duration-200 max-lg:hidden"></span>
                 </span>
               </button>
-              <a href="mailto:info@Dexigzone.com" className="py-1.5 px-3.75 text-sm text-primary bg-cleangray rounded-full max-md:hidden">
-                Info@Dexigzone.com
+              <a href={`mailto:${CONTACT_EMAIL}`} className="py-1.5 px-3.75 text-sm text-primary bg-cleangray rounded-full max-md:hidden">
+                {CONTACT_EMAIL}
               </a>
-              <a href="tel:+9 256 309 077" className="py-1.5 px-3.75 text-sm text-primary bg-cleangray rounded-full max-md:hidden">
-                +9 256 309 077
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="py-1.5 px-3.75 text-sm text-primary bg-cleangray rounded-full max-md:hidden">
+                {WHATSAPP_DISPLAY}
               </a>
             </div>
             <div>
@@ -66,16 +68,7 @@ export default function Header() {
               <div className="xl:hidden block max-xl:p-5 text-center mt-auto">
                 <ul>
                   <li className="inline-block mx-0.5">
-                    <a className="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-facebook-f" target="_blank" href="https://www.facebook.com/dexignzone"></a>
-                  </li>
-                  <li className="inline-block mx-0.5">
-                    <a className="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fa-brands fa-x-twitter" target="_blank" href="https://www.x.com"></a>
-                  </li>
-                  <li className="inline-block mx-0.5">
-                    <a className="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-linkedin-in" target="_blank" href="https://www.linkedin.com/showcase/3686700/admin/"></a>
-                  </li>
-                  <li className="inline-block mx-0.5">
-                    <a className="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-instagram" target="_blank" href="https://www.instagram.com/dexignzone/"></a>
+                    <a className="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-linkedin-in" target="_blank" rel="noopener noreferrer" href={LINKEDIN_URL}></a>
                   </li>
                 </ul>
               </div>

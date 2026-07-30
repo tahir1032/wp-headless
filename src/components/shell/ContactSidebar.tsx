@@ -1,5 +1,7 @@
 "use client";
 
+import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_LINK, LINKEDIN_URL } from "@/lib/site-config";
+
 export default function ContactSidebar() {
   return (
     <>
@@ -23,9 +25,12 @@ export default function ContactSidebar() {
           </p>
           <h4 className="text-2xl font-media mb-5 text-white">Contact Us</h4>
           <ul className="contact-address mb-12.5">
-            <li className="text-white/50">785 15h Street, Office 478 Berlin, De 81566</li>
-            <li className="text-white/50">info@Dexigzone.com</li>
-            <li className="text-white/50">+9 256 309 077</li>
+            <li className="text-white/50">
+              <a href={`mailto:${CONTACT_EMAIL}`} className="hover:text-white duration-300">{CONTACT_EMAIL}</a>
+            </li>
+            <li className="text-white/50">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="hover:text-white duration-300">{WHATSAPP_DISPLAY}</a>
+            </li>
           </ul>
           <h4 className="text-2xl font-media mb-5 text-white">Newsletter</h4>
           <div className="subscribe-form">
@@ -60,16 +65,7 @@ export default function ContactSidebar() {
           <div className="dz-social-icon dz-hover-move style-2 mb-5">
             <ul>
               <li className="inline-block mx-0.5">
-                <a className="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-facebook-f" target="_blank" href="https://www.facebook.com/dexignzone"></a>
-              </li>
-              <li className="inline-block mx-0.5">
-                <a className="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fa-brands fa-x-twitter" target="_blank" href="https://www.x.com"></a>
-              </li>
-              <li className="inline-block mx-0.5">
-                <a className="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-linkedin-in" target="_blank" href="https://www.linkedin.com/showcase/3686700/admin/"></a>
-              </li>
-              <li className="inline-block mx-0.5">
-                <a className="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-instagram" target="_blank" href="https://www.instagram.com/dexignzone/"></a>
+                <a className="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-linkedin-in" target="_blank" rel="noopener noreferrer" href={LINKEDIN_URL}></a>
               </li>
             </ul>
           </div>
