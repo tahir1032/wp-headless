@@ -5,32 +5,26 @@ export interface CaseStudyMetric {
   value: string;
 }
 
+export interface GalleryImage {
+  id: number;
+  url: string;
+}
+
 export interface CaseStudy {
   id: number;
   slug: string;
   title: string;
+  date: string;
   platform: Platform;
   clientType: string;
+  clientName: string;
   problem: string;
   solution: string;
   metrics: CaseStudyMetric[];
+  gallery: GalleryImage[];
+  categorySlug: string;
+  categoryLabel: string;
+  tags: string[];
   excerpt?: string;
   featuredImage?: string;
-}
-
-export interface SiteSettings {
-  availableForProjects: boolean;
-  yearsExperience: string;
-  projectsDelivered: string;
-  clientSatisfaction: string;
-  platformsCount: string;
-  bookingUrl: string;
-  contactEmail: string;
-}
-
-export interface Service {
-  id: string;
-  title: string;
-  description: string;
-  icon: "wordpress" | "ghl" | "api" | "hosting";
 }

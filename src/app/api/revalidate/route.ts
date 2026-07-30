@@ -11,11 +11,25 @@ export async function POST(request: NextRequest) {
 
   try {
     const body = await request.json().catch(() => ({}));
-    const path = typeof body.path === "string" ? body.path : "/";
 
-    revalidatePath(path);
+    let paths: string[];
+    if (Array.isArray(body.paths)) {
+      paths = body.paths.filter((p: unknown): p is string => typeof p === "string");
+    } else if (typeof body.path === "string") {
+      paths = [body.path];
+    } else {
+      paths = ["/"];
+    }
 
-    return NextResponse.json({ revalidated: true, path });
+    if (paths.length === 0) {
+      paths = ["/"];
+    }
+
+    for (const path of paths) {
+      revalidatePath(path);
+    }
+
+    return NextResponse.json({ revalidated: true, paths });
   } catch {
     return NextResponse.json({ message: "Revalidation failed" }, { status: 500 });
   }

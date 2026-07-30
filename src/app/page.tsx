@@ -1,19 +1,16 @@
 import CaseCard from "@/components/work/CaseCard";
 import ServicesShowcase from "@/components/shell/ServicesShowcase";
+import { getCaseStudies } from "@/lib/wordpress";
+import { fallbackRecentWork } from "@/lib/fallback-data";
 
-const TAGS = ["Meta Ads", "Google Ads", "CRO", "Analytics"];
-
-const RECENT_WORK = [
-  { title: "Content Strategy Blueprint", category: "branding", image: "/images/work/services/1.webp" },
-  { title: "Ecommerce Conversion Boost", category: "design", image: "/images/work/services/2.webp" },
-  { title: "SEO Visibility Enhancement", category: "development", image: "/images/work/services/3.webp" },
-  { title: "Creative Branding Refresh", category: "mobile-apps", image: "/images/work/services/4.webp" },
-  { title: "Customer Engagement Program", category: "branding", image: "/images/work/services/5.webp" },
-];
+export const revalidate = 3600;
 
 const CURSOR_IMAGES = Array.from({ length: 10 }, (_, i) => `/images/image-scroll/${i + 1}.webp`);
 
-export default function Home() {
+export default async function Home() {
+  const fetched = await getCaseStudies(5);
+  const recentWork = fetched.length > 0 ? fetched : fallbackRecentWork;
+
   return (
     <>
       <section className="pt-14 after:absolute after:h-px after:w-full after:bg-lightgray after:rotate-[45deg] after:-translate-x-1/2 after:top-1/2 after:left-1/2 after:-z-1 before:absolute before:h-px before:w-full before:bg-lightgray before:rotate-[-45deg] before:-translate-x-1/2 before:top-1/2 before:left-1/2 before:-z-1 hero relative flex items-center justify-center w-full xl:h-180 lg:h-100 md:h-80 sm:h-70 h-50 overflow-hidden">
@@ -84,16 +81,16 @@ export default function Home() {
                 </p>
               </div>
               <div className="lg:col-span-10 col-span-12 services" id="services">
-                {RECENT_WORK.map((item, i) => (
+                {recentWork.map((item, i) => (
                   <CaseCard
-                    key={item.title}
+                    key={item.slug}
                     title={item.title}
-                    date="03 Jan 2026"
-                    category={item.category}
-                    tags={TAGS}
-                    image={item.image}
-                    href="/work"
-                    last={i === RECENT_WORK.length - 1}
+                    date={item.date}
+                    category={item.categorySlug || "branding"}
+                    tags={item.tags.length > 0 ? item.tags : ["Meta Ads", "Google Ads", "CRO", "Analytics"]}
+                    image={item.featuredImage || item.gallery[0]?.url || "/images/work/services/1.webp"}
+                    href={`/work/${item.slug}`}
+                    last={i === recentWork.length - 1}
                   />
                 ))}
               </div>
