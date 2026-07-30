@@ -1363,3 +1363,8 @@ window.addEventListener("resize", () => {
     ScrollTrigger.refresh();
   }, 250);
 });
+
+// Exposed globally so app code can call amaraGsap().init() directly once
+// scripts are injected client-side (the DOMContentLoaded listener above
+// never fires when this script loads after that event has already passed).
+window.amaraGsap = amaraGsap;

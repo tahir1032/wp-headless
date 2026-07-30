@@ -47,6 +47,26 @@ export default function VendorScripts() {
           document.body.appendChild(script);
         });
       }
+
+      if (cancelled) return;
+
+      // animation.js/custom.js normally self-invoke via a
+      // document.addEventListener("DOMContentLoaded", ...) listener, but that
+      // event already fired long before this script was injected, so it
+      // never runs on its own. Both files expose their constructor globally
+      // (window.amaraGsap / window.amara) specifically so we can call
+      // .init() ourselves here instead.
+      const win = window as unknown as {
+        amaraGsap?: () => { init: () => void };
+        amara?: () => { init: () => void };
+        __amaraInitialized?: boolean;
+      };
+
+      if (!win.__amaraInitialized) {
+        win.__amaraInitialized = true;
+        win.amaraGsap?.().init();
+        win.amara?.().init();
+      }
     }
 
     loadInOrder();

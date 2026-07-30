@@ -785,3 +785,8 @@ window.addEventListener("resize", function () {
 document.addEventListener("DOMContentLoaded", function () {
   amara().init();
 });
+
+// Exposed globally so app code can call amara().init() directly once
+// scripts are injected client-side (the DOMContentLoaded listener above
+// never fires when this script loads after that event has already passed).
+window.amara = amara;
