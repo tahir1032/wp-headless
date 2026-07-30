@@ -15,7 +15,7 @@ export default async function Home() {
     <>
       <section className="pt-14 after:absolute after:h-px after:w-full after:bg-lightgray after:rotate-[45deg] after:-translate-x-1/2 after:top-1/2 after:left-1/2 after:-z-1 before:absolute before:h-px before:w-full before:bg-lightgray before:rotate-[-45deg] before:-translate-x-1/2 before:top-1/2 before:left-1/2 before:-z-1 hero relative flex items-center justify-center w-full xl:h-180 lg:h-100 md:h-80 sm:h-70 h-50 overflow-hidden">
         <div className="container-full">
-          <h1 className="dust-text cursor-default flex items-center justify-center max-xl:relative">Amara</h1>
+          <h1 className="dust-text cursor-default flex items-center justify-center max-xl:relative">Tahir</h1>
           {CURSOR_IMAGES.map((src) => (
             <img
               key={src}
@@ -77,7 +77,7 @@ export default async function Home() {
             <div className="col-span-12 2xl:ml-85 border-l border-lightgray">
               <div className="pxl-heading-scroll-effect border-b border-lightgray">
                 <p className="4xl:text-4xxl lg:text-3xl md:text-2xxxl text-2xxl text-subtlegray 4xl:pt-15 4xl:pl-15 4xl:pb-24.25 lg:py-10 py-5 lg:pl-10 pl-5 font-semibold heading-text">
-                  At Amara, we know your time is precious, and that&apos;s why we prioritize simplicity and efficiency. Our team has the expertise and creativity to handle everything from research and planning to custom design and development, freeing you from the burden of micromanagement.
+                  At Tahir, we know your time is precious, and that&apos;s why we prioritize simplicity and efficiency. Our team has the expertise and creativity to handle everything from research and planning to custom design and development, freeing you from the burden of micromanagement.
                 </p>
               </div>
               <div className="lg:col-span-10 col-span-12 services" id="services">

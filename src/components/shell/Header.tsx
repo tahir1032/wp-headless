@@ -29,12 +29,12 @@ export default function Header() {
               </a>
             </div>
             <div>
-              <a href="/" className="text-base text-logo">@Amara</a>
+              <a href="/" className="text-base text-logo">@Tahir</a>
             </div>
             <div className="header-nav navbar-collapse full-sidenav custom-scroll">
               <ul className="nav navbar xl:flex items-center gap-1.25">
                 <li className="xl:hidden">
-                  <a href="/" className="text-2xl text-logo text-white p-5">@Amara</a>
+                  <a href="/" className="text-2xl text-logo text-white p-5">@Tahir</a>
                 </li>
                 <li>
                   <a href="/">Home</a>

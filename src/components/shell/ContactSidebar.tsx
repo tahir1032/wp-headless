@@ -16,7 +16,7 @@ export default function ContactSidebar() {
       <div className="contact-sidebar md:p-12.5 p-5 fixed h-full md:w-118.75 w-77.75 z-99 bg-primary top-0 -left-[475px] !overflow-y-auto visible duration-500 flex items-center justify-center">
         <div className="flex flex-col h-full duration-500">
           <div className="mb-10">
-            <a href="/" className="text-4xl text-logo text-white">@Amara</a>
+            <a href="/" className="text-4xl text-logo text-white">@Tahir</a>
           </div>
           <p className="mb-10 text-white/50">
             We build fast, scalable websites with seamless interactions that enhance overall user engagement.
