@@ -1,0 +1,18 @@
+.site-button{
+	@apply relative flex items-center justify-center cursor-pointer overflow-hidden font-medium text-white text-lg bg-primary rounded-full px-19 py-3.5;
+}
+.site-button.butn-bg-shape:after {
+    @apply content-[''] bg-white/50 h-40 opacity-0 absolute -top-12.5 rotate-35 w-10;
+}
+.site-button.butn-bg-shape:after {
+	transition: all 3000ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+.site-button.butn-bg-shape:after {
+    @apply -left-full;
+}
+.site-button.butn-bg-shape:hover:after {
+    @apply left-[200%] opacity-50;
+}
+.site-button:hover{
+    @apply -translate-y-0.75 shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]; 
+}

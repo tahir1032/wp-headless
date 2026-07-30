@@ -1,0 +1,57 @@
+.custom-select {
+   @apply relative;
+}
+.custom-select .select-selected {
+	@apply w-full cursor-pointer py-3.5 !px-0 text-secondary/50 duration-300 text-base font-normal h-12.5;
+}
+.custom-select .select-selected:after {
+    content: "\f107";
+    font-family: "fontawesome";
+    position: absolute;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    transition: .3s all;
+	transform: rotate(0);
+	margin-top: 0px;
+}
+.select-selected span{
+  display: none;
+}
+.select-items {
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+  max-height: 320px;
+  overflow-y: auto;
+  display: block;
+  background-color:var(--color-white);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0px);
+  width: 200px;
+  scrollbar-width: thin;
+  transition: .3s all;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  left: 0;
+  border-radius:10px;
+}
+.select-item {
+  padding: 5px 20px;
+  cursor: pointer;
+  font-size: 14px;
+  user-select: none;
+}
+.select-item.active {
+  background-color: var(--primary);
+  color: var(--color-white);
+}
+.select-item:hover {
+  background-color: var(--primary);
+  color: var(--color-white);
+}
+.select-items.select-hide {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(15px);
+}

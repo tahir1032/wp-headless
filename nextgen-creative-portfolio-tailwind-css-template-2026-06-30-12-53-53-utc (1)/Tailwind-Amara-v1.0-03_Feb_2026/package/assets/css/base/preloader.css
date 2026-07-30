@@ -1,0 +1,52 @@
+.preloader {
+	@apply fixed size-full flex items-center flex-col justify-center z-99 bg-white opacity-100 top-0 left-0 scale-[1];
+}
+.shimmer-text {
+	background: linear-gradient(90deg, #000 25%, #B5B5B5 50%, #000 75% );
+	background-size: 200% 100%;
+	color: transparent;
+	-webkit-background-clip: text;
+	animation: shimmer 1.5s infinite;
+}
+@keyframes shimmer {
+	0% { background-position: 200% 0; }
+	100% { background-position: -200% 0; }
+}
+
+.image-stack img.active {
+	@apply opacity-100 z-2;
+}
+.image-stack {
+	@apply absolute w-55 h-65 left-1/2 top-1/2 -translate-1/2;
+}
+@media (max-width: 992px) {
+.image-stack {
+    @apply absolute w-42.5 h-50 left-1/2 top-1/2 -translate-1/2;
+}
+}
+@media (max-width: 575px) {
+.image-stack {
+	@apply absolute w-35 h-37.5 left-1/2 top-1/2 -translate-1/2;
+}
+}
+.image-stack img {
+	position: absolute;
+	inset: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	border-radius: 4px;
+	opacity: 0;
+	transition: transform 0.7s cubic-bezier(.4,0,.2,1),
+	opacity 0.7s ease;
+}
+.image-stack img:not(.active) {
+	transform: translateY(14px) scale(0.96);
+	opacity: 0.7;
+	z-index: 1;
+}
+.image-stack img.active {
+	transform: translateY(0) scale(1);
+	opacity: 1;
+	z-index: 3;
+}

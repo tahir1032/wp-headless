@@ -1,0 +1,75 @@
+.site-header .navbar > li > a {
+	@apply text-sm xl:text-primary text-white xl:bg-cleangray py-1.5 px-3.75 block w-full rounded-full hover:bg-primary hover:text-white duration-500 capitalize relative;
+}
+@media (max-width: 1199px) {
+.site-header .navbar > li > a {
+	@apply border-b border-white/10 rounded-none py-3.5;
+}
+}
+.site-header .navbar .sub-menu{
+    @apply text-white xl:absolute xl:top-[calc(100%_+_10px)] xl:left-0 xl:w-30.5 xl:rounded-md xl:bg-secondary xl:border xl:border-white/20 xl:p-1.25 xl:opacity-0 xl:invisible duration-500 xl:-translate-y-10 max-xl:max-h-0 max-xl:overflow-hidden;
+}
+.site-header .navbar > .sub-menu-down .sub-menu > li > a {
+	@apply px-2.5 py-1.25 text-2sm xl:font-normal font-light block w-full;
+}
+.site-header .sub-menu li > .sub-menu {
+	@apply left-full top-0 opacity-0 invisible;
+}
+.site-header li:hover > .sub-menu {
+	@apply opacity-100 visible translate-y-0;
+}
+.sub-menu-down ,
+.sub-menu-down a {
+    @apply relative;
+}
+@media (max-width: 1199px) {
+.site-header .sub-menu > .sub-menu-down > .sub-menu{
+	@apply visible opacity-100;
+}
+.site-header .sub-menu-down > .sub-menu a{
+	@apply !px-7.5 !py-2.5 border-b border-white/10;
+}
+}
+.is-fixed:not(.sticky-no) .main-bar-wraper {
+    @apply fixed top-0 left-0 w-full bg-black/50 backdrop-blur-[10px] duration-500;
+    animation: 0.95s ease 0s normal forwards 1 running headerSlideDown;
+}
+.site-header.is-fixed .text-logo{
+	@apply text-white;
+}
+
+.full-sidenav {
+    @apply max-xl:fixed max-xl:h-screen max-xl:w-75 max-xl:-left-full max-xl:top-0 max-xl:opacity-0 max-xl:invisible  max-xl:bg-primary max-xl:overflow-y-scroll max-xl:duration-700 xl:p-0 px-5 z-10;
+}
+.full-sidenav.show {
+    @apply max-xl:visible max-xl:opacity-100 max-xl:left-0;
+}
+.menu-btn .toogle-btn span:nth-child(1) {
+    @apply w-6.25;
+}
+.menu-btn .toogle-btn span:nth-child(2) {
+    @apply w-7.5;
+}
+.menu-btn .toogle-btn span:nth-child(3) {
+    @apply w-3.75;
+}
+.menu-btn.open .toogle-btn span:nth-child(1) {
+    @apply w-7.5 m-0 rotate-45;
+}
+.menu-btn.open .toogle-btn span:nth-child(2) {
+    @apply opacity-0 m-0;
+}
+.menu-btn.open .toogle-btn span:nth-child(3) {
+    @apply w-7.5 -rotate-45 m-0;
+}
+.menu-btn.open::after {
+    @apply content-[''] bg-[rgba(0,0,0,0.6)] left-0 fixed -right-5 top-0 scale-100 w-full duration-500 origin-[top_right] ml-5 shadow-[0_0_0_1000px_rgba(0,0,0,0.6)];
+}
+@media (max-width: 1200px) {
+    .site-header .navbar > li > a.dz-open i {
+        @apply rotate-90;
+    }
+}
+.contact-sidebar.active {
+	@apply left-0;
+}

@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+
+    <!-- Title -->
+	<title>Amara - NextGen Creative Portfolio Tailwind CSS Template</title>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="author" content="DexignZone">
+	<meta name="robots" content="index, follow">
+	<meta name="format-detection" content="telephone=no">
+
+	<meta name="title" content="Amara – NextGen Creative Portfolio Tailwind CSS Template | DexignZone">
+	<meta name="description" content="Amara is a NextGen Creative Portfolio Tailwind CSS Template built for designers, developers, and creatives. Featuring a modern UI, smooth animations, responsive layout, and customizable components to showcase work and personal branding effectively.">
+	<meta name="keywords" content="Amara, creative portfolio template, Tailwind CSS portfolio, personal portfolio website, designer portfolio template, developer portfolio, modern portfolio UI, creative showcase template, responsive portfolio website, NextGen portfolio, DexignZone">
+	<meta name="author" content="DexignZone">
+	<meta name="robots" content="index, follow">
+
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Amara – NextGen Creative Portfolio Tailwind CSS Template | DexignZone">
+	<meta property="og:description" content="Amara is a modern and responsive Tailwind CSS creative portfolio template designed for designers, developers, and freelancers.">
+	<meta property="og:image" content="https://amara.dexignzone.com/tailwind/social-image.webp">
+	<meta property="og:url" content="https://amara.dexignzone.com/tailwind/">
+	 
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="Amara – NextGen Creative Portfolio Tailwind CSS Template | DexignZone">
+	<meta name="twitter:description" content="Amara is a NextGen creative portfolio Tailwind CSS template with modern design and smooth animations for creatives.">
+	<meta name="twitter:image" content="https://amara.dexignzone.com/tailwind/social-image.webp">
+
+	<!-- MOBILE SPECIFIC -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- FAVICONS ICON -->
+	<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.webp">
+
+
+
+
+ 
+    <link rel="stylesheet" href="assets/icons/fontawesome/css/all.min.css">
+	<link rel="stylesheet" href="assets/icons/line-awesome/css/line-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/icons/flaticon/flaticon.css">
+	<link rel="stylesheet" href="assets/vendor/animate/animate.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Afacad:ital,wght@0,400..700;1,400..700&family=Figtree:ital,wght@0,300..900;1,300..900&family=Kaushan+Script&display=swap" rel="stylesheet">
+
+</head>
+<body class="selection:bg-primary selection:text-white">
+    <div class="preloader after:absolute after:h-px after:w-full after:bg-lightgray after:rotate-90 after:-translate-x-1/2 after:top-1/2 after:left-1/2 after:-z-1 before:absolute before:h-px before:w-full before:bg-lightgray before:rotate-180 before:-translate-x-1/2 before:top-1/2 before:left-1/2 before:-z-1" id="preloader">
+		<div class="image-stack">
+			<img src="assets/images/preloader-img1.webp" class="active" alt="img" loading="lazy">
+			<img src="assets/images/preloader-img2.webp" alt="img" loading="lazy">
+			<img src="assets/images/preloader-img3.webp" alt="img" loading="lazy">
+			<div class="absolute -top-8 shimmer-text">
+				<span class="lg:text-sm sm:text-[10px] text-[8px] text-medium uppercase">
+					Loading, Please Wait
+				</span>
+				<span class="percent lg:text-sm sm:text-[10px] text-[8px] text-medium uppercase md:ml-5 sm:ml-0 ml-4">0%</span>
+			</div>	
+		</div>
+		<svg class="lg:size-135 sm:size-120 size-90 " viewBox="0 0 180 180">
+			<circle cx="90" cy="90" r="70" fill="#fff"/>
+			<path class="pie" fill="#fff"/>
+			<line class="start-line" stroke="#D9D9D9" stroke-width="1" vector-effect="non-scaling-stroke"/>
+			<line class="end-line" stroke="#D9D9D9" stroke-width="1" vector-effect="non-scaling-stroke"/>
+			<circle
+			  cx="90"
+			  cy="90"
+			  r="70"
+			  fill="none"
+			  stroke="#D9D9D9"
+			  stroke-width="1"
+			  vector-effect="non-scaling-stroke"
+			/>
+		</svg>
+	</div>
+
+    
+    <div class="page-wraper">
+        <!-- Header -->
+        <header class="absolute top-0 left-0 w-full z-98 site-header">
+			<!-- main header -->
+			<div class="main-bar-wraper">
+				<div class="container-fluid">
+					<div class="flex items-center justify-between py-3.75 sm:px-5 max-xl:flex-row-reverse">
+						<div class="flex items-center gap-1.25 max-xl:flex-row-reverse">
+							<a class="menu-btn bg-cleangray hover:bg-primary duration-500 py-2.75 px-3.75 rounded-full cursor-pointer flex items-center justify-center group xl:hidden">
+								<span class="space-y-1.5 flex flex-col items-end">
+									<span class="group-hover:bg-white bg-black block h-px w-8.25 group-hover:w-6.25 duration-300"></span>
+									<span class="group-hover:bg-white bg-black block h-px w-6.25 group-hover:w-8.25 duration-300"></span>
+								</span>
+							</a>
+							<button class="extra-right-btn right-btn bg-cleangray xl:hover:bg-primary xl:duration-500 xl:py-2.75 xl:px-3.75 xl:rounded-full cursor-pointer xl:flex items-center xl:justify-center group" type="button" aria-label="Toggle drawer">
+								<span class="space-y-1.5 flex flex-col items-end max-xl:hidden">
+									<span class="group-hover:bg-white bg-black block h-px w-8.25 duration-200 max-lg:hidden"></span>
+									<span class="group-hover:bg-white bg-black block h-px w-8.25 duration-200 max-lg:hidden"></span>
+								</span>
+							</button>
+							<a href="mailto:info@Dexigzone.com" class="py-1.5 px-3.75 text-sm text-primary bg-cleangray rounded-full max-md:hidden">Info@Dexigzone.com</a>
+							<a href="tel:+9 256 309 077" class="py-1.5 px-3.75 text-sm text-primary bg-cleangray rounded-full max-md:hidden">+9 256 309 077</a>
+						</div>
+						<div><a href="index.html" class="text-base text-logo">@Amara</a></div>
+						<div class="header-nav navbar-collapse full-sidenav custom-scroll">
+							<ul class="nav navbar xl:flex items-center gap-1.25">
+								<li class="xl:hidden"><a href="index.html" class="text-2xl text-logo text-white p-5">@Amara</a><li>
+								<li>
+									<a href="index.html">Home</a>
+								</li>
+								<li class="sub-menu-down">
+									<a href="work.html" class="relative xl:!pr-8 xl:after:content-['\f107'] xl:after:font-['fontawesome'] xl:after:top-1 xl:after:right-3 xl:after:absolute xl:after:ml-1.25 xl:hover:after:rotate-[180deg] xl:after:duration-500">Work<i class="fas fa-chevron-right xl:!hidden !block !leading-5 text-center text-xs text-white float-end duration-500"></i></a>
+									<ul class="sub-menu">
+										<li>
+											<a href="work.html" class="relative"><span>Work</span></a>
+										</li>
+										<li>
+											<a href="work-detils.html" class="relative"><span>Work Detils</span></a>
+										</li>		
+									</ul>		
+								</li>
+								<li>
+									<a href="studio.html">Studio</a>
+								</li>
+								<li>
+									<a href="contact-us.html">Contact Us</a>
+								</li>	
+							</ul>
+							<div class="xl:hidden block max-xl:p-5 text-center mt-auto">
+								<ul>
+									<li class="inline-block mx-0.5">
+										<a class="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-facebook-f" target="_blank" href="https://www.facebook.com/dexignzone"></a>
+									</li>
+									<li class="inline-block mx-0.5">
+										<a class="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fa-brands fa-x-twitter" target="_blank" href="https://www.x.com"></a>
+									</li>
+									<li class="inline-block mx-0.5">
+										<a class="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-linkedin-in" target="_blank" href="https://www.linkedin.com/showcase/3686700/admin/"></a>
+									</li>
+									<li class="inline-block mx-0.5">
+										<a class="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-instagram" target="_blank" href="https://www.instagram.com/dexignzone/"></a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- main header END -->
+		</header>
+
+		<button class="extra-right-btn z-97 relative xl:hidden right-btn bg-cleangray xl:hover:bg-primary xl:duration-500 xl:py-2.75 xl:px-3.75 xl:rounded-full cursor-pointer xl:flex items-center xl:justify-center group" type="button" aria-label="Toggle drawer">
+			<span class="uppercase fixed rotate-90 -translate-y-1/2 -left-8 bg-primary px-5 rounded-t-2lg text-white tracking-[2px] top-1/2">Info</span>
+		</button>
+
+		<div class="contact-sidebar md:p-12.5 p-5 fixed h-full md:w-118.75 w-77.75 z-99 bg-primary top-0 -left-[475px] !overflow-y-auto visible duration-500 flex items-center justify-center">
+			<div class="flex flex-col h-full duration-500">
+				<div class="mb-10"><a href="index.html" class="text-4xl text-logo text-white">@Amara</a></div>
+				<p class="mb-10 text-white/50">We build fast, scalable websites with seamless interactions that enhance overall user engagement.</p>
+				<h4 class="text-2xl font-media mb-5 text-white">Contact Us</h4>
+				<ul class="contact-address mb-12.5">
+					<li class="text-white/50">785 15h Street, Office 478 Berlin, De 81566</li>
+					<li class="text-white/50">info@Dexigzone.com</li>
+					<li class="text-white/50">+9 256 309 077</li>
+				</ul>
+				<h4 class="text-2xl font-media mb-5 text-white">Newsletter</h4>
+				<div class="subscribe-form">
+					<form class="dzSubscribe" action="assets/script/mailchamp.php" method="post">
+						<div class="dzSubscribeMsg"></div>
+						<div class="form-group">
+							<div class="input-group flex items-center border-b border-primary mb-5 relative">
+								<input name="dzEmail" required="required" type="email" class="form-control p-1.25 pr-10 text-2sm font-normal text-white border-b border-white/10 h-12.5 w-full" placeholder="Your Email Address">
+								<button aria-label="Subscribe" name="submit" id="submit" type="submit" class="absolute bottom-0 -translate-y-1/2 right-0 group overflow-hidden cursor-pointer">
+									<svg aria-hidden="true" class="group-hover:animate-toTopFromBottom" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<path d="M7 17L17 7" stroke="#FFF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+									<path d="M17 17V7H7" stroke="#FFF" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+									</svg>
+								</button>
+							</div>
+							<div class="custom-control custom-checkbox flex mb-10 items-center">
+								<input type="checkbox" name="privacyConsent" required class="mr-2.5 size-1.125 border-2 border-primary m-1 bg-transparent" id="basic_checkbox_1">
+								<label for="basic_checkbox_1" class="text-mediumgray text-2sm font-normal">I Agree To The <span class="text-white font-medium border-b border-white"><a href="privacy-policy.html">Privacy Policy</a></span></label>
+							</div>
+						</div>
+					</form>
+				</div>	
+				<h4 class="text-2xl font-media mb-5 text-white">Follow Us</h4>
+				<div class="dz-social-icon dz-hover-move style-2 mb-5">
+					<ul>
+						<li class="inline-block mx-0.5">
+							<a class="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-facebook-f" target="_blank" href="https://www.facebook.com/dexignzone"></a>
+						</li>
+						<li class="inline-block mx-0.5">
+							<a class="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fa-brands fa-x-twitter" target="_blank" href="https://www.x.com"></a>
+						</li>
+						<li class="inline-block mx-0.5">
+							<a class="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-linkedin-in" target="_blank" href="https://www.linkedin.com/showcase/3686700/admin/"></a>
+						</li>
+						<li class="inline-block mx-0.5">
+							<a class="rounded-full size-10 !leading-10 border border-white/10 text-center text-white fab fa-instagram" target="_blank" href="https://www.instagram.com/dexignzone/"></a>
+						</li>
+					</ul>
+				</div>
+			</div>	
+			<div class="menu-close absolute top-5 right-10 z-99"><button class="flex gap-2.5"> <i class="fa-solid fa-xmark text-2xl text-white"></i></button></div>
+		</div>
+        <!-- Header END -->
+        <div id="smooth-wrapper">
+            <div id="smooth-content">
+				<div class="page-content">
+					<section class="pt-30 lg:pb-25 pb-5">
+						<div class="container-full lg:px-10 px-5">
+							<div class="grid grid-cols-12">
+								<div class="2xl:col-span-5 col-span-12">
+									<h1 class="4xl:text-13xl 3xl:text-10xl 2xl:text-[120px]/30 xl:text-8xl md:text-7xxxl sm:text-7xl/7.5 text-4xl/5 wow bounceInLeft max-xl:mb-10" data-wow-delay="2.5s">Meet the Studio</h1>
+								</div>
+								<div class="2xl:col-span-7 col-span-12">	
+									<div class="grid grid-cols-12 gap-5">
+										<div class="md:col-span-4 col-span-12 dz-hover-item wow bounceInRight" data-wow-delay="3s">
+											<a class="dz-hover-img rounded-2lg relative size-full" data-displacement="assets/images/studio//1.webp" data-intensity="0.6" data-speedin="1" data-speedout="1">
+												<img class="rounded w-full h-77.5 object-cover" src="assets/images/studio/1.webp" alt="img" loading="lazy">
+											</a>	
+										</div>
+										<div class="md:col-span-8 col-span-12 dz-hover-item wow bounceInRight" data-wow-delay="2.3s">
+											<a class="dz-hover-img rounded-2lg relative size-full" data-displacement="assets/images/studio//2.webp" data-intensity="0.6" data-speedin="2" data-speedout="2">
+												<img class="rounded w-full h-77.5 object-cover" src="assets/images/studio/2.webp" alt="img" loading="lazy">
+											</a>	
+										</div>
+									</div>
+									<div class="flex items-center wrapper overflow-hidden border-l mt-5 border-primary pl-4.75">
+										<p class="introline text-lg font-normal text-black">We are a creative digital studio building purposeful brands, websites, and experiences that help businesses grow. Our team blends design, technology, and strategy to craft work that feels modern, meaningful, and built for real-world impact.</p>					
+									</div>
+								</div>	
+							</div>	
+						</div>
+					</section>
+					
+					<div class="size-full overflow-hidden">
+						<div>
+							<img class="size-full object-cover" src="assets/images/studio.webp" alt="img" loading="lazy">
+						</div>
+					</div>
+								
+					<div class="2xl:pt-30 lg:pt-20 pt-5">
+						<div class="container-full px-5">
+							<div class="grid grid-cols-12 gap-x-4 gap-y-9.75">
+								<div class="2xl:col-span-4 col-span-12">
+									<div class="wrapper overflow-hidden border-l border-primary sm:px-10 p-5 sm:py-7.5">
+										<span class="text-xl text-softgray block mb-1.25">Our Mission</span>
+										<p class="introline 4xl:text-3xl sm:text-2xxl text-xl font-light text-primary block">To turn ideas into powerful digital experiences through thoughtful design, seamless development, and creative storytelling.</p>					
+									</div>
+								</div>
+								<div class="2xl:col-span-4 lg:col-span-6 col-span-12">
+									<div class="relative overflow-hidden size-full dz-hover-item">
+										<a class="dz-hover-img rounded-2lg relative size-full" data-displacement="assets/images/studio//3.webp" data-intensity="0.6" data-speedin="1" data-speedout="1">
+											<img class="rounded size-full object-cover" src="assets/images/studio/3.webp" alt="img" loading="lazy">
+										</a>	
+									</div>
+								</div>
+								<div class="2xl:col-span-4 lg:col-span-6 col-span-12">
+									<div class="wrapper overflow-hidden border-l border-primary sm:px-10 p-5 py-7.5">
+										<span class="text-xl text-softgray block mb-1.25">Our Promise</span>
+										<p class="introline 4xl:text-3xl sm:text-2xxl text-xl font-light text-primary block">We don't just create visuals  We build digital experiences that elevate brands and inspire audiences.</p>					
+									</div>
+								</div>
+								<div class="lg:col-span-6 col-span-12">
+									<div class="relative overflow-hidden size-full dz-hover-item">
+										<a class="dz-hover-img rounded-2lg relative size-full" data-displacement="assets/images/studio//4.webp" data-intensity="0.6" data-speedin="1" data-speedout="1">
+											<img class="rounded size-full object-cover" src="assets/images/studio/4.webp" alt="img" loading="lazy">
+										</a>	
+									</div>
+								</div>
+								<div class="lg:col-span-6 col-span-12">
+									<div class="wrapper overflow-hidden border-l border-primary sm:px-10 p-5 sm:py-7.5">
+										<span class="text-xl text-softgray block mb-1.25">Our Approach</span>
+										<p class="introline 4xl:text-3xl sm:text-2xxl text-xl font-light text-primary block">We combine curiosity, creativity, and technical expertise to deliver work that not only looks beautiful but also drives results. Every project is shaped through research, collaboration, and a deep understanding of client goals.</p>					
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<section class="2xl:py-50 py-20">
+						<div class="container">
+							<div class="pxl-heading-scroll-effect"><h2 class="2xl:text-8xl lg:text-7xxxl/25 md:text-7xl/25 sm:text-5xl/20 text-4xl/15 font-semibold capitalize text-center mb-12.5 heading-text">Why Clients Choose Us</h2></div>
+							<ul class="flex flex-col items-center justify-center gap-3.75 sm:text-2xl text-base font-light">
+								<li class="py-2.5 sm:pr-7.5 pr-2.5 pl-2.5 bg-cleangray rounded-full flex items-center gap-2.5 wow bounceInDown" data-wow-delay="0.1s">
+									<a class="sm:size-12.5 size-10 bg-primary flex items-center justify-center rounded-full">
+										<svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M16.1594 0.0378643C13.0147 1.0701 9.00581 3.83073 5.30896 8.55982L3.12447 6.13526C2.78839 5.75117 2.16425 5.75117 1.82817 6.13526L0.2198 7.93567C-0.0922715 8.29575 -0.0682664 8.82388 0.267811 9.13595L5.21294 13.889C5.62104 14.2731 6.29319 14.1771 6.58126 13.673C9.22186 8.89589 12.0545 5.34308 16.8556 1.26214C17.4317 0.758029 16.9036 -0.20219 16.1594 0.0378643Z" fill="white"/>
+										</svg>
+									</a>
+									Modern design with strong attention to detail
+								</li>
+								<li class="py-2.5 pr-7.5 pl-2.5 bg-cleangray rounded-full flex items-center gap-2.5  wow bounceInLeft" data-wow-delay="0.1s">
+									<a class="sm:size-12.5 size-10 bg-primary flex items-center justify-center rounded-full">
+										<svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M16.1594 0.0378643C13.0147 1.0701 9.00581 3.83073 5.30896 8.55982L3.12447 6.13526C2.78839 5.75117 2.16425 5.75117 1.82817 6.13526L0.2198 7.93567C-0.0922715 8.29575 -0.0682664 8.82388 0.267811 9.13595L5.21294 13.889C5.62104 14.2731 6.29319 14.1771 6.58126 13.673C9.22186 8.89589 12.0545 5.34308 16.8556 1.26214C17.4317 0.758029 16.9036 -0.20219 16.1594 0.0378643Z" fill="white"/>
+										</svg>
+									</a>
+									Clear communication and transparent workflow
+								</li>
+								<li class="py-2.5 sm:pr-7.5 pr-2.5 pl-2.5 bg-cleangray rounded-full flex items-center gap-2.5 wow bounceInRight" data-wow-delay="0.1s">
+									<a class="sm:size-12.5 size-10 bg-primary flex items-center justify-center rounded-full">
+										<svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M16.1594 0.0378643C13.0147 1.0701 9.00581 3.83073 5.30896 8.55982L3.12447 6.13526C2.78839 5.75117 2.16425 5.75117 1.82817 6.13526L0.2198 7.93567C-0.0922715 8.29575 -0.0682664 8.82388 0.267811 9.13595L5.21294 13.889C5.62104 14.2731 6.29319 14.1771 6.58126 13.673C9.22186 8.89589 12.0545 5.34308 16.8556 1.26214C17.4317 0.758029 16.9036 -0.20219 16.1594 0.0378643Z" fill="white"/>
+										</svg>
+									</a>
+									Strong creative vision backed by technical expertise
+								</li>
+								<li class="py-2.5 sm:pr-7.5 pr-2.5 pl-2.5 bg-cleangray rounded-full flex items-center gap-2.5 wow bounceInUp" data-wow-delay="0.1s">
+									<a class="sm:size-12.5 size-10 bg-primary flex items-center justify-center rounded-full">
+										<svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M16.1594 0.0378643C13.0147 1.0701 9.00581 3.83073 5.30896 8.55982L3.12447 6.13526C2.78839 5.75117 2.16425 5.75117 1.82817 6.13526L0.2198 7.93567C-0.0922715 8.29575 -0.0682664 8.82388 0.267811 9.13595L5.21294 13.889C5.62104 14.2731 6.29319 14.1771 6.58126 13.673C9.22186 8.89589 12.0545 5.34308 16.8556 1.26214C17.4317 0.758029 16.9036 -0.20219 16.1594 0.0378643Z" fill="white"/>
+										</svg>
+									</a>
+									Dedicated support from strategy to launch
+								</li>
+							</ul>	
+						</div>
+					</section>
+					
+					<div class="slider-section bottom-0 w-full 4xl:h-150 sm:h-127 h-90 relative">
+						<div class="wheel">
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/1.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/2.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/3.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/4.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/5.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/6.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/7.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card"> 
+							  <img src="assets/images/image-scroll/8.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/9.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/10.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/11.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/12.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/13.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card"> 
+							  <img src="assets/images/image-scroll/14.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/15.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/16.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/17.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/10.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/11.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/20.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/14.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+							<div class="wheel__card">
+							  <img src="assets/images/image-scroll/1.webp" class="rounded-sm w-full h-auto" alt="img" loading="lazy">
+							</div>
+						</div>
+					</div>
+					
+					<div class="relative z-1 content-inner-2 sticky-content-section top-gradient visiting-card 4xl:h-250 3xl:h-190 2xl:h-140 max-md:bg-white">
+						<div class="container-full">
+							<div class="sticky-content max-sm:pt-0 overflow-hidden">
+								<div class="dz-marquee style-1 !sticky top-0">
+									<div class="max-w-275.25 mx-auto text-center pxl-heading-scroll-effect relative">
+										<p class="4xl:text-4xxl lg:text-3xl md:text-2xxxl sm:text-2xxl text-2xl font-medium text-lightgray heading-text">We're a digital design studio that's all about breaking the mold! We don't do boring websites or ordinary apps - we specialize in crafting the wildest, most unconventional digital experiences out there.</p>
+									</div>
+									<div class="des-text-moving-area black-bg-4">
+										<div class="des-text-moving-top moving-text max-sm:w-300">
+											<div class="des-text-item wrapper-text flex items-center justify-center text-center lg:gap-20 gap-10">
+												<span class="text-black relative 3xl:text-370 xl:text-[270px] md:text-[200px] text-[120px] whitespace-normal uppercase font-bold">Our</span>
+												<span class="text-black relative 3xl:text-370 xl:text-[270px] md:text-[200px] text-[120px] whitespace-normal uppercase font-bold">Services</span>
+												<span class="text-black relative 3xl:text-370 xl:text-[270px] md:text-[200px] text-[120px] whitespace-normal uppercase font-bold">Our</span>
+												<span class="text-black relative 3xl:text-370 xl:text-[270px] md:text-[200px] text-[120px] whitespace-normal uppercase font-bold">Services</span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="container-full relative 2xl:-top-100 z-1 content-over px-5">
+							<div class="flex items-center max-2xl:flex-wrap max-2xl:justify-center 4xl:gap-35 xl:gap-15 gap-5 max-2xl:py-10">
+								<div class="md:w-[41.65%] w-full max-2xl:!transform-none" data-speed="1.40">
+									<div class="3xl:p-10 p-5 rounded-2lg bg-nearwhite">
+										<div class="flex items-center mb-6.25">
+											<span class="bg-primary size-13.75 rounded-full text-white flex items-center justify-center font-bold text-3xl mr-3.75">D</span>
+											<h3 class="text-xl">Web Design <br>& Digital Identity</h3>
+										</div>
+										<p class="pb-3.75 border-b border-lightgray">We craft modern digital identities with thoughtful design that strengthens brand presence effectively.</p>
+										<ul class="py-4 mb-5">
+											<li class="text-base font-normal text-gray relative flex items-center mb-2.5">
+												<span class="bg-primary rounded-full size-[16px] mr-3.75 flex items-center justify-center">
+													<i class="fa-solid fa-check text-white text-[10px]"></i>
+												</span>
+											Web Design</li>
+											<li class="text-base font-normal text-gray relative flex items-center mb-2.5">
+												<span class="bg-primary rounded-full size-[16px] mr-3.75 flex items-center justify-center">
+													<i class="fa-solid fa-check text-white text-[10px]"></i>
+												</span>
+											Brand Identity</li>
+											<li class="text-base font-normal text-gray relative flex items-center mb-2.5">
+												<span class="bg-primary rounded-full size-[16px] mr-3.75 flex items-center justify-center">
+													<i class="fa-solid fa-check text-white text-[10px]"></i>
+												</span>
+											Art Direction</li>
+										</ul>
+										<a href="studio.html" class="site-button butn-bg-shape">Get in Touch</a>
+									</div>
+								</div>
+								<div class="md:w-[41.65%] w-full max-2xl:!transform-none" data-speed="1.80">
+									<div class="3xl:p-10 p-5 rounded-2lg bg-aliceblue">
+										<div class="flex items-center mb-6.25">
+											<span class="bg-primary size-13.75 rounded-full text-white flex items-center justify-center font-bold text-3xl mr-3.75">W</span>
+											<h3 class="text-xl">Web Development &  <br>Interactive Experiences</h3>
+										</div>
+										<p class="pb-3.75 border-b border-lightgray">We build fast, scalable websites with seamless interactions that enhance overall user engagement.</p>
+										<ul class="py-4 mb-5">
+											<li class="text-base font-normal text-gray relative flex items-center mb-2.5">
+												<span class="bg-primary rounded-full size-[16px] mr-3.75 flex items-center justify-center">
+													<i class="fa-solid fa-check text-white text-[10px]"></i>
+												</span>
+											Frontend Development</li>
+											<li class="text-base font-normal text-gray relative flex items-center mb-2.5">
+												<span class="bg-primary rounded-full size-[16px] mr-3.75 flex items-center justify-center">
+													<i class="fa-solid fa-check text-white text-[10px]"></i>
+												</span>
+											Webflow Development</li>
+											<li class="text-base font-normal text-gray relative flex items-center mb-2.5">
+												<span class="bg-primary rounded-full size-[16px] mr-3.75 flex items-center justify-center">
+													<i class="fa-solid fa-check text-white text-[10px]"></i>
+												</span>
+											Custom Interactions</li>
+										</ul>
+										<a href="studio.html" class="site-button butn-bg-shape">Get in Touch</a>
+									</div>
+								</div>
+								<div class="md:w-[41.65%] w-full max-2xl:!transform-none" data-speed="1.20">
+									<div class="3xl:p-10 p-5 rounded-2lg bg-peach">
+										<div class="flex items-center mb-6.25">
+											<span class="bg-primary size-13.75 rounded-full text-white flex items-center justify-center font-bold text-3xl mr-3.75">M</span>
+											<h3 class="text-xl">Mobile Apps  <br>& Product Design</h3>
+										</div>
+										<p class="pb-3.75 border-b border-lightgray">We design intuitive mobile products that deliver smooth, engaging, and user-focused experiences.</p>
+										<ul class="py-4 mb-5">
+											<li class="text-base font-normal text-gray relative flex items-center mb-2.5">
+												<span class="bg-primary rounded-full size-[16px] mr-3.75 flex items-center justify-center">
+													<i class="fa-solid fa-check text-white text-[10px]"></i>
+												</span>
+											UX Design</li>
+											<li class="text-base font-normal text-gray relative flex items-center mb-2.5">
+												<span class="bg-primary rounded-full size-[16px] mr-3.75 flex items-center justify-center">
+													<i class="fa-solid fa-check text-white text-[10px]"></i>
+												</span>
+											Application UI</li>
+											<li class="text-base font-normal text-gray relative flex items-center mb-2.5">
+												<span class="bg-primary rounded-full size-[16px] mr-3.75 flex items-center justify-center">
+													<i class="fa-solid fa-check text-white text-[10px]"></i>
+												</span>
+											Prototyping</li>
+										</ul>
+										<a href="studio.html" class="site-button butn-bg-shape">Get in Touch</a>
+									</div>
+								</div>
+								<div class="md:w-[41.65%] w-full max-2xl:!transform-none" data-speed="1.80">
+									<div class="3xl:p-10 p-5 rounded-2lg bg-nearwhite">
+										<div class="flex items-center mb-6.25">
+											<span class="bg-primary size-13.75 rounded-full text-white flex items-center justify-center font-bold text-3xl mr-3.75">B</span>
+											<h3 class="text-xl">Branding, Motion <br>& 3D Content</h3>
+										</div>
+										<p class="pb-3.75 border-b border-lightgray">We create expressive visuals, motion elements, and 3D content that elevate brand storytelling.</p>
+										<ul class="py-4 mb-5">
+											<li class="text-base font-normal text-gray relative flex items-center mb-2.5">
+												<span class="bg-primary rounded-full size-[16px] mr-3.75 flex items-center justify-center">
+													<i class="fa-solid fa-check text-white text-[10px]"></i>
+												</span>
+											Motion Design</li>
+											<li class="text-base font-normal text-gray relative flex items-center mb-2.5">
+												<span class="bg-primary rounded-full size-[16px] mr-3.75 flex items-center justify-center">
+													<i class="fa-solid fa-check text-white text-[10px]"></i>
+												</span>
+											3D Illustration</li>
+											<li class="text-base font-normal text-gray relative flex items-center mb-2.5">
+												<span class="bg-primary rounded-full size-[16px] mr-3.75 flex items-center justify-center">
+													<i class="fa-solid fa-check text-white text-[10px]"></i>
+												</span>
+											Sound Design</li>
+										</ul>
+										<a href="studio.html" class="site-button butn-bg-shape">Get in Touch</a>
+									</div>
+								</div>
+							</div>
+						</div>	
+					</div>
+					<!-- footer -->
+						<footer class="bg-snowwhite lg:pt-37 pt-15 overflow-hidden relative z-1 footer site-footer">
+						<div class="container-full px-5">
+							<div class="flex max-xl:flex-wrap">
+								<div class="xl:w-1/2 w-full 4xl:pl-40 2xl:pl-15 lg:pl-10 max-xl:mb-20 max-xl:mb-15">
+									<h4 class="sm:text-3xl text-2xxl font-medium mb-10">Subscribe to<br> Our Newsletter</h4>
+									<div class="relative w-full lg:max-w-113.75 subscribe-form">
+										<form class="dzSubscribe" action="assets/script/mailchamp.php" method="post">
+											<div class="dzSubscribeMsg"></div>
+											<label for="subscribeEmail" class="sr-only">Email address</label>
+											<input name="dzEmail" required="required"  type="email"  id="subscribeEmail" class="relative flex flex-wrap tems-stretch h-13.75 w-full border-b border-primary pr-8" placeholder="Email address">
+											<button aria-label="Subscribe" name="submit" id="submit" type="submit" class="absolute bottom-0 -translate-y-1/2 right-0 group overflow-hidden cursor-pointer">
+												<svg  aria-hidden="true" class="group-hover:animate-toTopFromBottom" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+												<path d="M7 17L17 7" stroke="#111111" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+												<path d="M17 17V7H7" stroke="#111111" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+											</button>
+										</form>
+									</div>
+								</div>
+								<div class="xl:1/2 w-full 4xl:pl-40 xl:pl-15 lg:pl-10">
+									<div class="sm:flex xl:justify-center justify-between 2xl:gap-50 md:gap-30 gap-25 xl:pb-25 pb-15">
+										<div class="max-sm:mb-12">
+											<h5 class="text-xl font-semibold text-black pb-2 border-b border-lightgray mb-5 inline-block">Contact Us</h5>
+											<a href="mailto:info@Dexigzone.com" class="text-base text-gray block mb-3 relative hover:text-primary duration-500"><span class="link-hover">info@Dexigzone.com</span></a>	
+											<a href="tel:+1456123789" class="text-base text-gray block relative hover:text-primary duration-500"><span class="link-hover">+1 9 256 309 077</span></a>	
+										</div>
+										<div class="max-sm:mb-12">
+											<h5 class="text-xl font-semibold text-black pb-2 border-b border-lightgray mb-5 inline-block">Company</h5>
+											<a href="work.html" class="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span class="link-hover">Work</span></a>	
+											<a href="studio.html" class="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span class="link-hover">Studio</span></a>
+											<a href="contact-us.html" class="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span class="link-hover">Contact</span></a>
+										</div>
+										<div class="relative">
+											<h5 class="text-xl font-semibold text-black pb-2 border-b border-lightgray mb-5 inline-block">Social Media</h5>
+											<a href="https://www.instagram.com/dexignzone" class="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span class="link-hover">Instagram</span></a>	
+											<a href="https://www.x.com" class="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span class="link-hover">x</span></a>
+											<a href="https://www.linkedin.com" class="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span class="link-hover">Linkedin</span></a>
+											<a href="https://clutch.co/profile/w3itexperts" class="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span class="link-hover">Clutch</span></a>
+											<a href="https://dribbble.com/dexignzone" class="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span class="link-hover">Dribbble</span></a>
+										</div>										
+									</div>
+									<div class="relative">
+										<h5 class="4xl:text-[240px] 3xl:text-[220px] 2xl:text-[195px] xl:text-[160px] lg:text-[195px] md:text-[162px] sm:text-[115px] text-[64px] leading-none font-normal whitespace-nowrap 2xl:tracking-[-20px] md:tracking-[-15px] sm:tracking-[-10px] tracking-[-5px] border-b border-lightgray inline-block">Let's discuss</h5>
+										<a href="contact-us.html" class="bg-primary 3xl:size-20 md:size-15 sm:size-10 size-8 rounded-full border-4 border-snowwhite absolute 2xl:top-15 xl:top-10 lg:top-15 md:top-10 sm:top-8 top-4 4xl:right-35 2xl:right-30 xl:right-23 lg:right-35 md:right-25 sm:right-22 right-15 flex items-center justify-center overflow-hidden group">
+											<svg class="group-hover:animate-toTopFromBottom" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<path d="M7 17L17 7" stroke="#fff" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+											<path d="M17 17V7H7" stroke="#fff" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round"/>
+											</svg>
+										</a>
+										<div class="!text-gray text-base font-normal py-7.5 flex sm:justify-between justify-center max-sm:text-center flex-wrap">
+											<a class="block text-primary" href="https://www.dexignzone.com/">© Amara</a>
+											<p class="copyright-text">
+											© <span class="current-year">2025</span> <a href="https://www.dexignzone.com/" class="text-primary font-medium border-b">Amara</a> All Rights Reserved Copyright</p>
+										</div>	
+									</div>	
+								</div>
+							</div>
+							<div class="absolute -z-1 2xl:top-60 top-68 -left-27.5 4xl:size-226 2xl:size-190 size-165 bg-white rounded-full flex items-center justify-center max-xl:hidden">
+								<div class="flex items-center justify-center gap-10 relative 4xl:top-10 top-15">
+									<img src="assets/images/svg/eyes.svg" class="4xl:max-w-159.5 max-w-100" alt="img" loading="lazy">
+									<div class="center eye left rounded-full absolute 2xl:top-28.75 top-21.25 right-15">
+										<svg class="rounded-full overflow-visible iris" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<circle cx="30" cy="30" r="30" fill="#111111"/>
+											<circle class="pupil" cx="30" cy="30" r="5" fill="white"/>
+										</svg>
+									</div>
+									<div class="center eye right rounded-full absolute 2xl:top-28.75 top-21.25 left-20">
+										<svg class="rounded-full overflow-visible iris" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+											<circle cx="30" cy="30" r="30" fill="#111111"/>
+											<circle class="pupil" cx="30" cy="30" r="5" fill="white"/>
+										</svg>
+									</div>
+								</div>	
+							</div>
+						</div>
+					</footer>
+					<!-- footer END -->
+				</div>
+			</div>
+        </div>
+    </div>
+	
+	<div id="videoDialog" class="dialog hidden fixed z-9999 left-0 top-0 size-full overflow-auto bg-black/80 items-center justify-center h-screen">
+        <div class="dialog-content m-auto md:p-12.5 rounded-lg md:w-[80%] max-w-300 relative max-md:h-400 overflow-hidden">
+            <span id="closeBtn" class="close absolute top-0 right-0 text-white/80 text-2xxl font-bold cursor-pointer size-10 flex items-center justify-center">
+                <i class="fa-solid fa-xmark"></i>
+            </span>
+            <div id="videoContainer"></div>
+        </div>
+    </div>
+	
+	<button id="scrollProgress" title="Scroll to top" class="fixed z-1 right-5 bottom-5 size-10 rounded-full bg-secondary shadow-shadow-card cursor-pointer opacity-0 pointer-events-none duration-500 flex items-center justify-center">
+		<span class="icon text-xs relative z-1"><i class="fa-solid fa-chevron-up text-white"></i></span>
+		<svg class="absolute top-0 left-0 -rotate-90" width="40" height="40">
+			<circle cx="20" cy="20" r="17" stroke="#fff" stroke-width="2" fill="none"
+			stroke-linecap="round" stroke-dasharray="100.53" stroke-dashoffset="100.53"></circle>
+		</svg>
+	</button>
+
+    <script src="assets/vendor/gsap/gsap.min.js"></script>
+    <script src="assets/vendor/gsap/ScrollTrigger.min.js"></script>
+    <script src="assets/vendor/gsap/MotionPathPlugin.min.js"></script>
+    <script src="assets/vendor/gsap/ScrollSmoother.js"></script>
+    <script src="assets/vendor/Flip/flip.min.js"></script>
+    <script src="assets/vendor/SplitText/SplitText.min.js"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+    <script src="assets/vendor/wow/wow.js"></script>
+	<script src="assets/vendor/three/three.js"></script>
+    <script src="assets/vendor/hovereffect/hover-effect.js"></script>
+    <script src="assets/js/animation.js"></script>
+    <script src="assets/js/dz.ajax.js"></script>
+    <script src="assets/js/custom.js"></script>
+
+</body>
+</html>
