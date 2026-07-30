@@ -90,7 +90,7 @@ const amaraGsap = function () {
     const ITEM_COUNT = 20;
     const imageItems = Array.from(
       { length: 21 },
-      (_, i) => `assets/images/image-scroll/${i + 1}.webp`,
+      (_, i) => `/images/image-scroll/${i + 1}.webp`,
     );
 
     let ctx;
