@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+/* Prevent Tailwind's automatic source scanning from picking up class names
+   out of the original static template source (kept in the repo for
+   reference) - it contains asset url()s that don't resolve from this
+   project's file layout. */
+@source not "../../nextgen-creative-portfolio-tailwind-css-template-2026-06-30-12-53-53-utc";
+@source not "../../nextgen-creative-portfolio-tailwind-css-template-2026-06-30-12-53-53-utc (1)";
+
+@import "./abstract/variable.css";
+@import "./base/base.css";
+@import "./components/components.css";
+@import "./layout/layout.css";
+/* CUSTOM THEME */
+@theme {
+
+    /* FONT FAMILY */
+	--font-base: "Figtree", "sans-serif";
+    --font-title: "Inter", "sans-serif";
+
+    /* COLORS */
+    --color-primary: var(--primary);
+    --color-secondary: var(--secondary);
+    
+    --color-bodybg: var(--bodybg);
+    --color-card: var(--card);
+    --color-card-light: #424547;
+    
+    --color-title: var(--title);
+    --color-black: #000;
+	--color-gray: #666;
+	--color-lightgray: #D9D9D9;
+	--color-cleangray: #EFEFEF;
+	--color-mediumgray: #999999;
+	--color-softgray: #666666;
+	--color-subtlegray: #DDDDDD;
+	--color-minimalgray: #EEEEEE;
+	--color-shadegray: #F6F6F6;
+	--color-nearwhite: #F5F5F5;
+	--color-aliceblue: #F2F7FF;
+	--color-peach: #FFEDE0;
+	--color-snowwhite: #F9F9F9;
+
+
+    /* FONTSIZE */
+	--text-2xs: 13px;
+    --text-2xs--line-height: 1;
+    --text-2sm: 15px;
+    --text-2sm--line-height: 19px;
+	--text-250: 250px;
+	--text-370: 370px;
+	--text-720: 720px;
+	--text-720--line-height: 505px;
+	--text-2xxxl: 30px;
+	--text-2xl: 24px;
+    --text-2xl--line-height: 35px;
+	--text-2xxl: 28px;
+    --text-2xxl--line-height: 34px;
+	--text-3xl: 35px;
+	--text-4xl: 40px;
+	--text-4xxl: 45px;
+	--text-4xxxl: 50px;
+    --text-4xxxl--line-height: 60px;
+	--text-5xl: 60px;
+    --text-5xl--line-height: 69px;
+    --text-7xl: 70px;
+    --text-7xl--line-height: 75px;
+	--text-7xxxl: 80px;
+    --text-7xxxl--line-height: 40px;
+    --text-8xl: 100px;
+    --text-8xl--line-height: 110px;
+	--text-10xl: 140px;
+    --text-10xl--line-height: 140px;
+    --text-13xl: 160px;
+    --text-13xl--line-height: 160px;
+
+    /* BREAKPOINTS */
+    --breakpoint-*: initial;
+    --breakpoint-xs: 425px;
+    --breakpoint-sm: 575px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-2xl: 1400px;
+    --breakpoint-3xl: 1600px;
+    --breakpoint-4xl: 1800px;
+	
+	--max-breakpoint-sm: 575px;
+    --max-breakpoint-md: 768px;
+    --max-breakpoint-lg: 991px;
+    --max-breakpoint-xl: 1200px;
+    --max-breakpoint-2xl: 1400px;
+    --max-breakpoint-3xl: 1600px;
+    --max-breakpoint-4xl: 1800px;
+    
+    /* GRADIENT */
+    --bg1-gradient: 180deg, #203400 0%, #1B2012 100%;
+    --bg2-gradient: 180deg, #273215 0%, #1C1A1B 100%;
+    --bg3-gradient: 226.32deg, rgba(169, 222, 89, 0.7) 35.89%, rgba(249, 188, 47, 0.7) 104.43%;
+    --bg4-gradient: 180deg, rgba(169, 222, 89, 0.5) 0%, rgba(169, 222, 89, 0) 87%;
+    --bg5-gradient: 180deg, #273215 0%, #1C1A1B 100%;
+    --bg6-gradient: 180deg, rgba(255, 255, 255, 0.5) 0%, rgba(236, 236, 222, 0.5) 100%;
+    --bg6-dark-gradient: 180deg, rgba(41, 48, 28, 0.5) 0%, rgba(27, 32, 18, 0.5) 100%;
+    --bg7-gradient: 90deg, #8CC633 0%, #A9DE59 100%;
+    --swiper-gradient: 90deg, #1F2E07 0%, rgba(31, 46, 7, 0) 30%, rgba(31, 46, 7, 0) 70%, #1F2E07 100%;
+    --divider-gradient: 90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0) 100%;
+	--light-gradient:rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 1) 46%, rgba(255, 255, 255, 0.3) 100%;
+	--secondary-gradient: 0deg, rgba(27, 76, 64, .8) 0%, rgba(27 ,76, 64, .8) 100%;
+	--secondary2-gradient: 180deg, rgba(27, 76, 64, 0) 52.08%, #1b4c40 100% ;
+	--black-gradient: 180deg, rgba(0, 0, 0, 0.203) 0%, rgba(0, 0, 0, 0.7) 100%;
+	--bg-primary-gradient: 180deg, rgba(0, 0, 0, 0) 0%, rgb(179 231 25) 98%;
+
+    /* Z-INDEX */
+    --z-index-1: 1;
+    --z-index-2: 2;
+    --z-index-4: 4;
+    --z-index-9: 9;
+    --z-index-99: 99;
+    --z-index-999: 999;
+    --z-index-9999: 9999;
+    --z-index-99999: 99999;
+    --z-index-999999: 999999;
+
+    /*  BORDER RADIUS*/
+    --radius-2lg: 10px;
+    --radius-xxl: 14px;
+    --radius-2xl: 20px;
+    --radius-4xl: 30px;
+    --radius-5xl: 40px;
+    --radius-6xl: 50px;
+
+    /* ANIMATIONS */
+	--animate-toTopFromBottom: toTopFromBottom 0.8s ease 0s 1 normal forwards running;
+	--animate-toLeftFromRight: toLeftFromRight 0.5s forwards;
+	--animate-toRightFromLeft: toRightFromLeft 0.5s forwards;
+	--animate-moveRotate: moveRotate 8s linear infinite;
+	--animate-float: float 4s ease-in-out infinite;	
+    
+}
+
+ 

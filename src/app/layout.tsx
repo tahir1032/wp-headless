@@ -1,32 +1,19 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
-import { Footer } from "@/components/Footer";
-import { Header } from "@/components/Header";
-
-const inter = Inter({
-  subsets: ["latin"],
-  variable: "--font-inter",
-});
+import Preloader from "@/components/shell/Preloader";
+import Header from "@/components/shell/Header";
+import ContactSidebar from "@/components/shell/ContactSidebar";
+import Footer from "@/components/shell/Footer";
+import VideoModal from "@/components/shell/VideoModal";
+import ScrollTopButton from "@/components/shell/ScrollTopButton";
 
 export const metadata: Metadata = {
-  title: "Tahir Hafeez | WordPress & GHL Expert",
+  title: "Tahir Hafeez | Portfolio",
   description:
-    "WordPress and GoHighLevel specialist. Websites, funnels, automations, and integrations that ship fast and convert.",
-  keywords: [
-    "WordPress developer",
-    "GoHighLevel expert",
-    "GHL funnels",
-    "Elementor",
-    "web developer",
-  ],
-  openGraph: {
-    title: "Tahir Hafeez | WordPress & GHL Expert",
-    description:
-      "Websites, funnels, and automations built by a specialist who ships fast.",
-    url: "https://tahirhafeez.com",
-    siteName: "Tahir Hafeez",
-    type: "website",
+    "Tahir Hafeez is a WordPress and GoHighLevel specialist building fast, scalable websites and case-study-driven digital experiences.",
+  icons: {
+    icon: "/images/favicon.webp",
   },
 };
 
@@ -36,11 +23,49 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full scroll-smooth`}>
-      <body className="min-h-full flex flex-col bg-[#0a0f0d] font-sans text-zinc-100 antialiased">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+    <html lang="en" className="dark">
+      <head>
+        <link rel="stylesheet" href="/icons/fontawesome/css/all.min.css" />
+        <link rel="stylesheet" href="/icons/line-awesome/css/line-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="/icons/flaticon/flaticon.css" />
+        <link rel="stylesheet" href="/vendor/animate/animate.min.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Afacad:ital,wght@0,400..700;1,400..700&family=Figtree:ital,wght@0,300..900;1,300..900&family=Kaushan+Script&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="selection:bg-primary selection:text-white">
+        <Preloader />
+
+        <div className="page-wraper">
+          <Header />
+          <ContactSidebar />
+
+          <div id="smooth-wrapper">
+            <div id="smooth-content">
+              <div className="page-content">
+                {children}
+                <Footer />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <VideoModal />
+        <ScrollTopButton />
+
+        <Script src="/vendor/gsap/gsap.min.js" strategy="afterInteractive" />
+        <Script src="/vendor/gsap/ScrollTrigger.min.js" strategy="afterInteractive" />
+        <Script src="/vendor/gsap/MotionPathPlugin.min.js" strategy="afterInteractive" />
+        <Script src="/vendor/gsap/ScrollSmoother.js" strategy="afterInteractive" />
+        <Script src="/vendor/SplitText/SplitText.min.js" strategy="afterInteractive" />
+        <Script src="/vendor/wow/wow.js" strategy="afterInteractive" />
+        <Script src="/vendor/three/three.js" strategy="afterInteractive" />
+        <Script src="/vendor/hovereffect/hover-effect.js" strategy="afterInteractive" />
+        <Script src="/js/animation.js" strategy="afterInteractive" />
+        <Script src="/js/custom.js" strategy="afterInteractive" />
       </body>
     </html>
   );

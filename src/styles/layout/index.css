@@ -1,0 +1,302 @@
+.pxl-heading-scroll-effect .heading-text div {
+  --pxl-heading: black;
+}
+.pxl-heading-scroll-effect .heading-text div {
+  background-clip: text;
+  color: transparent;
+  background: linear-gradient(to right, var(--pxl-heading) 50%, var(--heading-color-1) 50%) no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  background-size: 200% 100%;
+  background-position-x: 100%;
+  transition: background-size cubic-bezier(0.1, 0.5, 0.5, 1) 0.75s;
+}
+.pxl-heading-scroll-effect {
+  --heading-color-1: #D9D9D9;
+}
+
+.eye .pupil {
+  transition: transform 0.1s linear;
+}
+.big-number span {
+  display: inline-block;
+  transform: translateY(150%);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.dust-text {
+  display: flex;
+  align-items: center;
+}
+
+.dust-text .letter {
+  line-height: 1;
+  margin: 0 -30px;
+  opacity: 0;
+  transform: translateY(20px) scale(0.8);
+  transition-delay: var(--delay);
+  animation: letterIn 0.6s ease forwards;
+   display: inline-block;
+}
+@keyframes letterIn {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.dust-text svg {
+  display: block;
+  overflow: visible;
+}
+.dust-text .dust {
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.dust-text .dust.is-visible {
+  opacity: 1;
+}
+:root {
+  --dust-font: clamp(180px, 38vw, 720px);
+}
+
+.dust-text text {
+  font-size: var(--dust-font);
+}
+@media (max-width: 1200px) {
+  :root {
+    --dust-font: clamp(180px, 32vw, 720px);
+	}
+  .dust-text .letter {
+    margin: 0 -20px;
+  }
+}
+@media (max-width: 575px) {
+  :root {
+    --dust-font: clamp(100px, 32vw, 720px);
+	}
+  .dust-text .letter {
+    margin: 0 -15px;
+  }
+}
+.bg-rotate-img {
+	will-change: transform;
+}
+.dz-hover-img canvas {
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute;
+    border-radius: 4px;
+	    object-fit: contain;
+}
+.wheel {
+    position: absolute;
+    top: 371px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 300vw;
+    height: 350vw;
+    max-width: 2000px;
+    max-height: 2000px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.wheel__card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 800px;
+    height: 900px;
+    max-width: 270px;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+}
+@media (max-width: 1200px) {
+.wheel__card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 745px;
+    max-width: 246px;
+    aspect-ratio: 1 / 1; 
+    cursor: pointer;
+}
+}
+@media (max-width: 768px) {
+    .wheel__card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 500px;
+        height: 515px;
+        max-width: 217px;
+        aspect-ratio: 1 / 1;
+        cursor: pointer;
+    }
+}
+@media (max-width: 575px) {
+    .wheel__card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 315px;
+        height: 315px;
+        max-width: 190px;
+        aspect-ratio: 1 / 1;
+        cursor: pointer;
+    }
+	.wheel {
+		top:0;
+	}
+}
+@media (max-width: 360px) {
+    .wheel__card {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 130px;
+        height: 130px;
+        max-width: 118px;
+        aspect-ratio: 1 / 1;
+        cursor: pointer;
+    }
+}
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.header img {
+  width: 40vw;
+  height: 40vw;
+  max-height: 350px;
+  max-width: 350px;
+}
+.scroll-down {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: white;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 14px;
+  overflow: visible;
+}
+.scroll-down .arrow {
+  position: relative;
+  top: 0px;
+  margin: 0 auto;
+  width: 15px;
+  height: 15px;
+  filter: invert(1);
+  background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MTIgNTEyIj4KPHBhdGggZmlsbD0iYmxhY2siIGQ9Ik00ODMuMiwxOTIuMmMtMjAuNS0yMC41LTUzLjUtMjAuOC03My43LTAuNkwyNTcsMzQ0LjFMMTA0LjUsMTkxLjZjLTIwLjItMjAuMi01My4yLTE5LjktNzMuNywwLjYKCWMtMjAuNSwyMC41LTIwLjgsNTMuNS0wLjYsNzMuN2wxOTAsMTkwYzEwLjEsMTAuMSwyMy40LDE1LjEsMzYuOCwxNWMxMy4zLDAuMSwyNi43LTQuOSwzNi44LTE1bDE5MC0xOTAKCUM1MDMuOSwyNDUuNyw1MDMuNywyMTIuNyw0ODMuMiwxOTIuMnoiLz4KPC9zdmc+);
+  background-size: contain;
+}
+.tp-section-title.active h2{
+	@apply text-xl font-normal;
+}
+.tp-service-btn.active .tp-service-btn{
+	@apply opacity-0 invisible;	
+}
+.text-char {
+    @apply block absolute top-0 left-1/2 h-[calc(155px_/_2)] w-0 font-medium text-sm origin-[bottom_center] rotate-[var(--char-rotate)] text-primary pt-2 uppercase;
+}
+.big-number {
+  font-size: clamp(150px, 44vw, 800px);
+  line-height: 0.85;
+  white-space: nowrap;
+}
+.arrow {
+  transform: translateX(-20px);
+  opacity: 0.4;
+}
+.tags span {
+  display: inline-block;
+  font-size: 12px;
+  background: #f2f2f2;
+  padding: 6px 12px;
+  border-radius: 20px;
+  margin-right: 6px;
+}
+.right .image-wrap {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+}
+.right img {
+  width: 100%;
+  display: block;
+}
+.service {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 60px;
+  border-bottom:1px solid #D9D9D9;
+}
+@media (max-width: 1400px) {
+.service {
+	gap:25px;
+}
+}
+@media (max-width: 991px) {
+.service {
+    display: grid;
+    grid-template-columns: 1fr 136px;
+}
+}
+@media (max-width: 576px) {
+.service {
+    display: block;
+}
+}
+@media (max-width: 575px) {
+.right .image-wrap {
+    height: 100%; 
+    opacity: 100; 
+    overflow: hidden;
+}
+}
+.link-hover {
+  @apply relative hover:after:w-full hover:after:left-0 hover:after:right-auto;
+}
+.link-hover:after {
+  @apply content-[''] absolute h-px bg-primary bottom-0 right-0 w-0 duration-500 ;
+}
+.menu-auto-height {
+  max-height: none !important;
+}
+.shop-sidebar {
+  position: fixed;
+  left: -320px;
+  transition: left 0.3s ease;
+}
+
+.shop-sidebar.is-open {
+  left: 0;
+}
+.sidebar-sticky {
+  position: sticky;
+}
+
+.sidebar-sticky.is-default {
+  top: 60%;
+}
+.sticky-spacer {
+  position: relative;
+}
+.iris,
+.pupil {
+  will-change: transform;
+  transition: transform 0.05s linear;
+}
