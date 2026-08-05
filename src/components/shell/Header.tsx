@@ -41,22 +41,8 @@ export default function Header() {
                 <li>
                   <a href="/">Home</a>
                 </li>
-                <li className="sub-menu-down">
-                  <a
-                    href="/work"
-                    className="relative xl:!pr-8 xl:after:content-['\f107'] xl:after:font-['fontawesome'] xl:after:top-1 xl:after:right-3 xl:after:absolute xl:after:ml-1.25 xl:hover:after:rotate-[180deg] xl:after:duration-500"
-                  >
-                    Work
-                    <i className="fas fa-chevron-right xl:!hidden !block !leading-5 text-center text-xs text-white float-end duration-500"></i>
-                  </a>
-                  <ul className="sub-menu">
-                    <li>
-                      <a href="/work" className="relative"><span>Work</span></a>
-                    </li>
-                    <li>
-                      <a href="/studio" className="relative"><span>Studio</span></a>
-                    </li>
-                  </ul>
+                <li>
+                  <a href="/work">Work</a>
                 </li>
                 <li>
                   <a href="/studio">Studio</a>
