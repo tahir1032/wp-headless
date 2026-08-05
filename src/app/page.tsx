@@ -30,10 +30,10 @@ export default async function Home() {
 
       <div className="video-section relative w-full 2xl:h-200 lg:h-145 sm:h-100 h-70 overflow-hidden after:absolute after:bg-black/40 after:inset-0 after:z-1">
         <video id="bgVideo" className="bg-video absolute top-0 left-0 size-full object-cover z-1" autoPlay muted loop>
-          <source id="videoSource" src="/video/video1.mp4" type="video/mp4" />
+          <source id="videoSource" src="/video/about.mp4" type="video/mp4" />
         </video>
         <div className="thumbnails absolute flex items-center justify-center top-1/2 left-1/2 -translate-1/2 4xl:gap-25 3xl:gap-10 gap-5 z-2">
-          <button className="border-4 border-white/20 rounded-md thumb" data-video="/video/video1.mp4" aria-label="Play Video 1">
+          <button className="border-4 border-white/20 rounded-md thumb" data-video="/video/about.mp4" aria-label="Play Video 1">
             <img src="/images/thumbs/thumb1.webp" className="object-cover rounded-md duration-500 hover:scale-[1.1]" alt="img" loading="lazy" />
           </button>
 
