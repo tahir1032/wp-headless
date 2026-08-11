@@ -2,14 +2,65 @@
 
 import { useState, type FormEvent } from "react";
 
-const SERVICE_OPTIONS = [
-  "Logo design",
-  "Brand identity & guidelines",
-  "Social media creatives",
-  "Banners, posters & ads",
-  "Website content writing",
-  "Blog & article writing",
+const SERVICE_GROUPS = [
+  {
+    label: "WordPress",
+    options: [
+      "Custom WordPress Website Development",
+      "WordPress Theme Development & Customization",
+      "WordPress Plugin Development",
+      "WordPress Plugin Customization",
+      "Gutenberg Block Development",
+      "Advanced Custom Fields (ACF) Implementation",
+      "WordPress REST API Development",
+      "Headless WordPress (Next.js / React)",
+    ],
+  },
+  {
+    label: "WooCommerce & E-commerce",
+    options: [
+      "WooCommerce Store Setup & Configuration",
+      "WooCommerce Payment Gateway Integration",
+      "WooCommerce Custom Add-ons & Extensions",
+      "WooCommerce Performance Optimization",
+    ],
+  },
+  {
+    label: "GoHighLevel (GHL)",
+    options: [
+      "GoHighLevel Funnel Setup & Optimization",
+      "GHL Email & SMS Automation Campaigns",
+      "GHL Landing Pages & Website Builder",
+      "GHL Payment Integration & Course Setup",
+      "GHL CRM Pipeline & Workflow Automation",
+    ],
+  },
+  {
+    label: "API & Integrations",
+    options: [
+      "Third-Party API Integration",
+      "CRM Integration (HubSpot / Mailchimp / ActiveCampaign)",
+      "Zapier / Webhook Automation",
+      "Payment Gateway Integration",
+    ],
+  },
+  {
+    label: "Other Platforms",
+    options: ["Webflow Development", "Wix Development"],
+  },
+  {
+    label: "Hosting & Tech",
+    options: [
+      "Website Speed & Core Web Vitals Optimization",
+      "Hosting Setup, cPanel & DNS Management",
+      "SSL, Security Hardening & Backups",
+      "Website Migration",
+      "WordPress Maintenance & Support",
+    ],
+  },
 ];
+
+const OTHER_SERVICE_OPTION = "Other / Not Sure Yet — Let's Talk";
 
 type Status = { state: "idle" | "sending" | "success" | "error"; message?: string };
 
@@ -114,9 +165,14 @@ export default function ContactForm() {
               <label htmlFor="sortingSelect" className="sr-only">Service</label>
               <select required name="service" defaultValue="" className="dynamic-select w-full" id="sortingSelect">
                 <option value="" disabled>Service</option>
-                {SERVICE_OPTIONS.map((opt) => (
-                  <option key={opt} value={opt}>{opt}</option>
+                {SERVICE_GROUPS.map((group) => (
+                  <optgroup key={group.label} label={group.label}>
+                    {group.options.map((opt) => (
+                      <option key={opt} value={opt}>{opt}</option>
+                    ))}
+                  </optgroup>
                 ))}
+                <option value={OTHER_SERVICE_OPTION}>{OTHER_SERVICE_OPTION}</option>
               </select>
             </div>
           </div>

@@ -1,5 +1,32 @@
+import type { Metadata } from "next";
 import ContactForm from "@/components/contact/ContactForm";
 import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_LINK, LINKEDIN_URL } from "@/lib/site-config";
+
+export const metadata: Metadata = {
+  title: "Contact Tahir Hafeez — Hire a WordPress & GHL Developer",
+  description:
+    "Get in touch with Tahir Hafeez — WordPress developer and GoHighLevel specialist. Discuss your project, get a fixed-price quote, and receive a response within 24 hours.",
+  keywords: [
+    "hire WordPress developer",
+    "contact WordPress freelancer",
+    "GoHighLevel developer for hire",
+    "WordPress developer quote",
+    "WooCommerce developer contact",
+    "hire GHL specialist",
+    "freelance WordPress developer contact",
+  ],
+  alternates: { canonical: "/contact-us" },
+  openGraph: {
+    title: "Hire Tahir Hafeez | WordPress & GHL Developer",
+    description:
+      "Ready to build? Contact Tahir Hafeez for custom WordPress development, WooCommerce stores, GoHighLevel funnels, and automation systems. Fixed-price quotes. Response within 24 hours.",
+  },
+  twitter: {
+    title: "Hire Tahir Hafeez | WordPress & GHL Developer",
+    description:
+      "Ready to build? Contact Tahir Hafeez for custom WordPress development, WooCommerce stores, GoHighLevel funnels, and automation systems. Fixed-price quotes. Response within 24 hours.",
+  },
+};
 
 const CURSOR_IMAGES = Array.from({ length: 10 }, (_, i) => `/images/image-scroll/${i + 1}.webp`);
 
@@ -50,7 +77,7 @@ export default function ContactUsPage() {
                 </div>
                 <div className="xl:w-[60%] sm:w-[21%] w-full">
                   <h3 className="text-sm font-normal uppercase text-mediumgray pb-2 border-b border-lightgray mb-5 inline-block">location</h3>
-                  <a className="text-base text-primary font-medium block mb-3"><span className="link-hover">5th Floor, Corporate Plaza, Central District</span></a>
+                  <a className="text-base text-primary font-medium block mb-3"><span className="link-hover">Available Worldwide — Remote</span></a>
                 </div>
                 <div className="xl:w-[60%] sm:w-[21%] w-full">
                   <h3 className="text-sm font-normal uppercase text-mediumgray pb-2 border-b border-lightgray mb-5 inline-block">Social</h3>
@@ -71,10 +98,13 @@ export default function ContactUsPage() {
             <div className="xl:col-span-10 col-span-12">
               <div className="sm:pt-20 pt-10 lg:px-10 px-2 pb-18.75">
                 <div className="pxl-heading-scroll-effect">
-                  <h2 className="lg:text-5xl md:text-4xxxl sm:text-4xl text-3xl font-medium max-w-196 heading-text mb-12.5">
-                    We&apos;re excited to learn more about your creative needs.
+                  <h2 className="lg:text-5xl md:text-4xxxl sm:text-4xl text-3xl font-medium max-w-196 heading-text mb-5">
+                    We&apos;re excited to learn more about your project.
                   </h2>
                 </div>
+                <p className="text-lg text-mediumgray mb-12.5 max-w-150">
+                  Share what you&apos;re building and I&apos;ll respond within 24 hours with a clear plan and an honest quote.
+                </p>
                 <ContactForm />
               </div>
             </div>

@@ -1,8 +1,36 @@
+import type { Metadata } from "next";
 import CaseCard from "@/components/work/CaseCard";
 import ServicesShowcase from "@/components/shell/ServicesShowcase";
 import { getCaseStudies } from "@/lib/wordpress";
 
 export const revalidate = 3600;
+
+export const metadata: Metadata = {
+  title: "Tahir Hafeez — WordPress Developer & GoHighLevel Specialist",
+  description:
+    "WordPress developer and GoHighLevel specialist with 5 years of experience. Custom WordPress themes, plugin development, WooCommerce stores, GHL funnels, and automation systems for clients worldwide.",
+  keywords: [
+    "WordPress developer for hire",
+    "GoHighLevel specialist",
+    "custom WordPress development",
+    "WordPress plugin developer",
+    "GHL funnel setup",
+    "WooCommerce developer",
+    "headless WordPress Next.js",
+    "freelance WordPress developer",
+  ],
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Tahir Hafeez | WordPress Developer & GHL Specialist",
+    description:
+      "5 years. 80+ projects. Custom WordPress development, WooCommerce stores, GoHighLevel funnels, and automation systems delivered for clients across the US, UK, AU, ZA, and UAE.",
+  },
+  twitter: {
+    title: "Tahir Hafeez | WordPress Developer & GHL Specialist",
+    description:
+      "5 years. 80+ projects. Custom WordPress development, WooCommerce stores, GoHighLevel funnels, and automation systems delivered for clients across the US, UK, AU, ZA, and UAE.",
+  },
+};
 
 const CURSOR_IMAGES = Array.from({ length: 10 }, (_, i) => `/images/image-scroll/${i + 1}.webp`);
 
@@ -75,7 +103,7 @@ export default async function Home() {
             <div className="col-span-12 2xl:ml-85 border-l border-lightgray">
               <div className="pxl-heading-scroll-effect border-b border-lightgray">
                 <p className="4xl:text-4xxl lg:text-3xl md:text-2xxxl text-2xxl text-subtlegray 4xl:pt-15 4xl:pl-15 4xl:pb-24.25 lg:py-10 py-5 lg:pl-10 pl-5 font-semibold heading-text">
-                  At Tahir, we know your time is precious, and that&apos;s why we prioritize simplicity and efficiency. Our team has the expertise and creativity to handle everything from research and planning to custom design and development, freeing you from the burden of micromanagement.
+                  Five years. 80+ projects. Clients across four continents. I build WordPress websites and GoHighLevel systems that do more than look polished — they generate leads, automate workflows, and remove the technical burden from your business entirely. From custom theme and plugin development to WooCommerce stores, headless architectures, and full GHL automation pipelines, every project is delivered with clean code, clear communication, and a relentless focus on results. No templates. No shortcuts. Just work that holds up.
                 </p>
               </div>
               <div className="lg:col-span-10 col-span-12 services" id="services">
@@ -125,12 +153,12 @@ export default async function Home() {
         <div className="container-fluid">
           <div className="grid grid-cols-12 items-center max-xl:flex max-xl:flex-col-reverse">
             <div className="xl:col-span-9 col-span-12">
-              <h3 className="big-number font-bold leading-none 4xl:-ml-10 md:-ml-7 2xl:-mb-45 xl:-mb-38 md:-mb-22 sm:-mb-13 -mb-10">180</h3>
+              <h3 className="big-number font-bold leading-none 4xl:-ml-10 md:-ml-7 2xl:-mb-45 xl:-mb-38 md:-mb-22 sm:-mb-13 -mb-10">80+</h3>
             </div>
             <div className="xl:col-span-3 col-span-12">
               <div className="pxl-heading-scroll-effect">
                 <p className="4xl:text-4xxl/12.5 2xl:text-3xl sm:text-2xxxl text-2xl font-medium text-lightgray heading-text xl:mb-35 mb-20 max-xl:text-center max-w-94.75">
-                  Proven expertise with more than <br /> 180 successfully delivered projects.
+                  Projects delivered across WordPress, GoHighLevel, Webflow, and Wix — for clients in the US, UK, Australia, South Africa, UAE, and beyond.
                 </p>
               </div>
             </div>

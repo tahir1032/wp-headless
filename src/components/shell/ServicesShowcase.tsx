@@ -1,51 +1,51 @@
 const SERVICES = [
   {
-    letter: "D",
+    letter: "W",
     bg: "bg-nearwhite",
     speed: "1.40",
     title: (
       <>
-        Web Design <br />& Digital Identity
+        WordPress <br />Development
       </>
     ),
-    desc: "We craft modern digital identities with thoughtful design that strengthens brand presence effectively.",
-    items: ["Web Design", "Brand Identity", "Art Direction"],
+    desc: "End-to-end WordPress builds tailored to your business — from pixel-perfect theme customization and custom plugin development to full WooCommerce stores and performance-optimized deployments. Built for speed, security, and long-term maintainability.",
+    items: ["Custom Theme Development & Customization", "Custom Plugin Development & Customization", "WooCommerce — Stores, Payments & Add-ons"],
   },
   {
-    letter: "W",
+    letter: "G",
     bg: "bg-aliceblue",
     speed: "1.80",
     title: (
       <>
-        Web Development &amp; <br />Interactive Experiences
+        GoHighLevel (GHL) <br />Systems
       </>
     ),
-    desc: "We build fast, scalable websites with seamless interactions that enhance overall user engagement.",
-    items: ["Frontend Development", "Webflow Development", "Custom Interactions"],
+    desc: "Full GoHighLevel setup built around your sales process — funnels, automated email and SMS campaigns, payment collection, course delivery, landing pages, and CRM pipelines. Systems that work for you around the clock.",
+    items: ["Sales Funnels & High-Converting Landing Pages", "Email / SMS Automation & Campaign Management", "GHL Payments, Courses & CRM Pipelines"],
   },
   {
-    letter: "M",
+    letter: "A",
     bg: "bg-peach",
     speed: "1.20",
     title: (
       <>
-        Mobile Apps <br />& Product Design
+        API & Plugin <br />Integration
       </>
     ),
-    desc: "We design intuitive mobile products that deliver smooth, engaging, and user-focused experiences.",
-    items: ["UX Design", "Application UI", "Prototyping"],
+    desc: "Connect your WordPress site to any third-party platform. Custom REST API integrations, CRM connections, Zapier and webhook workflows, payment gateway setup, and headless WordPress for modern frontend stacks.",
+    items: ["REST API & Webhook Development", "CRM Integration — HubSpot, Mailchimp, ActiveCampaign", "Headless WordPress with React / Next.js"],
   },
   {
-    letter: "B",
+    letter: "H",
     bg: "bg-nearwhite",
     speed: "1.80",
     title: (
       <>
-        Branding, Motion <br />& 3D Content
+        Hosting & Tech <br />Management
       </>
     ),
-    desc: "We create expressive visuals, motion elements, and 3D content that elevate brand storytelling.",
-    items: ["Motion Design", "3D Illustration", "Sound Design"],
+    desc: "Complete server and hosting management from setup to ongoing maintenance — cPanel, DNS, SSL, Core Web Vitals optimization, security hardening, database tuning, and site migrations.",
+    items: ["cPanel, DNS Configuration & SSL", "Speed, Caching & Core Web Vitals Optimization", "Migrations, Backups & Security Hardening"],
   },
 ];
 

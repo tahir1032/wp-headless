@@ -1,4 +1,31 @@
+import type { Metadata } from "next";
 import ServicesShowcase from "@/components/shell/ServicesShowcase";
+
+export const metadata: Metadata = {
+  title: "About Tahir Hafeez — WordPress Developer & GHL Expert",
+  description:
+    "Meet Tahir Hafeez — a WordPress developer and GoHighLevel specialist with 5 years of professional experience delivering custom websites, WooCommerce stores, plugin development, and GHL automation systems for clients worldwide.",
+  keywords: [
+    "WordPress developer about",
+    "experienced WordPress developer",
+    "GoHighLevel expert",
+    "WordPress plugin developer for hire",
+    "WooCommerce specialist",
+    "freelance WordPress consultant",
+    "WordPress developer portfolio",
+  ],
+  alternates: { canonical: "/studio" },
+  openGraph: {
+    title: "About Tahir Hafeez | WordPress & GoHighLevel Expert",
+    description:
+      "5 years of WordPress expertise. 80+ projects. Custom development, WooCommerce, plugin development, GHL funnels, and API integration — delivered with precision for clients across four continents.",
+  },
+  twitter: {
+    title: "About Tahir Hafeez | WordPress & GoHighLevel Expert",
+    description:
+      "5 years of WordPress expertise. 80+ projects. Custom development, WooCommerce, plugin development, GHL funnels, and API integration — delivered with precision for clients across four continents.",
+  },
+};
 
 const WHEEL_IMAGES = [
   1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 10, 11, 20, 14, 1,
@@ -14,10 +41,22 @@ const CHECK_ICON = (
 );
 
 const CHOOSE_US = [
-  { text: "Modern design with strong attention to detail", delay: "bounceInDown" },
-  { text: "Clear communication and transparent workflow", delay: "bounceInLeft" },
-  { text: "Strong creative vision backed by technical expertise", delay: "bounceInRight" },
-  { text: "Dedicated support from strategy to launch", delay: "bounceInUp" },
+  {
+    text: "5 years of deep WordPress expertise — custom theme and plugin development, WooCommerce, ACF, Gutenberg, REST API, headless builds, and performance engineering across 80+ live projects.",
+    delay: "bounceInDown",
+  },
+  {
+    text: "GoHighLevel authority most developers don't possess — full-stack GHL implementation including funnels, automation sequences, payment systems, course delivery, landing pages, and CRM pipeline architecture.",
+    delay: "bounceInLeft",
+  },
+  {
+    text: "Transparent, professional communication throughout — fixed-price proposals, clear milestones, no scope creep, and honest answers — so you always know exactly what you're getting and when.",
+    delay: "bounceInRight",
+  },
+  {
+    text: "A proven track record across industries and markets — healthcare, e-commerce, real estate, education, digital agencies, and AI consulting — delivering to clients in the US, UK, Australia, South Africa, and UAE.",
+    delay: "bounceInUp",
+  },
 ];
 
 export default function StudioPage() {
@@ -31,8 +70,11 @@ export default function StudioPage() {
                 className="4xl:text-13xl 3xl:text-10xl 2xl:text-[120px]/30 xl:text-8xl md:text-7xxxl sm:text-7xl/7.5 text-4xl/5 wow bounceInLeft max-xl:mb-10"
                 data-wow-delay="2.5s"
               >
-                Meet the Studio
+                Meet the Developer
               </h1>
+              <p className="text-lg sm:text-xl font-normal text-mediumgray max-w-125 mt-5 wow bounceInLeft" data-wow-delay="2.7s">
+                5 years of WordPress expertise. GoHighLevel authority. Delivering results for businesses worldwide.
+              </p>
             </div>
             <div className="2xl:col-span-7 col-span-12">
               <div className="grid grid-cols-12 gap-5">
@@ -47,9 +89,18 @@ export default function StudioPage() {
                   </a>
                 </div>
               </div>
-              <div className="flex items-center wrapper overflow-hidden border-l mt-5 border-primary pl-4.75">
+              <div className="wrapper overflow-hidden border-l mt-5 border-primary pl-4.75 space-y-5">
                 <p className="introline text-lg font-normal text-black">
-                  We are a creative digital studio building purposeful brands, websites, and experiences that help businesses grow. Our team blends design, technology, and strategy to craft work that feels modern, meaningful, and built for real-world impact.
+                  I&apos;m Muhammad Tahir Hafeez — a WordPress developer and GoHighLevel specialist with 5 years of professional experience building websites and digital systems for businesses that take growth seriously.
+                </p>
+                <p className="introline text-lg font-normal text-black">
+                  My work spans the full WordPress ecosystem: custom theme and plugin development from scratch, advanced WooCommerce stores with complex payment and shipping configurations, ACF-powered custom data structures, Gutenberg block development, REST API and third-party integrations, headless WordPress architectures, and rigorous performance and security optimization. On the GoHighLevel side, I architect complete business automation systems — sales funnels, multi-step email and SMS campaigns, payment collection, course platforms, landing pages, and CRM pipelines that eliminate manual work and accelerate revenue.
+                </p>
+                <p className="introline text-lg font-normal text-black">
+                  My clients range from healthcare providers and e-commerce brands to digital agencies, real estate platforms, educational institutions, and AI consulting firms. What they share is a need for technical work delivered with precision, transparency, and accountability — every time.
+                </p>
+                <p className="introline text-lg font-normal text-black">
+                  Every engagement begins with understanding your business goal — not picking a template. Clean code, honest timelines, fixed-price proposals, and post-launch support are not extras; they are the baseline. I communicate clearly, deliver on schedule, and build work that holds up under real-world conditions.
                 </p>
               </div>
             </div>
@@ -70,7 +121,7 @@ export default function StudioPage() {
               <div className="wrapper overflow-hidden border-l border-primary sm:px-10 p-5 sm:py-7.5">
                 <span className="text-xl text-softgray block mb-1.25">Our Mission</span>
                 <p className="introline 4xl:text-3xl sm:text-2xxl text-xl font-light text-primary block">
-                  To turn ideas into powerful digital experiences through thoughtful design, seamless development, and creative storytelling.
+                  To engineer WordPress and web solutions that move businesses forward — not just satisfy a brief. Every line of code, every system built, every integration configured is in service of one objective: measurable results for the client.
                 </p>
               </div>
             </div>
@@ -85,7 +136,7 @@ export default function StudioPage() {
               <div className="wrapper overflow-hidden border-l border-primary sm:px-10 p-5 py-7.5">
                 <span className="text-xl text-softgray block mb-1.25">Our Promise</span>
                 <p className="introline 4xl:text-3xl sm:text-2xxl text-xl font-light text-primary block">
-                  We don&apos;t just create visuals — We build digital experiences that elevate brands and inspire audiences.
+                  Clarity from day one. Fixed scope, fixed price, no hidden costs. Regular progress updates throughout the build. Post-launch support included as standard. You will always know exactly where your project stands — and it will be delivered on time.
                 </p>
               </div>
             </div>
@@ -100,7 +151,7 @@ export default function StudioPage() {
               <div className="wrapper overflow-hidden border-l border-primary sm:px-10 p-5 sm:py-7.5">
                 <span className="text-xl text-softgray block mb-1.25">Our Approach</span>
                 <p className="introline 4xl:text-3xl sm:text-2xxl text-xl font-light text-primary block">
-                  We combine curiosity, creativity, and technical expertise to deliver work that not only looks beautiful but also drives results. Every project is shaped through research, collaboration, and a deep understanding of client goals.
+                  Discovery before development. I invest time upfront understanding your business, your users, and your goals — then architect a solution built to last. Every site is tested for speed, security, and Core Web Vitals compliance before it ever goes live. Because performance is not an afterthought; it is part of the deliverable.
                 </p>
               </div>
             </div>
@@ -112,7 +163,7 @@ export default function StudioPage() {
         <div className="container">
           <div className="pxl-heading-scroll-effect">
             <h2 className="2xl:text-8xl lg:text-7xxxl/25 md:text-7xl/25 sm:text-5xl/20 text-4xl/15 font-semibold capitalize text-center mb-12.5 heading-text">
-              Why Clients Choose Us
+              Why Clients Choose Me
             </h2>
           </div>
           <ul className="flex flex-col items-center justify-center gap-3.75 sm:text-2xl text-base font-light">

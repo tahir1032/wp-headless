@@ -21,7 +21,7 @@ export default function ContactSidebar() {
             <a href="/" className="text-4xl text-logo text-white">@Tahir</a>
           </div>
           <p className="mb-10 text-white/50">
-            We build fast, scalable websites with seamless interactions that enhance overall user engagement.
+            WordPress developer and GoHighLevel specialist. I build websites and automation systems that generate real leads for serious businesses.
           </p>
           <h4 className="text-2xl font-media mb-5 text-white">Contact Us</h4>
           <ul className="contact-address mb-12.5">

@@ -8,7 +8,10 @@ export default function Footer() {
       <div className="container-full px-5">
         <div className="flex max-xl:flex-wrap">
           <div className="xl:w-1/2 w-full 4xl:pl-40 2xl:pl-15 lg:pl-10 max-xl:mb-20 max-xl:mb-15">
-            <h4 className="sm:text-3xl text-2xxl font-medium mb-10">Subscribe to<br /> Our Newsletter</h4>
+            <h4 className="sm:text-3xl text-2xxl font-medium mb-3">Stay in the loop</h4>
+            <p className="text-base text-gray mb-10 max-w-100">
+              Occasional insights on WordPress, GoHighLevel, and web strategy. No spam, ever.
+            </p>
             <div className="relative w-full lg:max-w-113.75 subscribe-form">
               <form className="dzSubscribe" onSubmit={(e) => e.preventDefault()}>
                 <div className="dzSubscribeMsg"></div>
@@ -49,19 +52,28 @@ export default function Footer() {
               </div>
             </div>
             <div className="relative">
-              <h5 className="4xl:text-[240px] 3xl:text-[220px] 2xl:text-[195px] xl:text-[160px] lg:text-[195px] md:text-[162px] sm:text-[115px] text-[64px] leading-none font-normal whitespace-nowrap 2xl:tracking-[-20px] md:tracking-[-15px] sm:tracking-[-10px] tracking-[-5px] border-b border-lightgray inline-block">
-                Let&apos;s discuss
+              <h5 className="4xl:text-6xl 3xl:text-5xl 2xl:text-4xl xl:text-3xxl lg:text-4xl md:text-3xl sm:text-2xxl text-2xl font-medium leading-tight border-b border-lightgray inline-block pb-7.5 max-w-225">
+                Ready to build something that actually works?
               </h5>
-              <a href="/contact-us" className="bg-primary 3xl:size-20 md:size-15 sm:size-10 size-8 rounded-full border-4 border-snowwhite absolute 2xl:top-15 xl:top-10 lg:top-15 md:top-10 sm:top-8 top-4 4xl:right-35 2xl:right-30 xl:right-23 lg:right-35 md:right-25 sm:right-22 right-15 flex items-center justify-center overflow-hidden group">
-                <svg className="group-hover:animate-toTopFromBottom" width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M7 17L17 7" stroke="#fff" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M17 17V7H7" stroke="#fff" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                </svg>
+              <p className="text-base sm:text-lg text-gray max-w-175 mt-7.5">
+                Whether it&apos;s a WordPress site, a WooCommerce store, a GHL automation system, or a full headless build — let&apos;s talk scope, timeline, and budget. No pressure.
+              </p>
+              <a
+                href="/contact-us"
+                className="inline-flex items-center gap-2.5 bg-primary text-white py-4 px-6.25 rounded-full group overflow-hidden mt-7.5"
+              >
+                <span className="font-medium">Start a Conversation</span>
+                <span className="overflow-hidden inline-flex items-center justify-center">
+                  <svg className="group-hover:animate-toTopFromBottom" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7" stroke="#fff" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M17 17V7H7" stroke="#fff" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
               </a>
               <div className="!text-gray text-base font-normal py-7.5 flex sm:justify-between justify-center max-sm:text-center flex-wrap">
-                <a className="block text-primary" href="/">© Tahir</a>
+                <a className="block text-primary" href="/">© Tahir Hafeez</a>
                 <p className="copyright-text">
-                  © <span className="current-year" suppressHydrationWarning>{new Date().getFullYear()}</span> <a href="/" className="text-primary font-medium border-b">Tahir</a> All Rights Reserved Copyright
+                  © <span className="current-year" suppressHydrationWarning>{new Date().getFullYear()}</span> <a href="/" className="text-primary font-medium border-b">Tahir Hafeez</a>. WordPress Developer &amp; GoHighLevel Specialist. All rights reserved.
                 </p>
               </div>
             </div>

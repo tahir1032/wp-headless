@@ -1,7 +1,34 @@
+import type { Metadata } from "next";
 import CaseCard from "@/components/work/CaseCard";
 import { getCaseStudies } from "@/lib/wordpress";
 
 export const revalidate = 3600;
+
+export const metadata: Metadata = {
+  title: "Work & Portfolio — Tahir Hafeez WordPress & GHL Projects",
+  description:
+    "Browse 80+ WordPress and GoHighLevel projects by Tahir Hafeez — including custom WordPress development, WooCommerce stores, GHL funnels, plugin development, and API integration work for clients worldwide.",
+  keywords: [
+    "WordPress development portfolio",
+    "GoHighLevel projects",
+    "WooCommerce store examples",
+    "WordPress plugin development examples",
+    "GHL funnel examples",
+    "hire WordPress developer",
+    "WordPress freelancer portfolio",
+  ],
+  alternates: { canonical: "/work" },
+  openGraph: {
+    title: "Portfolio — Tahir Hafeez | WordPress & GHL Projects",
+    description:
+      "Custom WordPress sites, WooCommerce stores, GoHighLevel funnels, and automation systems. Real projects. Real clients. Real results across healthcare, e-commerce, real estate, and more.",
+  },
+  twitter: {
+    title: "Portfolio — Tahir Hafeez | WordPress & GHL Projects",
+    description:
+      "Custom WordPress sites, WooCommerce stores, GoHighLevel funnels, and automation systems. Real projects. Real clients. Real results across healthcare, e-commerce, real estate, and more.",
+  },
+};
 
 export default async function WorkPage() {
   const workItems = await getCaseStudies(100);
@@ -15,9 +42,12 @@ export default async function WorkPage() {
           style={{ backgroundImage: "url(/images/Group.webp)" }}
         />
         <div className="container-fluid">
-          <h1 className="font-bold 4xl:text-[160px] 2xl:text-[120px] xl:text-8xl lg:text-7xxxl md:text-5xl sm:text-4xxxl text-3xl leading-none mb-20 2xl:max-w-293.75 xl:max-w-250 lg:max-w-200 max-w-160 max-sm:text-center">
-            Building Brands Through Design
+          <h1 className="font-bold 4xl:text-[160px] 2xl:text-[120px] xl:text-8xl lg:text-7xxxl md:text-5xl sm:text-4xxxl text-3xl leading-none mb-5 2xl:max-w-293.75 xl:max-w-250 lg:max-w-200 max-w-160 max-sm:text-center">
+            Work That Speaks for Itself
           </h1>
+          <p className="text-lg sm:text-xl font-normal text-mediumgray mb-20 max-sm:text-center">
+            80+ projects. Multiple industries. Measurable outcomes.
+          </p>
         </div>
       </section>
 
