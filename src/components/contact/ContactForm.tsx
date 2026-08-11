@@ -148,12 +148,12 @@ export default function ContactForm() {
               id="inputPhone"
               placeholder="Phone Number"
               required
-              maxLength={10}
+              maxLength={15}
               inputMode="numeric"
               autoComplete="tel"
               aria-label="Phone Number"
               onInput={(e) => {
-                e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "").slice(0, 10);
+                e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "").slice(0, 15);
               }}
               className="text-lg placeholder:text-primary text-primary w-full"
             />
