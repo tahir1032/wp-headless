@@ -1,15 +1,13 @@
 import CaseCard from "@/components/work/CaseCard";
 import ServicesShowcase from "@/components/shell/ServicesShowcase";
 import { getCaseStudies } from "@/lib/wordpress";
-import { fallbackRecentWork } from "@/lib/fallback-data";
 
 export const revalidate = 3600;
 
 const CURSOR_IMAGES = Array.from({ length: 10 }, (_, i) => `/images/image-scroll/${i + 1}.webp`);
 
 export default async function Home() {
-  const fetched = await getCaseStudies(5);
-  const recentWork = fetched.length > 0 ? fetched : fallbackRecentWork;
+  const recentWork = await getCaseStudies(5);
 
   return (
     <>

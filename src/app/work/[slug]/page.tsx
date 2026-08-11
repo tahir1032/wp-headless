@@ -1,26 +1,11 @@
 import { notFound } from "next/navigation";
 import { getCaseStudyBySlug, getCaseStudySlugs, getAdjacentCaseStudies } from "@/lib/wordpress";
-import { fallbackWorkItems, fallbackRecentWork } from "@/lib/fallback-data";
-import type { CaseStudy } from "@/types";
 
 export const revalidate = 3600;
 
-const FALLBACK_ITEMS: CaseStudy[] = [...fallbackWorkItems, ...fallbackRecentWork];
-
 export async function generateStaticParams() {
   const slugs = await getCaseStudySlugs();
-  if (slugs.length > 0) {
-    return slugs.map((slug) => ({ slug }));
-  }
-  return FALLBACK_ITEMS.map((item) => ({ slug: item.slug }));
-}
-
-async function resolveCaseStudy(slug: string): Promise<CaseStudy | null> {
-  const found = await getCaseStudyBySlug(slug);
-  if (found) {
-    return found;
-  }
-  return FALLBACK_ITEMS.find((item) => item.slug === slug) ?? null;
+  return slugs.map((slug) => ({ slug }));
 }
 
 export default async function WorkDetailPage({
@@ -29,7 +14,7 @@ export default async function WorkDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const caseStudy = await resolveCaseStudy(slug);
+  const caseStudy = await getCaseStudyBySlug(slug);
 
   if (!caseStudy) {
     notFound();
@@ -82,7 +67,10 @@ export default async function WorkDetailPage({
               <div className="md:col-span-5 col-span-12">
                 <div className="rounded-sm bg-shadegray 2xl:py-12.5 2xl:px-10 p-5 h-full">
                   <h3 className="mb-3 4xl:text-4xl sm:text-2xxxl/10 text-2xxl">Overview</h3>
-                  <p className="4xl:text-2xl text-xl font-light text-softgray">{caseStudy.problem}</p>
+                  <div
+                    className="richtext 4xl:text-2xl text-xl font-light text-softgray"
+                    dangerouslySetInnerHTML={{ __html: caseStudy.problem }}
+                  />
                 </div>
               </div>
               <div className="md:col-span-6 col-span-12 dz-hover-item">
@@ -98,7 +86,10 @@ export default async function WorkDetailPage({
               <div className="lg:col-span-5 col-span-12">
                 <div className="rounded-sm bg-shadegray 2xl:py-12.5 2xl:px-10 p-5 h-full">
                   <h3 className="mb-3 4xl:text-4xl sm:text-2xxxl/10 text-2xxl">Our Approach Solution</h3>
-                  <p className="4xl:text-2xl text-xl font-light text-softgray">{caseStudy.solution}</p>
+                  <div
+                    className="richtext 4xl:text-2xl text-xl font-light text-softgray"
+                    dangerouslySetInnerHTML={{ __html: caseStudy.solution }}
+                  />
                 </div>
               </div>
               <div className="lg:col-span-7 col-span-12 dz-hover-item">

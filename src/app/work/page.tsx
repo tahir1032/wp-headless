@@ -1,12 +1,10 @@
 import CaseCard from "@/components/work/CaseCard";
 import { getCaseStudies } from "@/lib/wordpress";
-import { fallbackWorkItems, fallbackFilters } from "@/lib/fallback-data";
 
 export const revalidate = 3600;
 
 export default async function WorkPage() {
-  const fetched = await getCaseStudies(100);
-  const workItems = fetched.length > 0 ? fetched : fallbackWorkItems;
+  const workItems = await getCaseStudies(100);
 
   return (
     <>
@@ -25,37 +23,19 @@ export default async function WorkPage() {
 
       <div className="border-t border-lightgray">
         <div className="container-full">
-          <div className="grid grid-cols-12">
-            <div className="2xl:col-span-2 col-span-12">
-              <div className="pt-10 px-5 site-filters">
-                <span className="text-sm text-mediumgray font-medium block mb-5">Filter</span>
-                <ul className="filters max-2xl:flex max-2xl:justify-center max-2xl:gap-1.25 max-2xl:flex-wrap">
-                  {fallbackFilters.map((f) => (
-                    <li
-                      key={f.filter}
-                      data-filter={f.filter}
-                      className="filter-btn py-2.5 px-5 text-primary bg-cleangray text-sm hover:bg-primary hover:text-white duration-500 rounded-full table mb-1.25"
-                    >
-                      <button type="button">{f.label}</button>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className="2xl:col-span-10 col-span-12 border-l border-lightgray services" id="services">
-              {workItems.map((item, i) => (
-                <CaseCard
-                  key={item.slug}
-                  title={item.title}
-                  date={item.date}
-                  category={item.categorySlug || "branding"}
-                  tags={item.tags.length > 0 ? item.tags : ["Meta Ads", "Google Ads", "CRO", "Analytics"]}
-                  image={item.featuredImage || item.gallery[0]?.url || "/images/work/services/1.webp"}
-                  href={`/work/${item.slug}`}
-                  last={i === workItems.length - 1}
-                />
-              ))}
-            </div>
+          <div className="services" id="services">
+            {workItems.map((item, i) => (
+              <CaseCard
+                key={item.slug}
+                title={item.title}
+                date={item.date}
+                category={item.categorySlug || "branding"}
+                tags={item.tags.length > 0 ? item.tags : ["Meta Ads", "Google Ads", "CRO", "Analytics"]}
+                image={item.featuredImage || item.gallery[0]?.url || "/images/work/services/1.webp"}
+                href={`/work/${item.slug}`}
+                last={i === workItems.length - 1}
+              />
+            ))}
           </div>
         </div>
       </div>

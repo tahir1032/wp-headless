@@ -1,0 +1,45 @@
+/* Restores basic hierarchy for WYSIWYG content coming from WordPress (Tailwind's
+   preflight strips default heading/strong/list styles otherwise). */
+.richtext h1,
+.richtext h2,
+.richtext h3,
+.richtext h4 {
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+
+.richtext h1,
+.richtext h2 {
+  font-size: 1.4em;
+}
+
+.richtext h3,
+.richtext h4 {
+  font-size: 1.15em;
+}
+
+.richtext p {
+  margin-bottom: 0.75em;
+}
+
+.richtext p:last-child {
+  margin-bottom: 0;
+}
+
+.richtext strong,
+.richtext b {
+  font-weight: 600;
+}
+
+.richtext ul,
+.richtext ol {
+  margin: 0.5em 0 0.75em 1.25em;
+}
+
+.richtext ul {
+  list-style: disc;
+}
+
+.richtext ol {
+  list-style: decimal;
+}

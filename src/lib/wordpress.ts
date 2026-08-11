@@ -1,4 +1,4 @@
-import type { CaseStudy, CaseStudyMetric, GalleryImage } from "@/types";
+import type { CaseStudy, GalleryImage } from "@/types";
 
 const WP_API_URL = process.env.WORDPRESS_API_URL;
 const REVALIDATE_SECONDS = Number(process.env.REVALIDATE_SECONDS ?? 3600);
@@ -10,14 +10,18 @@ interface WPTerm {
   taxonomy: string;
 }
 
-interface WPCaseStudyMeta {
-  platform?: string;
+interface WPCaseStudyACF {
+  project_platform?: string;
   client_type?: string;
   client_name?: string;
-  problem?: string;
-  solution?: string;
-  metrics?: CaseStudyMetric[];
-  gallery?: GalleryImage[];
+  project_issuesproblem?: string;
+  project_solutions?: string;
+  techniques__method_used?: string[];
+  project_images_1?: number;
+  project_images_2?: number;
+  project_images_3?: number;
+  project_images_4?: number;
+  project_images_5?: number;
 }
 
 interface WPCaseStudyItem {
@@ -26,7 +30,7 @@ interface WPCaseStudyItem {
   date: string;
   title: { rendered: string };
   excerpt?: { rendered: string };
-  th_meta?: WPCaseStudyMeta;
+  acf?: WPCaseStudyACF;
   _embedded?: {
     "wp:featuredmedia"?: Array<{ source_url: string }>;
     "wp:term"?: WPTerm[][];
@@ -45,28 +49,67 @@ function formatDate(iso: string): string {
   });
 }
 
-function mapCaseStudy(item: WPCaseStudyItem): CaseStudy {
-  const meta = item.th_meta ?? {};
+/**
+ * The ACF Image fields on `case-study` return raw attachment IDs regardless
+ * of the field's Return Format setting, so resolve each one via the media
+ * endpoint instead of relying on that setting.
+ */
+async function resolveMediaUrl(id: number | undefined): Promise<string | null> {
+  if (!id || !WP_API_URL) {
+    return null;
+  }
+
+  try {
+    const url = new URL(`/wp-json/wp/v2/media/${id}`, WP_API_URL);
+    const response = await fetch(url.toString(), { next: { revalidate: REVALIDATE_SECONDS } });
+    if (!response.ok) {
+      return null;
+    }
+    const data = await response.json();
+    return data.source_url ?? null;
+  } catch (error) {
+    console.error(`Failed to resolve media #${id}:`, error);
+    return null;
+  }
+}
+
+async function mapCaseStudy(item: WPCaseStudyItem): Promise<CaseStudy> {
+  const acf = item.acf ?? {};
   const terms = (item._embedded?.["wp:term"] ?? []).flat();
-  const category = terms.find((t) => t.taxonomy === "case_study_category");
-  const tags = terms.filter((t) => t.taxonomy === "case_study_tag").map((t) => t.name);
+  const category = terms.find((t) => t.taxonomy === "category");
+
+  const imageIds = [
+    acf.project_images_1,
+    acf.project_images_2,
+    acf.project_images_3,
+    acf.project_images_4,
+    acf.project_images_5,
+  ];
+  const resolvedUrls = await Promise.all(imageIds.map(resolveMediaUrl));
+  const gallery: GalleryImage[] = imageIds.reduce<GalleryImage[]>((acc, id, index) => {
+    const url = resolvedUrls[index];
+    if (id && url) {
+      acc.push({ id, url });
+    }
+    return acc;
+  }, []);
 
   return {
     id: item.id,
     slug: item.slug,
     title: stripHtml(item.title.rendered),
     date: formatDate(item.date),
-    platform: meta.platform ?? "WordPress",
-    clientType: meta.client_type ?? "",
-    clientName: meta.client_name ?? "",
-    problem: meta.problem ?? "",
-    solution: meta.solution ?? "",
-    metrics: Array.isArray(meta.metrics) ? meta.metrics : [],
-    gallery: Array.isArray(meta.gallery) ? meta.gallery : [],
+    platform: acf.project_platform ?? "WordPress",
+    clientType: acf.client_type ?? "",
+    clientName: acf.client_name ?? "",
+    problem: acf.project_issuesproblem ?? "",
+    solution: acf.project_solutions ?? "",
+    metrics: [],
+    gallery,
     categorySlug: category?.slug ?? "",
     categoryLabel: category?.name ?? "",
-    tags,
-    excerpt: item.excerpt ? stripHtml(item.excerpt.rendered) : undefined,
+    tags: Array.isArray(acf.techniques__method_used) ? acf.techniques__method_used : [],
+    excerpt: item.excerpt?.rendered ? stripHtml(item.excerpt.rendered) : undefined,
     featuredImage: item._embedded?.["wp:featuredmedia"]?.[0]?.source_url,
   };
 }
@@ -76,7 +119,7 @@ async function fetchCaseStudies(searchParams: Record<string, string>): Promise<W
     return [];
   }
 
-  const url = new URL("/wp-json/wp/v2/case_study", WP_API_URL);
+  const url = new URL("/wp-json/wp/v2/case-study", WP_API_URL);
   url.searchParams.set("_embed", "1");
   for (const [key, value] of Object.entries(searchParams)) {
     url.searchParams.set(key, value);
@@ -105,7 +148,7 @@ export async function getCaseStudies(perPage = 20): Promise<CaseStudy[]> {
       orderby: "date",
       order: "desc",
     });
-    return data.map(mapCaseStudy);
+    return await Promise.all(data.map(mapCaseStudy));
   } catch (error) {
     console.error("Failed to fetch case studies from WordPress:", error);
     return [];
@@ -118,7 +161,7 @@ export async function getCaseStudyBySlug(slug: string): Promise<CaseStudy | null
     if (!data.length) {
       return null;
     }
-    return mapCaseStudy(data[0]);
+    return await mapCaseStudy(data[0]);
   } catch (error) {
     console.error(`Failed to fetch case study "${slug}":`, error);
     return null;
@@ -131,7 +174,7 @@ export async function getCaseStudySlugs(): Promise<string[]> {
   }
 
   try {
-    const url = new URL("/wp-json/wp/v2/case_study", WP_API_URL);
+    const url = new URL("/wp-json/wp/v2/case-study", WP_API_URL);
     url.searchParams.set("per_page", "100");
     url.searchParams.set("_fields", "slug");
 
@@ -158,7 +201,7 @@ export async function getAdjacentCaseStudies(
   }
 
   try {
-    const url = new URL("/wp-json/wp/v2/case_study", WP_API_URL);
+    const url = new URL("/wp-json/wp/v2/case-study", WP_API_URL);
     url.searchParams.set("per_page", "100");
     url.searchParams.set("orderby", "date");
     url.searchParams.set("order", "desc");
