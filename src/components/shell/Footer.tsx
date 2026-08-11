@@ -1,8 +1,11 @@
 "use client";
 
 import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_LINK, LINKEDIN_URL } from "@/lib/site-config";
+import { useNewsletterSubscribe } from "@/hooks/useNewsletterSubscribe";
 
 export default function Footer() {
+  const { status, handleSubmit } = useNewsletterSubscribe();
+
   return (
     <footer className="bg-snowwhite lg:pt-37 pt-15 overflow-hidden relative z-1 footer site-footer">
       <div className="container-full px-5">
@@ -13,8 +16,20 @@ export default function Footer() {
               Occasional insights on WordPress, GoHighLevel, and web strategy. No spam, ever.
             </p>
             <div className="relative w-full lg:max-w-113.75 subscribe-form">
-              <form className="dzSubscribe" onSubmit={(e) => e.preventDefault()}>
-                <div className="dzSubscribeMsg"></div>
+              <form className="dzSubscribe" onSubmit={handleSubmit}>
+                <input
+                  type="text"
+                  name="website"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
+                />
+                {status.state !== "idle" && (
+                  <div className={`dzSubscribeMsg text-sm mb-2 ${status.state === "success" ? "text-primary" : status.state === "error" ? "text-red-500" : "text-gray"}`}>
+                    {status.state === "sending" ? "Subscribing..." : status.message}
+                  </div>
+                )}
                 <label htmlFor="subscribeEmail" className="sr-only">Email address</label>
                 <input
                   name="dzEmail"
@@ -24,7 +39,7 @@ export default function Footer() {
                   className="relative flex flex-wrap tems-stretch h-13.75 w-full border-b border-primary pr-8"
                   placeholder="Email address"
                 />
-                <button aria-label="Subscribe" type="submit" className="absolute bottom-0 -translate-y-1/2 right-0 group overflow-hidden cursor-pointer">
+                <button aria-label="Subscribe" type="submit" disabled={status.state === "sending"} className="absolute bottom-0 -translate-y-1/2 right-0 group overflow-hidden cursor-pointer disabled:opacity-60">
                   <svg aria-hidden="true" className="group-hover:animate-toTopFromBottom" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M7 17L17 7" stroke="#111111" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
                     <path d="M17 17V7H7" stroke="#111111" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />

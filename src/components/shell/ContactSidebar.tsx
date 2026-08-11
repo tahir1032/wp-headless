@@ -1,8 +1,11 @@
 "use client";
 
 import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_LINK, LINKEDIN_URL } from "@/lib/site-config";
+import { useNewsletterSubscribe } from "@/hooks/useNewsletterSubscribe";
 
 export default function ContactSidebar() {
+  const { status, handleSubmit } = useNewsletterSubscribe();
+
   return (
     <>
       <button
@@ -34,8 +37,20 @@ export default function ContactSidebar() {
           </ul>
           <h4 className="text-2xl font-media mb-5 text-white">Newsletter</h4>
           <div className="subscribe-form">
-            <form className="dzSubscribe" onSubmit={(e) => e.preventDefault()}>
-              <div className="dzSubscribeMsg"></div>
+            <form className="dzSubscribe" onSubmit={handleSubmit}>
+              <input
+                type="text"
+                name="website"
+                tabIndex={-1}
+                autoComplete="off"
+                className="hidden"
+                aria-hidden="true"
+              />
+              {status.state !== "idle" && (
+                <div className={`dzSubscribeMsg text-sm mb-2.5 ${status.state === "error" ? "text-red-400" : "text-white"}`}>
+                  {status.state === "sending" ? "Subscribing..." : status.message}
+                </div>
+              )}
               <div className="form-group">
                 <div className="input-group flex items-center border-b border-primary mb-5 relative">
                   <input
@@ -45,7 +60,7 @@ export default function ContactSidebar() {
                     className="form-control p-1.25 pr-10 text-2sm font-normal text-white border-b border-white/10 h-12.5 w-full"
                     placeholder="Your Email Address"
                   />
-                  <button aria-label="Subscribe" type="submit" className="absolute bottom-0 -translate-y-1/2 right-0 group overflow-hidden cursor-pointer">
+                  <button aria-label="Subscribe" type="submit" disabled={status.state === "sending"} className="absolute bottom-0 -translate-y-1/2 right-0 group overflow-hidden cursor-pointer disabled:opacity-60">
                     <svg aria-hidden="true" className="group-hover:animate-toTopFromBottom" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M7 17L17 7" stroke="#FFF" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
                       <path d="M17 17V7H7" stroke="#FFF" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
