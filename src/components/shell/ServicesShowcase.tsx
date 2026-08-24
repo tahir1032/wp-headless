@@ -95,7 +95,7 @@ export default function ServicesShowcase() {
                     </li>
                   ))}
                 </ul>
-                <a href="/studio" className="site-button butn-bg-shape">Get in Touch</a>
+                <a href="/about" className="site-button butn-bg-shape">Get in Touch</a>
               </div>
             </div>
           ))}

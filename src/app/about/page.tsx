@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "freelance WordPress consultant",
     "WordPress developer portfolio",
   ],
-  alternates: { canonical: "/studio" },
+  alternates: { canonical: "/about" },
   openGraph: {
     title: "About Tahir Hafeez | WordPress & GoHighLevel Expert",
     description:
