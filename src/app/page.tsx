@@ -64,9 +64,9 @@ export default async function Home() {
           </button>
 
           <button
-            data-type="youtube"
-            aria-label="Play YouTube Video"
-            data-src="https://www.youtube.com/embed/tVphpcFHGaI"
+            data-type="mp4"
+            aria-label="Play Video"
+            data-src="/video/about.mp4"
             className="2xl:w-75 xl:w-60 lg:w-50 sm:w-40 w-15 2xl:min-w-75 xl:min-w-60 lg:min-w-50 sm:min-w-40 min-w-15 2xl:mx-20 xl:mx-10 rounded-full overflow-hidden wow fadeInUp cursor-pointer flex items-center justify-center"
             data-wow-delay="0.5s"
           >
