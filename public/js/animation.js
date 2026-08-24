@@ -89,8 +89,8 @@ const amaraGsap = function () {
   const initScrollImgAnimation = () => {
     const ITEM_COUNT = 20;
     const imageItems = Array.from(
-      { length: 21 },
-      (_, i) => `/images/image-scroll/${i + 1}.webp`,
+      { length: 11 },
+      (_, i) => `/images/plugin-logos/${i + 1}.webp`,
     );
 
     let ctx;
