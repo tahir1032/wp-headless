@@ -127,7 +127,7 @@ export default async function Home() {
 
       <section className="img-section 3xl:py-60 xl:py-30 md:py-20 max-sm:h-91.25 max-sm:-top-25">
         <div className="relative">
-          <h2 className="xl:text-250 lg:text-[150px] sm:text-8xl text-7xxxl absolute top-65 left-1/2 -translate-1/2 z-10 zoom-text">ABOUT</h2>
+          <h2 className="xl:text-250 lg:text-[150px] sm:text-8xl text-7xxxl absolute top-65 left-1/2 -translate-1/2 z-10 zoom-text">DEV</h2>
           <svg className="w-full h-139" width="1921" viewBox="0 0 1921 556" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g clipPath="url(#clip0_rocket_main)">
               <path

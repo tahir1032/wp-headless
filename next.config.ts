@@ -18,7 +18,12 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/studio",
-        destination: "/about",
+        destination: "/developer",
+        permanent: true,
+      },
+      {
+        source: "/about",
+        destination: "/developer",
         permanent: true,
       },
     ];

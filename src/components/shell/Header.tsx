@@ -45,7 +45,7 @@ export default function Header() {
                   <a href="/work">Work</a>
                 </li>
                 <li>
-                  <a href="/about">About</a>
+                  <a href="/developer">Developer</a>
                 </li>
                 <li>
                   <a href="/industries">Industries</a>
