@@ -157,8 +157,8 @@ export default function StudioPage() {
                   href="/industries"
                   className="py-2.5 pr-5 pl-2.5 bg-cleangray rounded-full flex items-center gap-2.5 text-base font-light hover:bg-primary hover:text-white duration-500"
                 >
-                  <span className="size-9 bg-primary rounded-full flex items-center justify-center text-lg shrink-0">
-                    {industry.icon}
+                  <span className="size-9 bg-primary rounded-full flex items-center justify-center shrink-0">
+                    <i className={`fa-solid ${industry.icon} text-white text-sm`}></i>
                   </span>
                   {industry.title}
                 </a>
