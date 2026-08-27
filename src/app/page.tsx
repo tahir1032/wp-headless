@@ -149,6 +149,14 @@ export default async function Home() {
 
       <ServicesShowcase />
 
+      <p className="text-center text-base sm:text-lg text-mediumgray py-10">
+        Delivered across 26+ industries —{" "}
+        <a href="/industries" className="text-primary underline underline-offset-4">
+          e-commerce, healthcare, real estate, education, and more
+        </a>
+        .
+      </p>
+
       <section className="2xl:pt-10 lg:pt-30 pt-15 overflow-hidden">
         <div className="container-fluid">
           <div className="grid grid-cols-12 items-center max-xl:flex max-xl:flex-col-reverse">

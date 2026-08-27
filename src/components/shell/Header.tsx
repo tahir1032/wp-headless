@@ -48,6 +48,9 @@ export default function Header() {
                   <a href="/about">About</a>
                 </li>
                 <li>
+                  <a href="/industries">Industries</a>
+                </li>
+                <li>
                   <a href="/contact-us">Contact Us</a>
                 </li>
               </ul>

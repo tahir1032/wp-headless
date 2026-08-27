@@ -59,6 +59,7 @@ export default function Footer() {
                 <h5 className="text-xl font-semibold text-black pb-2 border-b border-lightgray mb-5 inline-block">Company</h5>
                 <a href="/work" className="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span className="link-hover">Work</span></a>
                 <a href="/about" className="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span className="link-hover">About</span></a>
+                <a href="/industries" className="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span className="link-hover">Industries</span></a>
                 <a href="/contact-us" className="block text-base text-gray mb-3 relative hover:text-primary duration-500"><span className="link-hover">Contact</span></a>
               </div>
               <div className="relative">

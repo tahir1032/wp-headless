@@ -1,5 +1,13 @@
 import type { Metadata } from "next";
 import ServicesShowcase from "@/components/shell/ServicesShowcase";
+import { WORDPRESS_INDUSTRIES, GHL_INDUSTRIES } from "@/lib/industries-data";
+
+const INDUSTRY_TEASER = [
+  ...WORDPRESS_INDUSTRIES.filter((i) =>
+    ["E-Commerce & Retail", "Healthcare & Medical", "Real Estate & Property", "Digital, Tech & SaaS", "Business & Corporate", "Legal, Finance & Professional Services"].includes(i.title),
+  ),
+  ...GHL_INDUSTRIES.filter((i) => ["Coaches & Course Creators", "Marketing & Digital Agencies"].includes(i.title)),
+];
 
 export const metadata: Metadata = {
   title: "About Tahir Hafeez — WordPress Developer & GHL Expert",
@@ -171,6 +179,27 @@ export default function StudioPage() {
               <li key={item.text} className={`py-2.5 sm:pr-7.5 pr-2.5 pl-2.5 bg-cleangray rounded-full flex items-center gap-2.5 wow ${item.delay}`} data-wow-delay="0.1s">
                 <a className="sm:size-12.5 size-10 bg-primary flex items-center justify-center rounded-full">{CHECK_ICON}</a>
                 {item.text}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="pb-20">
+        <div className="container">
+          <h3 className="text-center text-xl font-medium text-mediumgray mb-7.5">Industries I Work In</h3>
+          <ul className="flex flex-wrap items-center justify-center gap-3.75">
+            {INDUSTRY_TEASER.map((industry) => (
+              <li key={industry.title}>
+                <a
+                  href="/industries"
+                  className="py-2.5 pr-5 pl-2.5 bg-cleangray rounded-full flex items-center gap-2.5 text-base font-light hover:bg-primary hover:text-white duration-500"
+                >
+                  <span className="size-9 bg-primary rounded-full flex items-center justify-center text-lg shrink-0">
+                    {industry.icon}
+                  </span>
+                  {industry.title}
+                </a>
               </li>
             ))}
           </ul>
