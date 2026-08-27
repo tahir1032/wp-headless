@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import IndustryCard from "@/components/industries/IndustryCard";
-import MissionPromiseApproach from "@/components/shell/MissionPromiseApproach";
+import ServicesShowcase from "@/components/shell/ServicesShowcase";
 import { WORDPRESS_INDUSTRIES, GHL_INDUSTRIES } from "@/lib/industries-data";
 
 export const metadata: Metadata = {
@@ -77,9 +77,7 @@ export default function IndustriesPage() {
         </div>
       </div>
 
-      <div className="border-t border-lightgray">
-        <MissionPromiseApproach />
-      </div>
+      <ServicesShowcase />
 
       <section className="border-t border-lightgray py-25 text-center">
         <div className="container-fluid">
