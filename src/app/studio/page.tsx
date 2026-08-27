@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import ServicesShowcase from "@/components/shell/ServicesShowcase";
 import MissionPromiseApproach from "@/components/shell/MissionPromiseApproach";
 import BannerCTAButton from "@/components/shell/BannerCTAButton";
-import ClosingCTA from "@/components/shell/ClosingCTA";
+import ContactForm from "@/components/contact/ContactForm";
+import WhatsAppCard from "@/components/contact/WhatsAppCard";
+import EmailCard from "@/components/contact/EmailCard";
 import { WORDPRESS_INDUSTRIES, GHL_INDUSTRIES } from "@/lib/industries-data";
 
 const INDUSTRY_TEASER = [
@@ -128,6 +130,24 @@ export default function StudioPage() {
         </div>
       </div>
 
+      <div className="py-15 text-center border-b border-lightgray">
+        <div className="container-fluid flex flex-wrap items-center justify-center gap-5">
+          <h3 className="text-xl sm:text-2xl font-medium">If you&apos;ve read this far — let&apos;s just talk.</h3>
+          <a
+            href="/contact-us"
+            className="inline-flex items-center gap-2.5 bg-primary text-white py-3 px-5.5 rounded-full group overflow-hidden"
+          >
+            <span className="font-medium">Start a Conversation</span>
+            <span className="overflow-hidden inline-flex items-center justify-center">
+              <svg className="group-hover:animate-toTopFromBottom" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 17L17 7" stroke="#fff" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                <path d="M17 17V7H7" stroke="#fff" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </div>
+
       <MissionPromiseApproach />
 
       <section className="2xl:py-50 py-20">
@@ -185,10 +205,28 @@ export default function StudioPage() {
 
       <ServicesShowcase />
 
-      <ClosingCTA
-        heading="Like my approach? Let's talk about your project."
-        subtext="Every engagement starts with a conversation about your goals — not a sales pitch. Tell me what you're building."
-      />
+      <section className="border-t border-lightgray py-25">
+        <div className="container-fluid">
+          <div className="text-center max-w-175 mx-auto mb-15">
+            <h2 className="text-2xl sm:text-4xl font-semibold mb-5">Like my approach? Let&apos;s talk about your project.</h2>
+            <p className="text-base sm:text-lg text-mediumgray">
+              Every engagement starts with a conversation about your goals — not a sales pitch. Tell me
+              what you&apos;re building, or reach out directly however works best for you.
+            </p>
+          </div>
+          <div className="grid grid-cols-12 gap-7.5">
+            <div className="lg:col-span-7 col-span-12">
+              <div className="bg-cleangray rounded-md p-7.5 sm:p-10">
+                <ContactForm />
+              </div>
+            </div>
+            <div className="lg:col-span-5 col-span-12 flex flex-col gap-5">
+              <WhatsAppCard />
+              <EmailCard />
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }

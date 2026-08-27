@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CaseCard from "@/components/work/CaseCard";
 import ServicesShowcase from "@/components/shell/ServicesShowcase";
+import ClosingCTA from "@/components/shell/ClosingCTA";
 import { getCaseStudies } from "@/lib/wordpress";
 
 export const revalidate = 3600;
@@ -173,6 +174,12 @@ export default async function Home() {
           </div>
         </div>
       </section>
+
+      <ClosingCTA
+        heading="One conversation can change everything."
+        subtext="Tell me what you're building and I'll respond within 24 hours with a clear plan and an honest quote."
+        showWhatsAppLink
+      />
     </>
   );
 }

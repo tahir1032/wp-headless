@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { LINKEDIN_URL } from "@/lib/site-config";
 
 const SERVICE_GROUPS = [
   {
@@ -62,6 +63,15 @@ const SERVICE_GROUPS = [
 
 const OTHER_SERVICE_OPTION = "Other / Not Sure Yet — Let's Talk";
 
+const BUDGET_OPTIONS = [
+  "Under $500",
+  "$500–$1,000",
+  "$1,000–$3,000",
+  "$3,000–$5,000",
+  "$5,000+",
+  "Not sure yet",
+];
+
 type Status = { state: "idle" | "sending" | "success" | "error"; message?: string };
 
 export default function ContactForm() {
@@ -90,6 +100,7 @@ export default function ContactForm() {
           email: data.get("dzEmail"),
           phone: data.get("phone"),
           service: data.get("service"),
+          budget: data.get("budget"),
           message: data.get("dzMessage"),
         }),
       });
@@ -106,6 +117,26 @@ export default function ContactForm() {
     }
   }
 
+  if (status.state === "success") {
+    return (
+      <div className="rounded-md bg-cleangray p-7.5 sm:p-10">
+        <h3 className="text-2xl sm:text-3xl font-semibold mb-3">Message received — thank you! 🎉</h3>
+        <p className="text-lg text-softgray font-light">
+          I&apos;ve got your details and I&apos;ll be back in touch within 24 hours. While you wait, feel
+          free to browse my{" "}
+          <a href="/work" className="text-primary font-medium underline underline-offset-4">
+            recent work
+          </a>{" "}
+          or connect with me on{" "}
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-primary font-medium underline underline-offset-4">
+            LinkedIn
+          </a>
+          .
+        </p>
+      </div>
+    );
+  }
+
   return (
     <form className="dz-form" onSubmit={handleSubmit}>
       {/* Honeypot field - hidden from real users, left blank by them */}
@@ -118,40 +149,37 @@ export default function ContactForm() {
         aria-hidden="true"
       />
 
-      {status.state !== "idle" && (
+      {status.state === "error" && (
         <div className="dzFormMsg">
-          <div className={`alert dz-alert ${status.state === "success" ? "alert-success" : status.state === "error" ? "alert-danger" : ""}`}>
-            {status.state === "sending" ? "Sending..." : status.message}
-          </div>
+          <div className="alert dz-alert alert-danger">{status.message}</div>
         </div>
       )}
 
       <div className="row">
         <div className="sm:w-1/2 w-full">
           <div className="mb-7.5 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
-            <label htmlFor="fullname" className="block text-mediumgray font-normal text-base">Name</label>
-            <input required type="text" name="dzName" id="fullname" placeholder="Jon Davin" className="text-lg placeholder:text-primary text-primary w-full" />
+            <label htmlFor="fullname" className="block text-mediumgray font-normal text-base">Your name</label>
+            <input required type="text" name="dzName" id="fullname" placeholder="John Smith" className="text-lg placeholder:text-primary text-primary w-full" />
           </div>
         </div>
         <div className="sm:w-1/2 w-full">
           <div className="mb-7.5 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
-            <label htmlFor="emailaddress" className="block text-mediumgray font-normal text-base">Email Address</label>
-            <input required autoComplete="email" type="email" name="dzEmail" id="emailaddress" placeholder="you@example.com" className="text-lg placeholder:text-primary text-primary w-full" />
+            <label htmlFor="emailaddress" className="block text-mediumgray font-normal text-base">Email address</label>
+            <input required autoComplete="email" type="email" name="dzEmail" id="emailaddress" placeholder="john@yourbusiness.com" className="text-lg placeholder:text-primary text-primary w-full" />
           </div>
         </div>
         <div className="sm:w-1/2 w-full">
           <div className="mb-7.5 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
-            <label htmlFor="inputPhone" className="block text-mediumgray font-normal text-base">Phone Number</label>
+            <label htmlFor="inputPhone" className="block text-mediumgray font-normal text-base">WhatsApp or phone (optional)</label>
             <input
               name="phone"
               type="tel"
               id="inputPhone"
-              placeholder="Phone Number"
-              required
+              placeholder="+1 234 567 8900"
               maxLength={15}
               inputMode="numeric"
               autoComplete="tel"
-              aria-label="Phone Number"
+              aria-label="WhatsApp or phone (optional)"
               onInput={(e) => {
                 e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "").slice(0, 15);
               }}
@@ -162,9 +190,9 @@ export default function ContactForm() {
         <div className="sm:w-1/2 w-full">
           <div className="relative custom-select mb-7.5 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
             <div data-label="Service">
-              <label htmlFor="sortingSelect" className="sr-only">Service</label>
+              <label htmlFor="sortingSelect" className="sr-only">What do you need?</label>
               <select required name="service" defaultValue="" className="dynamic-select w-full" id="sortingSelect">
-                <option value="" disabled>Service</option>
+                <option value="" disabled>Select a service...</option>
                 {SERVICE_GROUPS.map((group) => (
                   <optgroup key={group.label} label={group.label}>
                     {group.options.map((opt) => (
@@ -177,21 +205,40 @@ export default function ContactForm() {
             </div>
           </div>
         </div>
+        <div className="w-full">
+          <div className="relative custom-select mb-7.5 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
+            <div data-label="Budget">
+              <label htmlFor="budgetSelect" className="sr-only">Rough budget range (optional)</label>
+              <select name="budget" defaultValue="" className="dynamic-select w-full" id="budgetSelect">
+                <option value="">Rough budget range (optional)</option>
+                {BUDGET_OPTIONS.map((opt) => (
+                  <option key={opt} value={opt}>{opt}</option>
+                ))}
+              </select>
+            </div>
+          </div>
+        </div>
 
         <div className="w-full">
-          <div className="mb-10 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
-            <label htmlFor="message" className="block text-mediumgray font-normal text-base">Message</label>
-            <textarea required placeholder="Write here" name="dzMessage" id="message" className="text-lg placeholder:text-textgray text-primary min-h-50 h-full w-full"></textarea>
+          <div className="mb-3 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
+            <label htmlFor="message" className="block text-mediumgray font-normal text-base">Tell me about your project</label>
+            <textarea
+              required
+              placeholder="Describe what you're building, what problem you're trying to solve, and any details that will help me understand what you need. The more detail, the better my response."
+              name="dzMessage"
+              id="message"
+              className="text-lg placeholder:text-textgray text-primary min-h-50 h-full w-full"
+            ></textarea>
           </div>
         </div>
         <div className="w-full">
           <button
-            aria-label="Submit"
+            aria-label="Send Message"
             type="submit"
             disabled={status.state === "sending"}
             className="bg-primary py-4 px-6.25 text-white rounded-full flex group cursor-pointer disabled:opacity-60"
           >
-            <span className="font-medium">{status.state === "sending" ? "Sending..." : "Submit Now"}</span>
+            <span className="font-medium">{status.state === "sending" ? "Sending..." : "Send Message"}</span>
             <span className="overflow-hidden ml-2.5 inline-flex items-center justify-center">
               <svg className="group-hover:animate-toTopFromBottom" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5.83337 14.1667L14.1667 5.83334" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -199,6 +246,7 @@ export default function ContactForm() {
               </svg>
             </span>
           </button>
+          <p className="text-sm text-mediumgray mt-3.75">I&apos;ll reply within 24 hours. Your information is never shared.</p>
         </div>
       </div>
     </form>

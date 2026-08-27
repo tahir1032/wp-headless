@@ -76,8 +76,9 @@ export default async function WorkPage() {
       </div>
 
       <ClosingCTA
-        heading="Ready to see your project here next?"
+        heading="Seen enough? Let's build yours."
         subtext="Every case study above started with a single conversation. Tell me what you're building and let's talk timeline, scope, and budget."
+        showWhatsAppButton
       />
     </>
   );

@@ -6,6 +6,9 @@ const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "923027263808
 export const WHATSAPP_DISPLAY = "+92 302 7263808";
 export const WHATSAPP_LINK = `https://wa.me/${WHATSAPP_NUMBER}`;
 
+const WHATSAPP_PREFILL_TEXT = "Hi Tahir, I found your website and I'd like to discuss a project.";
+export const WHATSAPP_LINK_PREFILLED = `${WHATSAPP_LINK}?text=${encodeURIComponent(WHATSAPP_PREFILL_TEXT)}`;
+
 export const LINKEDIN_URL = process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "https://linkedin.com/in/muhammad-tahir-hafeez";
 
 export const SITE_URL = "https://www.tahirhafeez.com";

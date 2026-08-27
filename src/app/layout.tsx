@@ -6,6 +6,7 @@ import ContactSidebar from "@/components/shell/ContactSidebar";
 import Footer from "@/components/shell/Footer";
 import VideoModal from "@/components/shell/VideoModal";
 import ScrollTopButton from "@/components/shell/ScrollTopButton";
+import WhatsAppFloatingButton from "@/components/shell/WhatsAppFloatingButton";
 import VendorScripts from "@/components/shell/VendorScripts";
 import { SITE_URL, CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site-config";
 
@@ -108,6 +109,7 @@ export default function RootLayout({
 
         <VideoModal />
         <ScrollTopButton />
+        <WhatsAppFloatingButton />
 
         <VendorScripts />
       </body>

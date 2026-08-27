@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import IndustryCard from "@/components/industries/IndustryCard";
 import ServicesShowcase from "@/components/shell/ServicesShowcase";
+import WhatsAppCard from "@/components/contact/WhatsAppCard";
+import EmailCard from "@/components/contact/EmailCard";
 import { WORDPRESS_INDUSTRIES, GHL_INDUSTRIES } from "@/lib/industries-data";
 
 export const metadata: Metadata = {
@@ -76,21 +78,42 @@ export default function IndustriesPage() {
 
       <ServicesShowcase />
 
-      <section className="border-t border-lightgray py-25 text-center">
+      <section className="border-t border-lightgray py-25">
         <div className="container-fluid">
-          <h2 className="text-2xl sm:text-4xl font-semibold mb-7.5">Don&apos;t see your industry? Let&apos;s talk.</h2>
-          <a
-            href="/contact-us"
-            className="inline-flex items-center gap-2.5 bg-primary text-white py-4 px-6.25 rounded-full group overflow-hidden"
-          >
-            <span className="font-medium">Start a Conversation</span>
-            <span className="overflow-hidden inline-flex items-center justify-center">
-              <svg className="group-hover:animate-toTopFromBottom" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 17L17 7" stroke="#fff" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M17 17V7H7" stroke="#fff" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </a>
+          <div className="text-center max-w-175 mx-auto mb-15">
+            <h2 className="text-2xl sm:text-4xl font-semibold mb-5">Don&apos;t see your industry? It doesn&apos;t matter.</h2>
+            <p className="text-base sm:text-lg text-mediumgray">
+              Every project starts the same way — a conversation about what you&apos;re building. Reach
+              out however&apos;s easiest for you.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            <div className="rounded-sm bg-shadegray p-7.5 h-full flex flex-col">
+              <span className="text-sm text-mediumgray font-medium uppercase block mb-2.5">Fill out a form</span>
+              <h3 className="text-2xl font-semibold mb-3 flex items-center gap-2.5">
+                <i className="fa-solid fa-envelope-open-text text-primary"></i>
+                Contact Form
+              </h3>
+              <p className="text-base font-light text-softgray mb-5 flex-1">
+                Tell me about your project in detail and I&apos;ll respond within 24 hours with a clear
+                plan and an honest quote.
+              </p>
+              <a
+                href="/contact-us"
+                className="inline-flex items-center gap-2.5 bg-primary text-white py-3 px-5.5 rounded-full group overflow-hidden self-start"
+              >
+                <span className="font-medium">Go to Contact Form</span>
+                <span className="overflow-hidden inline-flex items-center justify-center">
+                  <svg className="group-hover:animate-toTopFromBottom" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 17L17 7" stroke="#fff" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M17 17V7H7" stroke="#fff" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                </span>
+              </a>
+            </div>
+            <WhatsAppCard />
+            <EmailCard />
+          </div>
         </div>
       </section>
     </>

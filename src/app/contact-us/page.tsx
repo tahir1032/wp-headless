@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import ContactForm from "@/components/contact/ContactForm";
-import { CONTACT_EMAIL, WHATSAPP_DISPLAY, WHATSAPP_LINK, LINKEDIN_URL } from "@/lib/site-config";
+import WhatsAppCard from "@/components/contact/WhatsAppCard";
+import EmailCard from "@/components/contact/EmailCard";
+import AvailabilityBadge from "@/components/contact/AvailabilityBadge";
+import { LINKEDIN_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Contact Tahir Hafeez — Hire a WordPress & GHL Developer",
@@ -30,7 +33,18 @@ export const metadata: Metadata = {
 
 const CURSOR_IMAGES = Array.from({ length: 10 }, (_, i) => `/images/image-scroll/${i + 1}.webp`);
 
-const SOCIAL_LINKS = [{ label: "LinkedIn", href: LINKEDIN_URL }];
+const TRUST_SIGNALS = [
+  "80+ projects delivered worldwide",
+  "Clients in the US, UK, Australia, South Africa & UAE",
+  "5+ years of WordPress. 3+ years of GoHighLevel.",
+  "Available Worldwide — Remote",
+];
+
+const OBJECTION_KILLERS = [
+  "No sales pitch. Just an honest conversation.",
+  "No commitment required. First conversation is always free.",
+  "I respond to every message within 24 hours — personally.",
+];
 
 export default function ContactUsPage() {
   return (
@@ -66,48 +80,54 @@ export default function ContactUsPage() {
       </div>
 
       <section>
-        <div className="container-full">
-          <div className="grid grid-cols-12">
-            <div className="xl:col-span-2 col-span-12 border-r border-lightgray">
-              <div className="px-5 pt-15 flex xl:items-center flex-wrap max-xl:justify-between gap-15">
-                <div className="xl:w-[60%] sm:w-[21%] w-full">
-                  <h3 className="text-sm font-normal uppercase text-mediumgray pb-2 border-b border-lightgray mb-5 inline-block">Contact Us</h3>
-                  <a href={`mailto:${CONTACT_EMAIL}`} className="text-base text-primary font-medium block mb-2"><span className="link-hover">{CONTACT_EMAIL}</span></a>
-                  <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" className="text-base text-primary font-medium block"><span className="link-hover">{WHATSAPP_DISPLAY}</span></a>
-                </div>
-                <div className="xl:w-[60%] sm:w-[21%] w-full">
-                  <h3 className="text-sm font-normal uppercase text-mediumgray pb-2 border-b border-lightgray mb-5 inline-block">location</h3>
-                  <a className="text-base text-primary font-medium block mb-3"><span className="link-hover">Available Worldwide — Remote</span></a>
-                </div>
-                <div className="xl:w-[60%] sm:w-[21%] w-full">
-                  <h3 className="text-sm font-normal uppercase text-mediumgray pb-2 border-b border-lightgray mb-5 inline-block">Social</h3>
-                  {SOCIAL_LINKS.map((s) => (
-                    <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" className="text-base text-primary font-medium mb-2 group flex items-center">
-                      {s.label}
-                      <span className="size-8.75 ml-1.25 flex items-center justify-center rounded-full bg-primary -translate-x-full rotate-[-360deg] opacity-0 group-hover:translate-x-0 group-hover:rotate-0 group-hover:opacity-100 overflow-hidden group/second duration-500">
-                        <svg className="group-hover/second:animate-toTopFromBottom" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M5.25 12.75L12.75 5.25" stroke="white" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                          <path d="M5.25 5.25H12.75V12.75" stroke="white" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </span>
-                    </a>
-                  ))}
-                </div>
-              </div>
-            </div>
-            <div className="xl:col-span-10 col-span-12">
-              <div className="sm:pt-20 pt-10 lg:px-10 px-2 pb-18.75">
-                <div className="pxl-heading-scroll-effect">
-                  <h2 className="lg:text-5xl md:text-4xxxl sm:text-4xl text-3xl font-medium max-w-196 heading-text mb-5">
-                    We&apos;re excited to learn more about your project.
-                  </h2>
-                </div>
-                <p className="text-lg text-mediumgray mb-12.5 max-w-150">
-                  Share what you&apos;re building and I&apos;ll respond within 24 hours with a clear plan and an honest quote.
+        <div className="container-fluid">
+          <div className="text-center pt-15 pb-10 max-w-200 mx-auto">
+            <AvailabilityBadge />
+            <p className="text-lg text-mediumgray mt-5">
+              Whether you need a WordPress site, a WooCommerce store, a GHL automation system, or just an
+              honest second opinion on your current setup — reach out. I respond to every message
+              personally, within 24 hours.
+            </p>
+            <p className="text-sm text-mediumgray mt-3.75">
+              No sales pitch. No automated replies. Just a real conversation with someone who knows their
+              stuff.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-12 gap-7.5 pb-15">
+            <div className="lg:col-span-7 col-span-12">
+              <div className="bg-cleangray rounded-md p-7.5 sm:p-10">
+                <h2 className="text-2xl sm:text-3xl font-semibold mb-2.5">Tell me about your project</h2>
+                <p className="text-base text-mediumgray mb-7.5">
+                  Fill in the details below and I&apos;ll come back to you within 24 hours with a clear
+                  plan and an honest quote.
                 </p>
                 <ContactForm />
               </div>
             </div>
+            <div className="lg:col-span-5 col-span-12 flex flex-col gap-5">
+              <WhatsAppCard />
+              <EmailCard />
+            </div>
+          </div>
+
+          <div className="border-t border-lightgray py-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-center">
+            {TRUST_SIGNALS.map((line) => (
+              <span key={line} className="text-sm text-mediumgray flex items-center gap-2">
+                <i className="fa-solid fa-circle-check text-primary"></i>
+                {line}
+              </span>
+            ))}
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-primary font-medium flex items-center gap-2 hover:underline">
+              <i className="fa-brands fa-linkedin"></i>
+              Connect on LinkedIn
+            </a>
+          </div>
+
+          <div className="pb-15 flex flex-wrap items-center justify-center gap-x-7.5 gap-y-2 text-center">
+            {OBJECTION_KILLERS.map((line) => (
+              <span key={line} className="text-sm italic text-softgray">{line}</span>
+            ))}
           </div>
         </div>
       </section>
