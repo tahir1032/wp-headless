@@ -4,6 +4,7 @@ import ServicesShowcase from "@/components/shell/ServicesShowcase";
 import ClosingCTA from "@/components/shell/ClosingCTA";
 import BannerCTAButton from "@/components/shell/BannerCTAButton";
 import { getCaseStudies } from "@/lib/wordpress";
+import { WHATSAPP_LINK_PREFILLED, CONTACT_EMAIL } from "@/lib/site-config";
 
 export const revalidate = 3600;
 
@@ -102,16 +103,37 @@ export default async function Home() {
             </div>
           </div>
           <div className="grid grid-cols-12 border-y border-lightgray">
-            <div className="col-span-12 2xl:ml-85 border-l border-lightgray">
-              <div className="pxl-heading-scroll-effect border-b border-lightgray">
-                <p className="4xl:text-4xxl lg:text-3xl md:text-2xxxl text-2xxl text-subtlegray 4xl:pt-15 4xl:pl-15 lg:pt-10 pt-5 lg:pl-10 pl-5 font-semibold heading-text">
-                  Five years. 80+ projects. Clients across four continents. I build WordPress websites and GoHighLevel systems that do more than look polished — they generate leads, automate workflows, and remove the technical burden from your business entirely. From custom theme and plugin development to WooCommerce stores, headless architectures, and full GHL automation pipelines, every project is delivered with clean code, clear communication, and a relentless focus on results. No templates. No shortcuts. Just work that holds up.
-                </p>
-                <div className="4xl:pl-15 lg:pl-10 pl-5 4xl:pb-15 lg:pb-10 pb-5">
-                  <BannerCTAButton />
+            <div className="2xl:col-span-2 col-span-12 border-r border-lightgray">
+              <div className="my-sticky p-7.5 lg:p-10">
+                <h3 className="text-2xl lg:text-3xl font-semibold mb-6">Ready when you are.</h3>
+                <div className="flex flex-col gap-3.75 items-start">
+                  <a
+                    href={WHATSAPP_LINK_PREFILLED}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2.5 bg-cleangray text-primary py-3 px-5.5 rounded-full hover:bg-primary hover:text-white duration-300 w-full"
+                  >
+                    <i className="fa-brands fa-whatsapp"></i>
+                    <span className="font-medium text-sm">WhatsApp</span>
+                  </a>
+                  <a
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    className="inline-flex items-center gap-2.5 bg-cleangray text-primary py-3 px-5.5 rounded-full hover:bg-primary hover:text-white duration-300 w-full"
+                  >
+                    <i className="fa-solid fa-envelope"></i>
+                    <span className="font-medium text-sm">Email</span>
+                  </a>
+                  <BannerCTAButton className="w-full" />
                 </div>
               </div>
-              <div className="lg:col-span-10 col-span-12 services" id="services">
+            </div>
+            <div className="2xl:col-span-10 col-span-12 border-l border-lightgray">
+              <div className="pxl-heading-scroll-effect border-b border-lightgray">
+                <p className="4xl:text-4xxl lg:text-3xl md:text-2xxxl text-2xxl text-subtlegray 4xl:pt-15 4xl:pl-15 4xl:pb-24.25 lg:py-10 py-5 lg:pl-10 pl-5 font-semibold heading-text">
+                  Five years. 80+ projects. Clients across four continents. I build WordPress websites and GoHighLevel systems that do more than look polished — they generate leads, automate workflows, and remove the technical burden from your business entirely. From custom theme and plugin development to WooCommerce stores, headless architectures, and full GHL automation pipelines, every project is delivered with clean code, clear communication, and a relentless focus on results. No templates. No shortcuts. Just work that holds up.
+                </p>
+              </div>
+              <div className="services" id="services">
                 {recentWork.map((item, i) => (
                   <CaseCard
                     key={item.slug}
