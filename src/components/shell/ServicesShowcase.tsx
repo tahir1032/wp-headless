@@ -57,7 +57,7 @@ export default function ServicesShowcase() {
           <div className="dz-marquee style-1 !sticky top-0">
             <div className="max-w-275.25 mx-auto text-center pxl-heading-scroll-effect relative">
               <p className="4xl:text-4xxl lg:text-3xl md:text-2xxxl sm:text-2xxl text-2xl font-medium text-lightgray heading-text">
-                We&apos;re a digital design studio that&apos;s all about breaking the mold! We don&apos;t do boring websites or ordinary apps - we specialize in crafting the wildest, most unconventional digital experiences out there.
+                We build websites that generate leads, automate businesses, and grow authority online.
               </p>
             </div>
             <div className="des-text-moving-area black-bg-4">
@@ -95,7 +95,7 @@ export default function ServicesShowcase() {
                     </li>
                   ))}
                 </ul>
-                <a href="/developer" className="site-button butn-bg-shape">Get in Touch</a>
+                <a href="/studio" className="site-button butn-bg-shape">Get in Touch</a>
               </div>
             </div>
           ))}

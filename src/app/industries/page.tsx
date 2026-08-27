@@ -41,14 +41,11 @@ export default function IndustriesPage() {
           <h1 className="font-bold 4xl:text-[160px] 2xl:text-[120px] xl:text-8xl lg:text-7xxxl md:text-5xl sm:text-4xxxl text-3xl leading-none mb-5 2xl:max-w-293.75 xl:max-w-250 lg:max-w-200 max-w-160 max-sm:text-center">
             Whatever your industry — I&apos;ve built it.
           </h1>
-          <p className="text-lg sm:text-xl font-normal text-mediumgray mb-8 max-w-200 max-sm:text-center max-sm:mx-auto">
-            5 years. 80+ projects. Every niche from e-commerce to healthcare to real estate.
-          </p>
-          <p className="text-base font-light text-softgray mb-20 max-w-200 max-sm:text-center max-sm:mx-auto">
-            I work with businesses across every industry — from solo coaches and e-commerce brands to
-            healthcare providers, real estate platforms, and enterprise-level companies. Whatever your
-            niche, the goal is always the same: a website or system that performs, converts, and grows
-            your business.
+          <p className="text-lg sm:text-xl font-normal text-mediumgray mb-20 max-w-200 max-sm:text-center max-sm:mx-auto">
+            5 years. 80+ projects. I work with businesses across every industry — from solo coaches and
+            e-commerce brands to healthcare providers, real estate platforms, and enterprise-level
+            companies — building websites and systems that perform, convert, and grow your business,
+            whatever your niche.
           </p>
         </div>
       </section>
@@ -68,7 +65,7 @@ export default function IndustriesPage() {
       <div className="border-t border-lightgray">
         <div className="container-fluid py-20">
           <span className="text-sm text-mediumgray font-medium uppercase block mb-2.5">GoHighLevel CRM & Automation</span>
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-10">Every kind of GHL system</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-10">Every kind of GoHighLevel system</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {GHL_INDUSTRIES.map((industry) => (
               <IndustryCard key={industry.title} {...industry} />

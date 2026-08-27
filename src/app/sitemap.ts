@@ -5,7 +5,7 @@ import { getCaseStudySlugs } from "@/lib/wordpress";
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const slugs = await getCaseStudySlugs();
 
-  const staticRoutes: MetadataRoute.Sitemap = ["", "/work", "/developer", "/industries", "/contact-us"].map((path) => ({
+  const staticRoutes: MetadataRoute.Sitemap = ["", "/work", "/studio", "/industries", "/contact-us"].map((path) => ({
     url: `${SITE_URL}${path}`,
     lastModified: new Date(),
   }));
