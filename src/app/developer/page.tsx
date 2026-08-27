@@ -145,7 +145,11 @@ export default function StudioPage() {
 
       <section className="pb-20">
         <div className="container">
-          <h3 className="text-center text-xl font-medium text-mediumgray mb-7.5">Industries I Work In</h3>
+          <div className="pxl-heading-scroll-effect">
+            <h2 className="2xl:text-8xl lg:text-7xxxl/25 md:text-7xl/25 sm:text-5xl/20 text-4xl/15 font-semibold capitalize text-center mb-12.5 heading-text">
+              Industries I Work In
+            </h2>
+          </div>
           <ul className="flex flex-wrap items-center justify-center gap-3.75">
             {INDUSTRY_TEASER.map((industry) => (
               <li key={industry.title}>
