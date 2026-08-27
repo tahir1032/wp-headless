@@ -3,6 +3,7 @@ import IndustryCard from "@/components/industries/IndustryCard";
 import ServicesShowcase from "@/components/shell/ServicesShowcase";
 import WhatsAppCard from "@/components/contact/WhatsAppCard";
 import EmailCard from "@/components/contact/EmailCard";
+import BannerCTAButton from "@/components/shell/BannerCTAButton";
 import { WORDPRESS_INDUSTRIES, GHL_INDUSTRIES } from "@/lib/industries-data";
 
 export const metadata: Metadata = {
@@ -43,12 +44,15 @@ export default function IndustriesPage() {
           <h1 className="font-bold 4xl:text-[160px] 2xl:text-[120px] xl:text-8xl lg:text-7xxxl md:text-5xl sm:text-4xxxl text-3xl leading-none mb-5 2xl:max-w-293.75 xl:max-w-250 lg:max-w-200 max-w-160 max-sm:text-center">
             Whatever your industry — I&apos;ve built it.
           </h1>
-          <p className="text-lg sm:text-xl font-normal text-mediumgray mb-20 max-w-200 max-sm:text-center max-sm:mx-auto">
+          <p className="text-lg sm:text-xl font-normal text-mediumgray mb-8 max-w-200 max-sm:text-center max-sm:mx-auto">
             5 years. 80+ projects. I work with businesses across every industry — from solo coaches and
             e-commerce brands to healthcare providers, real estate platforms, and enterprise-level
             companies — building websites and systems that perform, convert, and grow your business,
             whatever your niche.
           </p>
+          <div className="mb-12.5 max-sm:text-center">
+            <BannerCTAButton />
+          </div>
         </div>
       </section>
 

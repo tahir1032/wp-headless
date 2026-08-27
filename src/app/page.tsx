@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import CaseCard from "@/components/work/CaseCard";
 import ServicesShowcase from "@/components/shell/ServicesShowcase";
 import ClosingCTA from "@/components/shell/ClosingCTA";
+import BannerCTAButton from "@/components/shell/BannerCTAButton";
 import { getCaseStudies } from "@/lib/wordpress";
 
 export const revalidate = 3600;
@@ -103,9 +104,12 @@ export default async function Home() {
           <div className="grid grid-cols-12 border-y border-lightgray">
             <div className="col-span-12 2xl:ml-85 border-l border-lightgray">
               <div className="pxl-heading-scroll-effect border-b border-lightgray">
-                <p className="4xl:text-4xxl lg:text-3xl md:text-2xxxl text-2xxl text-subtlegray 4xl:pt-15 4xl:pl-15 4xl:pb-24.25 lg:py-10 py-5 lg:pl-10 pl-5 font-semibold heading-text">
+                <p className="4xl:text-4xxl lg:text-3xl md:text-2xxxl text-2xxl text-subtlegray 4xl:pt-15 4xl:pl-15 lg:pt-10 pt-5 lg:pl-10 pl-5 font-semibold heading-text">
                   Five years. 80+ projects. Clients across four continents. I build WordPress websites and GoHighLevel systems that do more than look polished — they generate leads, automate workflows, and remove the technical burden from your business entirely. From custom theme and plugin development to WooCommerce stores, headless architectures, and full GHL automation pipelines, every project is delivered with clean code, clear communication, and a relentless focus on results. No templates. No shortcuts. Just work that holds up.
                 </p>
+                <div className="4xl:pl-15 lg:pl-10 pl-5 4xl:pb-15 lg:pb-10 pb-5">
+                  <BannerCTAButton />
+                </div>
               </div>
               <div className="lg:col-span-10 col-span-12 services" id="services">
                 {recentWork.map((item, i) => (
