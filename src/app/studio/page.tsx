@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import ServicesShowcase from "@/components/shell/ServicesShowcase";
 import MissionPromiseApproach from "@/components/shell/MissionPromiseApproach";
+import BannerCTAButton from "@/components/shell/BannerCTAButton";
+import ClosingCTA from "@/components/shell/ClosingCTA";
 import { WORDPRESS_INDUSTRIES, GHL_INDUSTRIES } from "@/lib/industries-data";
 
 const INDUSTRY_TEASER = [
@@ -84,6 +86,9 @@ export default function StudioPage() {
               <p className="text-lg sm:text-xl font-normal text-mediumgray max-w-125 mt-5 wow bounceInLeft" data-wow-delay="2.7s">
                 5 years of WordPress expertise. GoHighLevel authority. Delivering results for businesses worldwide.
               </p>
+              <div className="mt-7.5 wow bounceInLeft" data-wow-delay="2.9s">
+                <BannerCTAButton />
+              </div>
             </div>
             <div className="2xl:col-span-7 col-span-12">
               <div className="grid grid-cols-12 gap-5">
@@ -179,6 +184,11 @@ export default function StudioPage() {
       </div>
 
       <ServicesShowcase />
+
+      <ClosingCTA
+        heading="Like my approach? Let's talk about your project."
+        subtext="Every engagement starts with a conversation about your goals — not a sales pitch. Tell me what you're building."
+      />
     </>
   );
 }

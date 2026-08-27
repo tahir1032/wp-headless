@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import CaseCard from "@/components/work/CaseCard";
 import ServicesShowcase from "@/components/shell/ServicesShowcase";
+import BannerCTAButton from "@/components/shell/BannerCTAButton";
 import { getCaseStudies } from "@/lib/wordpress";
 
 export const revalidate = 3600;
@@ -51,6 +52,9 @@ export default async function Home() {
               alt="img"
             />
           ))}
+        </div>
+        <div className="absolute bottom-6 sm:bottom-10 left-1/2 -translate-x-1/2 z-20">
+          <BannerCTAButton />
         </div>
       </section>
 

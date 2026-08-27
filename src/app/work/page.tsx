@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import CaseCard from "@/components/work/CaseCard";
+import BannerCTAButton from "@/components/shell/BannerCTAButton";
+import ClosingCTA from "@/components/shell/ClosingCTA";
 import { getCaseStudies } from "@/lib/wordpress";
 
 export const revalidate = 3600;
@@ -45,9 +47,12 @@ export default async function WorkPage() {
           <h1 className="font-bold 4xl:text-[160px] 2xl:text-[120px] xl:text-8xl lg:text-7xxxl md:text-5xl sm:text-4xxxl text-3xl leading-none mb-5 2xl:max-w-293.75 xl:max-w-250 lg:max-w-200 max-w-160 max-sm:text-center">
             Work That Speaks for Itself
           </h1>
-          <p className="text-lg sm:text-xl font-normal text-mediumgray mb-20 max-sm:text-center">
+          <p className="text-lg sm:text-xl font-normal text-mediumgray mb-8 max-sm:text-center">
             80+ projects. Multiple industries. Measurable outcomes.
           </p>
+          <div className="mb-12.5 max-sm:text-center">
+            <BannerCTAButton />
+          </div>
         </div>
       </section>
 
@@ -69,6 +74,11 @@ export default async function WorkPage() {
           </div>
         </div>
       </div>
+
+      <ClosingCTA
+        heading="Ready to see your project here next?"
+        subtext="Every case study above started with a single conversation. Tell me what you're building and let's talk timeline, scope, and budget."
+      />
     </>
   );
 }
