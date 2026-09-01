@@ -11,7 +11,7 @@ import VendorScripts from "@/components/shell/VendorScripts";
 import { SITE_URL, CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site-config";
 
 const DEFAULT_DESCRIPTION =
-  "Web developer and GoHighLevel specialist with 5 years of professional experience. Custom WordPress themes, plugin development, WooCommerce stores, GHL funnels, and automation systems — delivered for clients worldwide.";
+  "Web developer and GoHighLevel specialist with 5 years of professional experience. Custom frontend and backend development, WordPress, WooCommerce, GHL funnels, and automation systems — delivered for clients worldwide.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -52,6 +52,14 @@ const PERSON_JSON_LD = {
   telephone: "+923027263808",
   sameAs: [LINKEDIN_URL],
   knowsAbout: [
+    "Frontend Development",
+    "Backend Development",
+    "React",
+    "Next.js",
+    "PHP",
+    "JavaScript",
+    "HTML5",
+    "CSS3",
     "WordPress Development",
     "GoHighLevel",
     "WooCommerce",
@@ -59,7 +67,6 @@ const PERSON_JSON_LD = {
     "Theme Customization",
     "REST API",
     "Headless WordPress",
-    "Next.js",
     "GHL Automation",
     "cPanel",
     "DNS Management",

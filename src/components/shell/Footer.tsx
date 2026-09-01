@@ -72,7 +72,7 @@ export default function Footer() {
                 Ready to build something that actually works?
               </h5>
               <p className="text-base sm:text-lg text-gray max-w-175 mt-7.5">
-                Whether it&apos;s a WordPress site, a WooCommerce store, a GHL automation system, or a full headless build — let&apos;s talk scope, timeline, and budget. No pressure.
+                Whether it&apos;s a custom website, a WordPress build, a WooCommerce store, a GHL automation system, or a full-stack web application — let&apos;s talk scope, timeline, and budget. No pressure.
               </p>
               <a
                 href="/contact-us"

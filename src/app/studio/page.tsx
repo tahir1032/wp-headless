@@ -53,9 +53,28 @@ const CHECK_ICON = (
   </svg>
 );
 
+const TECH_STACK = [
+  { name: "WordPress", icon: "fa-brands fa-wordpress" },
+  { name: "GoHighLevel" },
+  { name: "React", icon: "fa-brands fa-react" },
+  { name: "Next.js" },
+  { name: "HTML5", icon: "fa-brands fa-html5" },
+  { name: "CSS3", icon: "fa-brands fa-css3-alt" },
+  { name: "Tailwind CSS" },
+  { name: "PHP", icon: "fa-brands fa-php" },
+  { name: "JavaScript", icon: "fa-brands fa-js" },
+  { name: "TypeScript" },
+  { name: "Node.js", icon: "fa-brands fa-node-js" },
+  { name: "MySQL", icon: "fa-solid fa-database" },
+  { name: "Git", icon: "fa-brands fa-git-alt" },
+  { name: "GitHub", icon: "fa-brands fa-github" },
+  { name: "Figma", icon: "fa-brands fa-figma" },
+  { name: "Elementor Pro", icon: "fa-brands fa-elementor" },
+];
+
 const CHOOSE_US = [
   {
-    text: "5 years of deep WordPress expertise — custom theme and plugin development, WooCommerce, ACF, Gutenberg, REST API, headless builds, and performance engineering across 80+ live projects.",
+    text: "5 years of full-stack web development expertise — frontend with React and Next.js, backend with PHP, WordPress theme and plugin development, WooCommerce, REST APIs, headless builds, and performance engineering across 80+ live projects.",
     delay: "bounceInDown",
   },
   {
@@ -110,7 +129,7 @@ export default function StudioPage() {
                   I&apos;m Muhammad Tahir Hafeez — a web developer and GoHighLevel specialist with 5 years of professional experience building websites and digital systems for businesses that take growth seriously.
                 </p>
                 <p className="introline text-lg font-normal text-black">
-                  My work spans the full WordPress ecosystem: custom theme and plugin development from scratch, advanced WooCommerce stores with complex payment and shipping configurations, ACF-powered custom data structures, Gutenberg block development, REST API and third-party integrations, headless WordPress architectures, and rigorous performance and security optimization. On the GoHighLevel side, I architect complete business automation systems — sales funnels, multi-step email and SMS campaigns, payment collection, course platforms, landing pages, and CRM pipelines that eliminate manual work and accelerate revenue.
+                  My work spans the full web development stack: custom frontend development with React and Next.js, backend systems with PHP and Node.js, WordPress theme and plugin development from scratch, advanced WooCommerce stores with complex payment and shipping configurations, ACF-powered custom data structures, Gutenberg block development, REST API and third-party integrations, headless WordPress architectures, and rigorous performance and security optimization. On the GoHighLevel side, I architect complete business automation systems — sales funnels, multi-step email and SMS campaigns, payment collection, course platforms, landing pages, and CRM pipelines that eliminate manual work and accelerate revenue.
                 </p>
                 <p className="introline text-lg font-normal text-black">
                   My clients range from healthcare providers and e-commerce brands to digital agencies, real estate platforms, educational institutions, and AI consulting firms. What they share is a need for technical work delivered with precision, transparency, and accountability — every time.
@@ -187,6 +206,27 @@ export default function StudioPage() {
                   </span>
                   {industry.title}
                 </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="pb-20">
+        <div className="container">
+          <div className="pxl-heading-scroll-effect">
+            <h2 className="2xl:text-8xl lg:text-7xxxl/25 md:text-7xl/25 sm:text-5xl/20 text-4xl/15 font-semibold capitalize text-center mb-12.5 heading-text">
+              Tech Stack
+            </h2>
+          </div>
+          <ul className="flex flex-wrap items-center justify-center gap-3.75">
+            {TECH_STACK.map((tech) => (
+              <li
+                key={tech.name}
+                className="py-2.5 px-5 bg-cleangray rounded-full flex items-center gap-2.5 text-base font-light"
+              >
+                {tech.icon && <i className={`${tech.icon} text-primary`}></i>}
+                {tech.name}
               </li>
             ))}
           </ul>

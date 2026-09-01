@@ -5,9 +5,18 @@ import { LINKEDIN_URL } from "@/lib/site-config";
 
 const SERVICE_GROUPS = [
   {
+    label: "Web Development",
+    options: [
+      "Custom Website Development (Frontend & Backend)",
+      "Frontend Development (React / Next.js / HTML / CSS)",
+      "Backend Development (PHP / Node.js / APIs)",
+      "Full-Stack Web Development",
+      "Figma to Website / HTML / WordPress",
+    ],
+  },
+  {
     label: "WordPress",
     options: [
-      "Custom WordPress Website Development",
       "WordPress Theme Development & Customization",
       "WordPress Plugin Development",
       "WordPress Plugin Customization",

@@ -130,7 +130,7 @@ export default async function Home() {
             <div className="2xl:col-span-10 col-span-12 border-l border-lightgray">
               <div className="pxl-heading-scroll-effect border-b border-lightgray">
                 <p className="4xl:text-4xxl lg:text-3xl md:text-2xxxl text-2xxl text-subtlegray 4xl:pt-15 4xl:pl-15 4xl:pb-24.25 lg:py-10 py-5 lg:pl-10 pl-5 font-semibold heading-text">
-                  Five years. 80+ projects. Clients across four continents. I build WordPress websites and GoHighLevel systems that do more than look polished — they generate leads, automate workflows, and remove the technical burden from your business entirely. From custom theme and plugin development to WooCommerce stores, headless architectures, and full GHL automation pipelines, every project is delivered with clean code, clear communication, and a relentless focus on results. No templates. No shortcuts. Just work that holds up.
+                  Five years. 80+ projects. Clients across four continents. I build websites and GoHighLevel systems that do more than look polished — they generate leads, automate workflows, and remove the technical burden from your business entirely. From custom frontend interfaces and backend systems to WordPress, WooCommerce, headless architectures, and full GHL automation pipelines, every project is delivered with clean code, clear communication, and a relentless focus on results. No templates. No shortcuts. Just work that holds up.
                 </p>
               </div>
               <div className="services" id="services">

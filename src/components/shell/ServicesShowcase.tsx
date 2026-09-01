@@ -5,11 +5,11 @@ const SERVICES = [
     speed: "1.40",
     title: (
       <>
-        WordPress <br />Development
+        Web <br />Development
       </>
     ),
-    desc: "End-to-end WordPress builds tailored to your business — from pixel-perfect theme customization and custom plugin development to full WooCommerce stores and performance-optimized deployments. Built for speed, security, and long-term maintainability.",
-    items: ["Custom Theme Development & Customization", "Custom Plugin Development & Customization", "WooCommerce — Stores, Payments & Add-ons"],
+    desc: "End-to-end web development tailored to your business — custom frontend interfaces, backend systems, WordPress theme and plugin development, WooCommerce stores, REST API integrations, and headless builds. Every project built for speed, security, and long-term maintainability.",
+    items: ["Frontend & Backend Development", "WordPress Theme & Plugin Development", "WooCommerce — Stores, Payments & Add-ons"],
   },
   {
     letter: "G",

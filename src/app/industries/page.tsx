@@ -58,7 +58,7 @@ export default function IndustriesPage() {
 
       <div className="border-t border-lightgray">
         <div className="container-fluid py-20">
-          <span className="text-sm text-mediumgray font-medium uppercase block mb-2.5">WordPress Development</span>
+          <span className="text-sm text-mediumgray font-medium uppercase block mb-2.5">Web Development</span>
           <h2 className="text-2xl sm:text-3xl font-semibold mb-10">Every kind of WordPress build</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
             {WORDPRESS_INDUSTRIES.map((industry) => (
