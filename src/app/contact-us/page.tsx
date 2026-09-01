@@ -6,7 +6,7 @@ import AvailabilityBadge from "@/components/contact/AvailabilityBadge";
 import { LINKEDIN_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "Contact Tahir Hafeez — Hire a WordPress & GHL Developer",
+  title: "Contact Tahir Hafeez — Hire a Web & GHL Developer",
   description:
     "Get in touch with Tahir Hafeez — Web developer and GoHighLevel specialist. Discuss your project, get a fixed-price quote, and receive a response within 24 hours.",
   keywords: [
@@ -20,12 +20,12 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/contact-us" },
   openGraph: {
-    title: "Hire Tahir Hafeez | WordPress & GHL Developer",
+    title: "Hire Tahir Hafeez | Web & GHL Developer",
     description:
       "Ready to build? Contact Tahir Hafeez for custom WordPress development, WooCommerce stores, GoHighLevel funnels, and automation systems. Fixed-price quotes. Response within 24 hours.",
   },
   twitter: {
-    title: "Hire Tahir Hafeez | WordPress & GHL Developer",
+    title: "Hire Tahir Hafeez | Web & GHL Developer",
     description:
       "Ready to build? Contact Tahir Hafeez for custom WordPress development, WooCommerce stores, GoHighLevel funnels, and automation systems. Fixed-price quotes. Response within 24 hours.",
   },
