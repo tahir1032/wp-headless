@@ -8,15 +8,15 @@ import { LINKEDIN_URL } from "@/lib/site-config";
 export const metadata: Metadata = {
   title: "Contact Tahir Hafeez — Hire a WordPress & GHL Developer",
   description:
-    "Get in touch with Tahir Hafeez — WordPress developer and GoHighLevel specialist. Discuss your project, get a fixed-price quote, and receive a response within 24 hours.",
+    "Get in touch with Tahir Hafeez — Web developer and GoHighLevel specialist. Discuss your project, get a fixed-price quote, and receive a response within 24 hours.",
   keywords: [
-    "hire WordPress developer",
+    "hire web developer",
     "contact WordPress freelancer",
     "GoHighLevel developer for hire",
-    "WordPress developer quote",
+    "web developer quote",
     "WooCommerce developer contact",
     "hire GHL specialist",
-    "freelance WordPress developer contact",
+    "freelance web developer contact",
   ],
   alternates: { canonical: "/contact-us" },
   openGraph: {

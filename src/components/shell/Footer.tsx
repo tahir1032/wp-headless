@@ -89,7 +89,7 @@ export default function Footer() {
               <div className="!text-gray text-base font-normal py-7.5 flex sm:justify-between justify-center max-sm:text-center flex-wrap">
                 <a className="block text-primary" href="/">© Tahir Hafeez</a>
                 <p className="copyright-text">
-                  © <span className="current-year" suppressHydrationWarning>{new Date().getFullYear()}</span> <a href="/" className="text-primary font-medium border-b">Tahir Hafeez</a>. WordPress Developer &amp; GoHighLevel Specialist. All rights reserved.
+                  © <span className="current-year" suppressHydrationWarning>{new Date().getFullYear()}</span> <a href="/" className="text-primary font-medium border-b">Tahir Hafeez</a>. Web Developer &amp; GoHighLevel Specialist. All rights reserved.
                 </p>
               </div>
             </div>

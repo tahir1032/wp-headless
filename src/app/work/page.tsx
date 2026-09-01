@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "WooCommerce store examples",
     "WordPress plugin development examples",
     "GHL funnel examples",
-    "hire WordPress developer",
+    "hire web developer",
     "WordPress freelancer portfolio",
   ],
   alternates: { canonical: "/work" },

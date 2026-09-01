@@ -11,13 +11,13 @@ import VendorScripts from "@/components/shell/VendorScripts";
 import { SITE_URL, CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site-config";
 
 const DEFAULT_DESCRIPTION =
-  "WordPress developer and GoHighLevel specialist with 5 years of professional experience. Custom WordPress themes, plugin development, WooCommerce stores, GHL funnels, and automation systems — delivered for clients worldwide.";
+  "Web developer and GoHighLevel specialist with 5 years of professional experience. Custom WordPress themes, plugin development, WooCommerce stores, GHL funnels, and automation systems — delivered for clients worldwide.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     template: "%s | Tahir Hafeez",
-    default: "Tahir Hafeez — WordPress Developer & GoHighLevel Specialist",
+    default: "Tahir Hafeez — Web Developer & GoHighLevel Specialist",
   },
   description: DEFAULT_DESCRIPTION,
   robots: {
@@ -27,12 +27,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: "Tahir Hafeez",
-    title: "Tahir Hafeez — WordPress Developer & GoHighLevel Specialist",
+    title: "Tahir Hafeez — Web Developer & GoHighLevel Specialist",
     description: DEFAULT_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Tahir Hafeez — WordPress Developer & GoHighLevel Specialist",
+    title: "Tahir Hafeez — Web Developer & GoHighLevel Specialist",
     description: DEFAULT_DESCRIPTION,
   },
   icons: {
@@ -45,9 +45,9 @@ const PERSON_JSON_LD = {
   "@type": "Person",
   name: "Muhammad Tahir Hafeez",
   url: SITE_URL,
-  jobTitle: "WordPress Developer & GoHighLevel Specialist",
+  jobTitle: "Web Developer & GoHighLevel Specialist",
   description:
-    "WordPress developer and GoHighLevel specialist with 5 years of experience delivering custom WordPress sites, WooCommerce stores, plugin development, and GHL automation systems for clients worldwide.",
+    "Web developer and GoHighLevel specialist with 5 years of experience delivering custom WordPress sites, WooCommerce stores, plugin development, and GHL automation systems for clients worldwide.",
   email: CONTACT_EMAIL,
   telephone: "+923027263808",
   sameAs: [LINKEDIN_URL],

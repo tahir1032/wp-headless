@@ -9,27 +9,27 @@ import { WHATSAPP_LINK_PREFILLED, CONTACT_EMAIL } from "@/lib/site-config";
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Tahir Hafeez — WordPress Developer & GoHighLevel Specialist",
+  title: "Tahir Hafeez — Web Developer & GoHighLevel Specialist",
   description:
-    "WordPress developer and GoHighLevel specialist with 5 years of experience. Custom WordPress themes, plugin development, WooCommerce stores, GHL funnels, and automation systems for clients worldwide.",
+    "Web developer and GoHighLevel specialist with 5 years of experience. Custom WordPress themes, plugin development, WooCommerce stores, GHL funnels, and automation systems for clients worldwide.",
   keywords: [
-    "WordPress developer for hire",
+    "web developer for hire",
     "GoHighLevel specialist",
     "custom WordPress development",
     "WordPress plugin developer",
     "GHL funnel setup",
     "WooCommerce developer",
     "headless WordPress Next.js",
-    "freelance WordPress developer",
+    "freelance web developer",
   ],
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Tahir Hafeez | WordPress Developer & GHL Specialist",
+    title: "Tahir Hafeez | Web Developer & GHL Specialist",
     description:
       "5 years. 80+ projects. Custom WordPress development, WooCommerce stores, GoHighLevel funnels, and automation systems delivered for clients across the US, UK, AU, ZA, and UAE.",
   },
   twitter: {
-    title: "Tahir Hafeez | WordPress Developer & GHL Specialist",
+    title: "Tahir Hafeez | Web Developer & GHL Specialist",
     description:
       "5 years. 80+ projects. Custom WordPress development, WooCommerce stores, GoHighLevel funnels, and automation systems delivered for clients across the US, UK, AU, ZA, and UAE.",
   },

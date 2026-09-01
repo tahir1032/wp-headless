@@ -15,17 +15,17 @@ const INDUSTRY_TEASER = [
 ];
 
 export const metadata: Metadata = {
-  title: "About Tahir Hafeez — WordPress Developer & GHL Expert",
+  title: "About Tahir Hafeez — Web Developer & GHL Expert",
   description:
-    "Meet Tahir Hafeez — a WordPress developer and GoHighLevel specialist with 5 years of professional experience delivering custom websites, WooCommerce stores, plugin development, and GHL automation systems for clients worldwide.",
+    "Meet Tahir Hafeez — a web developer and GoHighLevel specialist with 5 years of professional experience delivering custom websites, WooCommerce stores, plugin development, and GHL automation systems for clients worldwide.",
   keywords: [
-    "WordPress developer about",
-    "experienced WordPress developer",
+    "web developer about",
+    "experienced web developer",
     "GoHighLevel expert",
     "WordPress plugin developer for hire",
     "WooCommerce specialist",
     "freelance WordPress consultant",
-    "WordPress developer portfolio",
+    "web developer portfolio",
   ],
   alternates: { canonical: "/studio" },
   openGraph: {
@@ -107,7 +107,7 @@ export default function StudioPage() {
               </div>
               <div className="wrapper overflow-hidden border-l mt-5 border-primary pl-4.75 space-y-5">
                 <p className="introline text-lg font-normal text-black">
-                  I&apos;m Muhammad Tahir Hafeez — a WordPress developer and GoHighLevel specialist with 5 years of professional experience building websites and digital systems for businesses that take growth seriously.
+                  I&apos;m Muhammad Tahir Hafeez — a web developer and GoHighLevel specialist with 5 years of professional experience building websites and digital systems for businesses that take growth seriously.
                 </p>
                 <p className="introline text-lg font-normal text-black">
                   My work spans the full WordPress ecosystem: custom theme and plugin development from scratch, advanced WooCommerce stores with complex payment and shipping configurations, ACF-powered custom data structures, Gutenberg block development, REST API and third-party integrations, headless WordPress architectures, and rigorous performance and security optimization. On the GoHighLevel side, I architect complete business automation systems — sales funnels, multi-step email and SMS campaigns, payment collection, course platforms, landing pages, and CRM pipelines that eliminate manual work and accelerate revenue.

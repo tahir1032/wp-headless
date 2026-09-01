@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Tahir Hafeez builds WordPress websites and GoHighLevel systems across 26+ industries — e-commerce, healthcare, real estate, education, coaching, agencies, and more.",
   keywords: [
-    "WordPress developer by industry",
+    "web developer by industry",
     "GoHighLevel by industry",
     "industry-specific WordPress development",
     "GHL for coaches",
