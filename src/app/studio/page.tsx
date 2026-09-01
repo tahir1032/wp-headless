@@ -54,22 +54,38 @@ const CHECK_ICON = (
 );
 
 const TECH_STACK = [
-  { name: "WordPress", icon: "fa-brands fa-wordpress" },
-  { name: "GoHighLevel" },
+  // WordPress ecosystem
+  { name: "WordPress", image: "/images/tech-badges/1.webp" },
+  { name: "WooCommerce", image: "/images/tech-badges/2.webp" },
+  { name: "Elementor Pro", image: "/images/tech-badges/3.webp" },
+  { name: "WP Rocket", image: "/images/tech-badges/4.webp" },
+  { name: "Yoast SEO", image: "/images/tech-badges/5.webp" },
+  { name: "ACF", image: "/images/tech-badges/12.webp" },
+  { name: "Avada", image: "/images/tech-badges/13.webp" },
+  { name: "Divi", image: "/images/tech-badges/14.webp" },
+  { name: "MemberPress", image: "/images/tech-badges/18.webp" },
+  { name: "LearnDash", image: "/images/tech-badges/16.webp" },
+  { name: "LearnPress", image: "/images/tech-badges/17.webp" },
+  // GoHighLevel
+  { name: "GoHighLevel", image: "/images/tech-badges/15.webp" },
+  // Frontend
   { name: "React", icon: "fa-brands fa-react" },
   { name: "Next.js" },
   { name: "HTML5", icon: "fa-brands fa-html5" },
   { name: "CSS3", icon: "fa-brands fa-css3-alt" },
   { name: "Tailwind CSS" },
-  { name: "PHP", icon: "fa-brands fa-php" },
   { name: "JavaScript", icon: "fa-brands fa-js" },
   { name: "TypeScript" },
+  // Backend & infrastructure
   { name: "Node.js", icon: "fa-brands fa-node-js" },
-  { name: "MySQL", icon: "fa-solid fa-database" },
+  { name: "PHP", image: "/images/tech-badges/8.webp" },
+  { name: "MySQL", image: "/images/tech-badges/9.webp" },
+  { name: "cPanel", image: "/images/tech-badges/10.webp" },
+  { name: "Cloudflare", image: "/images/tech-badges/11.webp" },
+  // Tools
   { name: "Git", icon: "fa-brands fa-git-alt" },
   { name: "GitHub", icon: "fa-brands fa-github" },
   { name: "Figma", icon: "fa-brands fa-figma" },
-  { name: "Elementor Pro", icon: "fa-brands fa-elementor" },
 ];
 
 const CHOOSE_US = [
@@ -225,6 +241,9 @@ export default function StudioPage() {
                 key={tech.name}
                 className="py-2.5 px-5 bg-cleangray rounded-full flex items-center gap-2.5 text-base font-light"
               >
+                {tech.image && (
+                  <img src={tech.image} alt="" className="size-5 rounded-full object-cover" loading="lazy" />
+                )}
                 {tech.icon && <i className={`${tech.icon} text-primary`}></i>}
                 {tech.name}
               </li>
