@@ -3,83 +3,146 @@
 import { motion } from "framer-motion";
 import Container from "@/components/ui/Container";
 import Section from "@/components/ui/Section";
-import { Search, Hammer, Rocket, HeadphonesIcon } from "lucide-react";
+import Badge from "@/components/ui/Badge";
+import SpotlightCard from "@/components/ui/SpotlightCard";
+import {
+  Search,
+  Code2,
+  Workflow,
+  Rocket,
+  CheckCircle2,
+  Sparkles,
+  ArrowRight,
+} from "lucide-react";
+import Link from "next/link";
 
-const PROCESS_STEPS = [
+const STEPS = [
   {
+    step: "01",
+    title: "Discovery & Architecture Blueprint",
     icon: Search,
-    title: "Discover",
+    color: "cyan",
     description:
-      "Understanding your goals, requirements, and technical needs to plan the perfect solution.",
+      "We dissect your existing site bottlenecks, conversion leaks, and CRM workflows to map out an exact technical blueprint.",
+    deliverables: ["Tech Stack Audit", "Data Model Schema", "Conversion Roadmap"],
   },
   {
-    icon: Hammer,
-    title: "Build",
+    step: "02",
+    title: "Rapid Clean-Code Engineering",
+    icon: Code2,
+    color: "teal",
     description:
-      "Developing your project with clean code, modern best practices, and regular progress updates.",
+      "Bespoke WordPress theme/plugin coding or Headless Next.js development. Zero page builder bloat, optimized PHP 8.3 & React.",
+    deliverables: ["Custom WP Theme/Plugin", "100% Responsive UI", "Sub-second TTFB"],
   },
   {
+    step: "03",
+    title: "GHL & Webhook Automation Wiring",
+    icon: Workflow,
+    color: "indigo",
+    description:
+      "We connect webhooks, lead forms, SMS sequences, calendars, and payment gateways into an automated GoHighLevel engine.",
+    deliverables: ["GHL Multi-Tier Funnel", "Twilio 2-Way SMS", "Calendar Sync"],
+  },
+  {
+    step: "04",
+    title: "100/100 Optimization & Launch",
     icon: Rocket,
-    title: "Launch",
+    color: "emerald",
     description:
-      "Deploying your solution with thorough testing, optimization, and performance tuning.",
-  },
-  {
-    icon: HeadphonesIcon,
-    title: "Support",
-    description:
-      "Ongoing maintenance, updates, and technical support to keep everything running smoothly.",
+      "Rigorous cross-browser QA, Core Web Vitals performance tuning, enterprise DNS setup, and post-launch maintenance.",
+    deliverables: ["100/100 Lighthouse", "Zero Downtime Deploy", "30-Day Guarantee"],
   },
 ];
 
 export default function Process() {
   return (
-    <Section className="bg-muted">
+    <Section className="relative py-24 sm:py-32 bg-[#080d19] border-t border-white/10 overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[400px] bg-cyan-500/5 blur-3xl pointer-events-none" />
+
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="mx-auto max-w-2xl text-center"
-        >
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            How I Work
+        {/* Section Header */}
+        <div className="max-w-3xl mx-auto text-center mb-16 sm:mb-20">
+          <Badge variant="cyan" beacon className="mb-3">
+            <Sparkles className="h-3.5 w-3.5" />
+            <span>Execution Methodology</span>
+          </Badge>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
+            Predictable, Transparent <span className="text-gradient-cyan">4-Step Process</span>
           </h2>
-          <p className="mt-4 text-lg text-muted-foreground">
-            A straightforward, collaborative approach to delivering your project
-            on time.
+          <p className="mt-4 text-sm sm:text-base text-slate-300">
+            From technical discovery to flawless automated delivery with zero guesswork.
           </p>
-        </motion.div>
+        </div>
 
-        <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {PROCESS_STEPS.map((step, index) => (
-            <motion.div
-              key={step.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative"
-            >
-              {/* Connector line (hidden on mobile and last item) */}
-              {index < PROCESS_STEPS.length - 1 && (
-                <div className="absolute left-1/2 top-6 hidden h-0.5 w-full bg-border lg:block" />
-              )}
+        {/* Process Cards Grid */}
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {STEPS.map((step, index) => {
+            const Icon = step.icon;
+            return (
+              <motion.div
+                key={step.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <SpotlightCard className="h-full p-6 sm:p-7 flex flex-col justify-between group border-white/10 hover:border-cyan-500/40">
+                  <div>
+                    {/* Top Header */}
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 group-hover:scale-110 transition-transform">
+                        <Icon className="h-6 w-6" />
+                      </div>
+                      <span className="text-2xl font-black text-slate-700 font-mono group-hover:text-cyan-400/40 transition-colors">
+                        {step.step}
+                      </span>
+                    </div>
 
-              <div className="relative flex flex-col items-center text-center">
-                <div className="z-10 mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-white">
-                  <step.icon className="h-6 w-6" />
-                </div>
-                <h3 className="text-xl font-semibold text-foreground">
-                  {step.title}
-                </h3>
-                <p className="mt-2 text-sm text-muted-foreground">
-                  {step.description}
-                </p>
-              </div>
-            </motion.div>
-          ))}
+                    <h3 className="text-lg font-bold text-white group-hover:text-cyan-300 transition-colors leading-snug">
+                      {step.title}
+                    </h3>
+
+                    <p className="mt-3 text-xs sm:text-sm text-slate-300 leading-relaxed">
+                      {step.description}
+                    </p>
+
+                    {/* Deliverables checklist */}
+                    <div className="mt-6 space-y-2 pt-4 border-t border-white/10">
+                      {step.deliverables.map((d) => (
+                        <div key={d} className="flex items-center gap-2 text-xs text-slate-300">
+                          <CheckCircle2 className="h-3.5 w-3.5 text-cyan-400 shrink-0" />
+                          <span>{d}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="mt-6 pt-4 text-[10px] text-slate-500 font-mono uppercase tracking-wider">
+                    PHASE {step.step} DELIVERABLE
+                  </div>
+                </SpotlightCard>
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* Bottom CTA Banner */}
+        <div className="mt-14 p-6 rounded-2xl bg-white/[0.02] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3 text-center sm:text-left">
+            <span className="h-3 w-3 rounded-full bg-emerald-400 animate-ping" />
+            <span className="text-sm text-slate-200">
+              Have an urgent timeline or existing site needing an overhaul?
+            </span>
+          </div>
+          <Link
+            href="/contact-us"
+            className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1.5 shrink-0"
+          >
+            <span>Request Fast-Track Assessment</span>
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
         </div>
       </Container>
     </Section>

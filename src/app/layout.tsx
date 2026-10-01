@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import "./globals.css";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
-import WhatsAppFloatingButton from "@/components/shell/WhatsAppFloatingButton";
+import HorizonDock from "@/components/shell/HorizonDock";
 import { SITE_URL, CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site-config";
 
 const DEFAULT_DESCRIPTION =
-  "Web developer and GoHighLevel specialist with 5 years of professional experience. Custom frontend and backend development, WordPress, WooCommerce, GHL funnels, and automation systems — delivered for clients worldwide.";
+  "Senior Web Developer & GoHighLevel Specialist with 5+ years of experience. Custom WordPress & WooCommerce development, high-converting GHL funnels, and webhook automation systems delivered for global clients.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    template: "%s | Tahir Hafeez",
+    template: "%s | Tahir Hafeez — Web & GHL Specialist",
     default: "Tahir Hafeez — Web Developer & GoHighLevel Specialist",
   },
   description: DEFAULT_DESCRIPTION,
@@ -42,7 +42,7 @@ const PERSON_JSON_LD = {
   url: SITE_URL,
   jobTitle: "Web Developer & GoHighLevel Specialist",
   description:
-    "Web developer and GoHighLevel specialist with 5 years of experience delivering custom WordPress sites, WooCommerce stores, plugin development, and GHL automation systems for clients worldwide.",
+    "Senior Web developer and GoHighLevel specialist with 5+ years of experience delivering custom WordPress themes, WooCommerce stores, plugin development, and GHL automation systems for clients worldwide.",
   email: CONTACT_EMAIL,
   telephone: "+923027263808",
   sameAs: [LINKEDIN_URL],
@@ -53,8 +53,6 @@ const PERSON_JSON_LD = {
     "Next.js",
     "PHP",
     "JavaScript",
-    "HTML5",
-    "CSS3",
     "WordPress Development",
     "GoHighLevel",
     "WooCommerce",
@@ -63,8 +61,6 @@ const PERSON_JSON_LD = {
     "REST API",
     "Headless WordPress",
     "GHL Automation",
-    "cPanel",
-    "DNS Management",
     "Core Web Vitals",
   ],
 };
@@ -75,12 +71,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="dark">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
-          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
         <script
@@ -88,13 +84,13 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }}
         />
       </head>
-      <body className="selection:bg-primary selection:text-white" suppressHydrationWarning>
+      <body className="bg-[#060911] text-slate-100 selection:bg-cyan-400 selection:text-slate-950 min-h-screen" suppressHydrationWarning>
         <SiteHeader />
         <main className="min-h-screen">
           {children}
         </main>
         <SiteFooter />
-        <WhatsAppFloatingButton />
+        <HorizonDock />
       </body>
     </html>
   );
