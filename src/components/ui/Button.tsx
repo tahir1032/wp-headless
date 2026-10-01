@@ -29,21 +29,21 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseStyles =
-      "relative inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 disabled:pointer-events-none disabled:opacity-50 cursor-pointer overflow-hidden group";
+      "relative inline-flex items-center justify-center font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 cursor-pointer overflow-hidden group";
 
     const variants = {
       primary:
-        "bg-gradient-to-r from-cyan-500 to-teal-500 text-slate-950 font-semibold shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_30px_rgba(6,182,212,0.5)] hover:brightness-110 active:scale-[0.98]",
+        "bg-gradient-to-r from-cyan-600 to-teal-600 dark:from-cyan-400 dark:to-teal-400 text-white dark:text-slate-950 font-semibold shadow-[0_2px_10px_rgba(8,145,178,0.25)] hover:shadow-[0_4px_20px_rgba(8,145,178,0.4)] hover:brightness-105 active:scale-[0.98]",
       glow:
-        "bg-cyan-500/10 text-cyan-300 border border-cyan-500/40 shadow-[0_0_15px_rgba(6,182,212,0.2)] hover:bg-cyan-500/20 hover:border-cyan-400 hover:shadow-[0_0_25px_rgba(6,182,212,0.4)] active:scale-[0.98]",
+        "bg-cyan-50 dark:bg-cyan-500/10 text-cyan-800 dark:text-cyan-300 border border-cyan-200 dark:border-cyan-500/40 shadow-sm hover:bg-cyan-100 dark:hover:bg-cyan-500/20 active:scale-[0.98]",
       emerald:
-        "bg-gradient-to-r from-emerald-500 to-teal-500 text-slate-950 font-semibold shadow-[0_0_20px_rgba(16,185,129,0.3)] hover:shadow-[0_0_30px_rgba(16,185,129,0.5)] hover:brightness-110 active:scale-[0.98]",
+        "bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400 text-white dark:text-slate-950 font-semibold shadow-md hover:brightness-105 active:scale-[0.98]",
       secondary:
-        "bg-white/10 text-white border border-white/15 backdrop-blur-md hover:bg-white/20 hover:border-white/30 active:scale-[0.98]",
+        "bg-slate-900 text-white hover:bg-slate-800 dark:bg-white/10 dark:text-white dark:hover:bg-white/20 active:scale-[0.98]",
       outline:
-        "border border-white/20 text-slate-200 hover:bg-white/10 hover:border-white/40 hover:text-white active:scale-[0.98]",
+        "border border-slate-300 dark:border-white/20 text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 hover:border-slate-400 dark:hover:border-white/40 active:scale-[0.98]",
       ghost:
-        "text-slate-300 hover:text-white hover:bg-white/5 active:scale-[0.98]",
+        "text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-white/5 active:scale-[0.98]",
     };
 
     const sizes = {

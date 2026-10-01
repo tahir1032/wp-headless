@@ -3,6 +3,7 @@ import "./globals.css";
 import SiteHeader from "@/components/layout/SiteHeader";
 import SiteFooter from "@/components/layout/SiteFooter";
 import HorizonDock from "@/components/shell/HorizonDock";
+import { ThemeProvider } from "@/components/theme/ThemeProvider";
 import { SITE_URL, CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site-config";
 
 const DEFAULT_DESCRIPTION =
@@ -71,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -80,17 +81,33 @@ export default function RootLayout({
           rel="stylesheet"
         />
         <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var theme = localStorage.getItem('th_theme');
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
+        <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(PERSON_JSON_LD) }}
         />
       </head>
-      <body className="bg-[#060911] text-slate-100 selection:bg-cyan-400 selection:text-slate-950 min-h-screen" suppressHydrationWarning>
-        <SiteHeader />
-        <main className="min-h-screen">
-          {children}
-        </main>
-        <SiteFooter />
-        <HorizonDock />
+      <body className="min-h-screen transition-colors duration-200" suppressHydrationWarning>
+        <ThemeProvider>
+          <SiteHeader />
+          <main className="min-h-screen">
+            {children}
+          </main>
+          <SiteFooter />
+          <HorizonDock />
+        </ThemeProvider>
       </body>
     </html>
   );

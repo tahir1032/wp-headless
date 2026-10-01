@@ -7,13 +7,13 @@ import {
   Calendar,
   Mail,
   ArrowUp,
-  Share2,
 } from "lucide-react";
 import {
   WHATSAPP_LINK_PREFILLED,
   CONTACT_EMAIL,
   LINKEDIN_URL,
 } from "@/lib/site-config";
+import ThemeToggle from "@/components/theme/ThemeToggle";
 import Link from "next/link";
 
 // Custom LinkedIn SVG Icon
@@ -58,7 +58,7 @@ export default function HorizonDock() {
       icon: Calendar,
       href: "/contact-us",
       isInternal: true,
-      color: "text-cyan-400 hover:bg-cyan-500/20",
+      color: "text-cyan-700 dark:text-cyan-400 hover:bg-cyan-50 dark:hover:bg-cyan-500/20",
     },
     {
       id: "whatsapp",
@@ -66,7 +66,7 @@ export default function HorizonDock() {
       icon: MessageCircle,
       href: WHATSAPP_LINK_PREFILLED,
       isInternal: false,
-      color: "text-emerald-400 hover:bg-emerald-500/20",
+      color: "text-emerald-700 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-500/20",
     },
     {
       id: "email",
@@ -74,7 +74,7 @@ export default function HorizonDock() {
       icon: Mail,
       href: `mailto:${CONTACT_EMAIL}`,
       isInternal: false,
-      color: "text-indigo-400 hover:bg-indigo-500/20",
+      color: "text-indigo-700 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-500/20",
     },
     {
       id: "linkedin",
@@ -82,7 +82,7 @@ export default function HorizonDock() {
       icon: LinkedInIcon,
       href: LINKEDIN_URL,
       isInternal: false,
-      color: "text-sky-400 hover:bg-sky-500/20",
+      color: "text-sky-700 dark:text-sky-400 hover:bg-sky-50 dark:hover:bg-sky-500/20",
     },
   ];
 
@@ -91,8 +91,12 @@ export default function HorizonDock() {
       <motion.div
         initial={{ y: 20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        className="flex items-center gap-1.5 p-2 rounded-2xl bg-[#090e1c]/85 backdrop-blur-2xl border border-white/15 shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
+        className="flex items-center gap-1.5 p-2 rounded-2xl bg-white/90 dark:bg-[#090e1c]/85 backdrop-blur-2xl border border-slate-200/90 dark:border-white/15 shadow-[0_8px_30px_rgb(0,0,0,0.12)] dark:shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
       >
+        <ThemeToggle className="h-10 w-10 sm:h-11 sm:w-11" />
+
+        <div className="h-6 w-px bg-slate-200 dark:bg-white/10 mx-0.5" />
+
         {DOCK_ITEMS.map((item) => {
           const Icon = item.icon;
           const isHovered = hoveredIcon === item.id;
@@ -101,7 +105,7 @@ export default function HorizonDock() {
             <div
               onMouseEnter={() => setHoveredIcon(item.id)}
               onMouseLeave={() => setHoveredIcon(null)}
-              className={`relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-white/[0.04] border border-white/5 transition-all duration-200 hover:scale-110 active:scale-95 ${item.color}`}
+              className={`relative flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200/80 dark:border-white/5 transition-all duration-200 hover:scale-110 active:scale-95 ${item.color}`}
             >
               <Icon className="h-5 w-5" />
 
@@ -112,7 +116,7 @@ export default function HorizonDock() {
                     initial={{ opacity: 0, y: 10, scale: 0.9 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.9 }}
-                    className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-lg bg-slate-950 border border-white/15 text-[11px] font-medium text-white whitespace-nowrap shadow-xl pointer-events-none"
+                    className="absolute -top-9 left-1/2 -translate-x-1/2 px-2.5 py-1 rounded-lg bg-slate-900 dark:bg-slate-950 border border-slate-800 dark:border-white/15 text-[11px] font-medium text-white whitespace-nowrap shadow-xl pointer-events-none"
                   >
                     {item.label}
                   </motion.div>
@@ -145,11 +149,11 @@ export default function HorizonDock() {
         {/* Scroll To Top Button */}
         {showScrollTop && (
           <>
-            <div className="h-6 w-px bg-white/10 mx-1" />
+            <div className="h-6 w-px bg-slate-200 dark:bg-white/10 mx-1" />
             <button
               onClick={scrollToTop}
               aria-label="Scroll to top"
-              className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-white/[0.04] border border-white/5 text-slate-300 hover:text-white hover:bg-white/10 transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+              className="flex h-10 w-10 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-slate-100 dark:bg-white/[0.04] border border-slate-200/80 dark:border-white/5 text-slate-700 dark:text-slate-300 hover:text-slate-950 dark:hover:text-white hover:bg-slate-200 dark:hover:bg-white/10 transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
             >
               <ArrowUp className="h-4 w-4" />
             </button>

@@ -13,7 +13,7 @@ interface TiltCardProps {
 export default function TiltCard({
   children,
   className,
-  maxRotation = 12,
+  maxRotation = 10,
 }: TiltCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
@@ -72,20 +72,20 @@ export default function TiltCard({
         }}
         transition={{ duration: 0.2 }}
         className={cn(
-          "relative overflow-hidden rounded-2xl border border-white/10 bg-[#0d1527]/90 shadow-2xl backdrop-blur-xl",
+          "relative overflow-hidden rounded-2xl border border-slate-200/90 dark:border-white/10 bg-white/95 dark:bg-[#0d1527]/90 shadow-xl dark:shadow-2xl backdrop-blur-xl",
           className
         )}
       >
-        {/* Subtle Glare overlay */}
+        {/* Glare overlay */}
         {isHovered && (
           <motion.div
-            className="pointer-events-none absolute -inset-full opacity-30 mix-blend-overlay"
+            className="pointer-events-none absolute -inset-full opacity-20 mix-blend-overlay"
             style={{
               background: `radial-gradient(circle at ${glareX.get()} ${glareY.get()}, rgba(255,255,255,0.8), transparent 60%)`,
             }}
           />
         )}
-        <div style={{ transform: "translateZ(30px)" }}>{children}</div>
+        <div style={{ transform: "translateZ(20px)" }}>{children}</div>
       </motion.div>
     </div>
   );
