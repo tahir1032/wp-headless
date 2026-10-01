@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
 import ContactForm from "@/components/contact/ContactForm";
-import WhatsAppCard from "@/components/contact/WhatsAppCard";
-import EmailCard from "@/components/contact/EmailCard";
-import AvailabilityBadge from "@/components/contact/AvailabilityBadge";
-import { LINKEDIN_URL } from "@/lib/site-config";
+import { Mail, MessageCircle, MapPin, CheckCircle } from "lucide-react";
+import { CONTACT_EMAIL, WHATSAPP_LINK_PREFILLED, WHATSAPP_DISPLAY, LINKEDIN_URL } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Contact Tahir Hafeez — Hire a Web & GHL Developer",
@@ -31,106 +31,118 @@ export const metadata: Metadata = {
   },
 };
 
-const CURSOR_IMAGES = Array.from({ length: 10 }, (_, i) => `/images/image-scroll/${i + 1}.webp`);
-
 const TRUST_SIGNALS = [
   "80+ projects delivered worldwide",
   "Clients in the US, UK, Australia, South Africa & UAE",
-  "5+ years of WordPress. 3+ years of GoHighLevel.",
-  "Available Worldwide — Remote",
-];
-
-const OBJECTION_KILLERS = [
-  "No sales pitch. Just an honest conversation.",
-  "No commitment required. First conversation is always free.",
-  "I respond to every message within 24 hours — personally.",
+  "5+ years of WordPress, 3+ years of GoHighLevel",
+  "Available worldwide — Remote",
 ];
 
 export default function ContactUsPage() {
   return (
     <>
-      <section className="pt-14 hero relative flex items-center justify-center w-full lg:h-180 md:h-90 max-sm:h-65 max-lg:pb-14 max-sm:pb-20 overflow-hidden">
-        <div className="container-full">
-          <h2 className="2xl:text-13xl lg:text-[120px]/25 md:text-7xxxl/10 sm:text-7xl/10 text-4xl/2 font-bold cursor-default text-center lg:max-w-294 max-w-170">
-            Let&apos;s
-            <span className="animate-float inline-block">
-              <svg className="inline-block max-2xl:w-40 max-xl:w-30 max-lg:w-20 max-sm:w-15" width="170" height="146" viewBox="0 0 170 146" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M59.9984 7.99999L109.398 8C138.118 8 161.398 31.2808 161.398 60.0003C161.398 88.7187 138.118 112.001 109.398 112.001L98.9984 112.001C91.8185 112.001 85.9984 117.821 85.9984 125.001L85.9984 138C32.0618 103.684 8.33643 95.0309 8.00234 60.7406C8.00006 60.4946 7.99844 60.2479 7.99844 60.0002C7.99844 31.2812 31.2792 7.99999 59.9984 7.99999Z" stroke="#999999" strokeWidth="16" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M109.66 46.9993L97.1802 46.9993" stroke="#999999" strokeWidth="16" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M73.2578 46.9993L60.7778 46.9993" stroke="#999999" strokeWidth="16" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M60.2602 73L109.66 73" stroke="#999999" strokeWidth="16" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-            Discuss Your Project
-          </h2>
-          {CURSOR_IMAGES.map((src) => (
-            <img
-              key={src}
-              className="cursor-picture absolute opacity-0 rounded-lg w-45 h-55 object-contain pointer-events-none scale-[0.8]"
-              src={src}
-              loading="lazy"
-              alt="img"
-            />
-          ))}
-        </div>
-      </section>
-
-      <div className="img-scroll-wrap overflow-hidden h-25">
-        <img src="/images/contect.webp" alt="img" className="size-full object-cover" loading="lazy" />
-      </div>
-
-      <section>
-        <div className="container-fluid">
-          <div className="text-center pt-15 pb-10 max-w-200 mx-auto">
-            <AvailabilityBadge />
-            <p className="text-lg text-mediumgray mt-5">
-              Whether you need a WordPress site, a WooCommerce store, a GHL automation system, or just an
-              honest second opinion on your current setup — reach out. I respond to every message
-              personally, within 24 hours.
-            </p>
-            <p className="text-sm text-mediumgray mt-3.75">
-              No sales pitch. No automated replies. Just a real conversation with someone who knows their
-              stuff.
+      <Section className="pt-24 pb-16">
+        <Container size="narrow">
+          <div className="text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              Let's Discuss Your Project
+            </h1>
+            <p className="mt-6 text-lg text-muted-foreground">
+              Whether you need a WordPress site, a WooCommerce store, a GHL automation system, or just an honest second opinion — reach out. I respond to every message personally within 24 hours.
             </p>
           </div>
+        </Container>
+      </Section>
 
-          <div className="grid grid-cols-12 gap-7.5 pb-15">
-            <div className="lg:col-span-7 col-span-12">
-              <div className="bg-cleangray rounded-md p-7.5 sm:p-10">
-                <h2 className="text-2xl sm:text-3xl font-semibold mb-2.5">Tell me about your project</h2>
-                <p className="text-base text-mediumgray mb-7.5">
-                  Fill in the details below and I&apos;ll come back to you within 24 hours with a clear
-                  plan and an honest quote.
+      <Section className="py-0 pb-16">
+        <Container>
+          <div className="grid gap-8 lg:grid-cols-3">
+            {/* Contact Form */}
+            <div className="lg:col-span-2">
+              <div className="rounded-2xl border border-border bg-card p-8 lg:p-10">
+                <h2 className="mb-2 text-2xl font-semibold text-foreground">
+                  Tell me about your project
+                </h2>
+                <p className="mb-8 text-muted-foreground">
+                  Fill in the details below and I'll come back to you within 24 hours with a clear plan and an honest quote.
                 </p>
                 <ContactForm />
               </div>
             </div>
-            <div className="lg:col-span-5 col-span-12 flex flex-col gap-5">
-              <WhatsAppCard />
-              <EmailCard />
+
+            {/* Contact Methods */}
+            <div className="space-y-6">
+              {/* WhatsApp Card */}
+              <a
+                href={WHATSAPP_LINK_PREFILLED}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg"
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#25D366]/10">
+                  <MessageCircle className="h-6 w-6 text-[#25D366]" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">
+                  WhatsApp
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Fastest way to reach me. I'm typically online during business hours.
+                </p>
+                <p className="mt-3 font-medium text-primary group-hover:underline">
+                  {WHATSAPP_DISPLAY}
+                </p>
+              </a>
+
+              {/* Email Card */}
+              <a
+                href={`mailto:${CONTACT_EMAIL}`}
+                className="group block rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/50 hover:shadow-lg"
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <Mail className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">Email</h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Prefer email? Send me a message and I'll respond within 24 hours.
+                </p>
+                <p className="mt-3 font-medium text-primary group-hover:underline">
+                  {CONTACT_EMAIL}
+                </p>
+              </a>
+
+              {/* Location Card */}
+              <div className="rounded-2xl border border-border bg-card p-6">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-primary/10">
+                  <MapPin className="h-6 w-6 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">
+                  Location
+                </h3>
+                <p className="mt-2 text-sm text-muted-foreground">
+                  Remote — Worldwide
+                </p>
+                <p className="mt-3 text-sm text-muted-foreground">
+                  Working with clients across the US, UK, Australia, South Africa, UAE, and beyond.
+                </p>
+              </div>
             </div>
           </div>
+        </Container>
+      </Section>
 
-          <div className="border-t border-lightgray py-10 flex flex-wrap items-center justify-center gap-x-10 gap-y-3 text-center">
-            {TRUST_SIGNALS.map((line) => (
-              <span key={line} className="text-sm text-mediumgray flex items-center gap-2">
-                <i className="fa-solid fa-circle-check text-primary"></i>
-                {line}
-              </span>
-            ))}
-            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-sm text-primary font-medium flex items-center gap-2 hover:underline">
-              <i className="fa-brands fa-linkedin"></i>
-              Connect on LinkedIn
-            </a>
-          </div>
-
-          <div className="pb-15 flex flex-wrap items-center justify-center gap-x-7.5 gap-y-2 text-center">
-            {OBJECTION_KILLERS.map((line) => (
-              <span key={line} className="text-sm italic text-softgray">{line}</span>
+      {/* Trust Signals */}
+      <Section className="border-t border-border bg-muted py-12">
+        <Container>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {TRUST_SIGNALS.map((signal) => (
+              <div key={signal} className="flex items-start gap-3">
+                <CheckCircle className="h-5 w-5 flex-shrink-0 text-primary" />
+                <p className="text-sm text-muted-foreground">{signal}</p>
+              </div>
             ))}
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
     </>
   );
 }

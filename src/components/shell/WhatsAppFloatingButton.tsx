@@ -1,3 +1,6 @@
+"use client";
+
+import { MessageCircle } from "lucide-react";
 import { WHATSAPP_LINK_PREFILLED } from "@/lib/site-config";
 
 export default function WhatsAppFloatingButton() {
@@ -8,9 +11,9 @@ export default function WhatsAppFloatingButton() {
       rel="noopener noreferrer"
       title="Chat with me on WhatsApp"
       aria-label="Chat with me on WhatsApp"
-      className="fixed z-90 left-5 bottom-5 size-15 rounded-full bg-[#25D366] shadow-shadow-card flex items-center justify-center hover:scale-110 duration-300"
+      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2"
     >
-      <i className="fa-brands fa-whatsapp text-white text-3xl"></i>
+      <MessageCircle className="h-7 w-7" fill="currentColor" />
     </a>
   );
 }

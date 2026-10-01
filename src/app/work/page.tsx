@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import CaseCard from "@/components/work/CaseCard";
-import BannerCTAButton from "@/components/shell/BannerCTAButton";
-import ClosingCTA from "@/components/shell/ClosingCTA";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import WorkCard from "@/components/work/WorkCard";
+import ClosingCTA from "@/components/home/ClosingCTA";
 import { getCaseStudies } from "@/lib/wordpress";
 
 export const revalidate = 3600;
@@ -37,49 +38,54 @@ export default async function WorkPage() {
 
   return (
     <>
-      <section className="pt-25.5 z-1 overflow-hidden relative">
-        <div
-          aria-hidden="true"
-          className="absolute -z-1 pointer-events-none xl:size-111.75 sm:size-100 size-80 bg-contain bg-no-repeat right-[-300px] xl:top-40 top-25 animate-moveRotate"
-          style={{ backgroundImage: "url(/images/Group.webp)" }}
-        />
-        <div className="container-fluid">
-          <h1 className="font-bold 4xl:text-[160px] 2xl:text-[120px] xl:text-8xl lg:text-7xxxl md:text-5xl sm:text-4xxxl text-3xl leading-none mb-5 2xl:max-w-293.75 xl:max-w-250 lg:max-w-200 max-w-160 max-sm:text-center">
-            Work That Speaks for Itself
-          </h1>
-          <p className="text-lg sm:text-xl font-normal text-mediumgray mb-8 max-sm:text-center">
-            80+ projects. Multiple industries. Measurable outcomes.
-          </p>
-          <div className="mb-12.5 max-sm:text-center">
-            <BannerCTAButton />
+      <Section className="pt-24 pb-16">
+        <Container>
+          <div className="mx-auto max-w-3xl text-center">
+            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+              Work & Portfolio
+            </h1>
+            <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
+              80+ projects delivered across WordPress, GoHighLevel, and custom
+              web development — for clients worldwide.
+            </p>
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      <div className="border-t border-lightgray">
-        <div className="container-full">
-          <div className="services" id="services">
-            {workItems.map((item, i) => (
-              <CaseCard
-                key={item.slug}
-                title={item.title}
-                date={item.date}
-                category={item.categorySlug || "branding"}
-                tags={item.tags.length > 0 ? item.tags : ["Meta Ads", "Google Ads", "CRO", "Analytics"]}
-                image={item.featuredImage || item.gallery[0]?.url || "/images/work/services/1.webp"}
-                href={`/work/${item.slug}`}
-                last={i === workItems.length - 1}
-              />
-            ))}
-          </div>
-        </div>
-      </div>
+      <Section className="py-0 pb-16">
+        <Container>
+          {workItems.length > 0 ? (
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {workItems.map((item) => (
+                <WorkCard
+                  key={item.slug}
+                  title={item.title}
+                  excerpt={item.excerpt}
+                  slug={item.slug}
+                  featuredImage={item.featuredImage}
+                  categories={item.tags}
+                  date={item.date}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-2xl border border-dashed border-border bg-muted p-16 text-center">
+              <p className="text-lg text-muted-foreground">
+                Case studies are being prepared. Check back soon or{" "}
+                <a
+                  href="/contact-us"
+                  className="font-medium text-primary hover:underline"
+                >
+                  contact me
+                </a>{" "}
+                to discuss your project.
+              </p>
+            </div>
+          )}
+        </Container>
+      </Section>
 
-      <ClosingCTA
-        heading="Seen enough? Let's build yours."
-        subtext="Every case study above started with a single conversation. Tell me what you're building and let's talk timeline, scope, and budget."
-        showWhatsAppButton
-      />
+      <ClosingCTA />
     </>
   );
 }
