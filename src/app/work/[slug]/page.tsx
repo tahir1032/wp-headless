@@ -1,22 +1,39 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
-import { getCaseStudyBySlug, getCaseStudySlugs, getAdjacentCaseStudies } from "@/lib/wordpress";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
-import Button from "@/components/ui/Button";
-import { ArrowLeft, ArrowRight, Calendar, Tag } from "lucide-react";
+import SectionLabel from "@/components/ui/SectionLabel";
+import Tag from "@/components/ui/Tag";
+import ClosingInvitation from "@/components/home/ClosingInvitation";
+import { getAdjacentCaseStudies, getCaseStudyBySlug, getCaseStudySlugs } from "@/lib/wordpress";
 
 export const revalidate = 3600;
+
+type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
   const slugs = await getCaseStudySlugs();
   return slugs.map((slug) => ({ slug }));
 }
 
-export default async function WorkDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>;
-}) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const caseStudy = await getCaseStudyBySlug(slug);
+  if (!caseStudy) {
+    return {};
+  }
+
+  return {
+    title: caseStudy.title,
+    description: caseStudy.excerpt,
+    alternates: { canonical: `/work/${slug}` },
+    openGraph: caseStudy.featuredImage ? { images: [caseStudy.featuredImage] } : undefined,
+  };
+}
+
+/* eslint-disable @next/next/no-img-element -- WordPress media can come from any host. */
+export default async function CaseStudyPage({ params }: Props) {
   const { slug } = await params;
   const caseStudy = await getCaseStudyBySlug(slug);
 
@@ -25,144 +42,113 @@ export default async function WorkDetailPage({
   }
 
   const { prev, next } = await getAdjacentCaseStudies(slug);
-  const galleryImages =
-    caseStudy.gallery.length > 0
-      ? caseStudy.gallery.map((g) => g.url)
-      : caseStudy.featuredImage
-      ? [caseStudy.featuredImage]
-      : [];
+  const gallery = caseStudy.gallery.map((image) => image.url).filter((url) => url !== caseStudy.featuredImage);
+
+  const facts = [
+    { label: "Platform", value: caseStudy.platform },
+    { label: "Client", value: caseStudy.clientName },
+    { label: "Client type", value: caseStudy.clientType },
+    { label: "Published", value: caseStudy.date },
+  ].filter((fact) => fact.value);
 
   return (
     <>
-      <Section className="pt-24 pb-16">
-        <Container size="narrow">
-          {/* Breadcrumb */}
-          <div className="mb-8">
-            <Button href="/work" variant="ghost" size="sm">
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Work
-            </Button>
-          </div>
+      <article className="pt-10 lg:pt-15">
+        <Container className="flex flex-col gap-12 lg:gap-15">
+          <div className="flex flex-col gap-8">
+            <Link href="/work" className="inline-flex items-center gap-2 self-start text-sm font-medium text-body hover:text-brand">
+              <ArrowLeft aria-hidden="true" strokeWidth={1.5} className="size-4" />
+              All work
+            </Link>
 
-          {/* Header */}
-          <div className="mb-12">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              {caseStudy.title}
-            </h1>
-
-            <div className="mt-6 flex flex-wrap items-center gap-4 text-sm text-muted-foreground">
-              {caseStudy.date && (
-                <div className="flex items-center gap-2">
-                  <Calendar className="h-4 w-4" />
-                  {caseStudy.date}
-                </div>
-              )}
-              {caseStudy.clientName && (
-                <div className="flex items-center gap-2">
-                  <span>Client:</span>
-                  <span className="font-medium text-primary">
-                    {caseStudy.clientName}
-                  </span>
-                </div>
-              )}
+            <div className="flex flex-col gap-5">
+              {caseStudy.categoryLabel && <SectionLabel>{caseStudy.categoryLabel}</SectionLabel>}
+              <h1 className="t-display max-w-[1000px] text-balance text-ink">{caseStudy.title}</h1>
             </div>
 
-            {caseStudy.tags && caseStudy.tags.length > 0 && (
-              <div className="mt-4 flex flex-wrap items-center gap-2">
-                <Tag className="h-4 w-4 text-muted-foreground" />
-                {caseStudy.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-primary"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
-            )}
+            <dl className="grid grid-cols-2 gap-6 border-y border-line py-6 md:grid-cols-4">
+              {facts.map((fact) => (
+                <div key={fact.label} className="flex flex-col gap-2">
+                  <dt className="text-xs text-muted">{fact.label}</dt>
+                  <dd className="text-base font-medium text-ink">{fact.value}</dd>
+                </div>
+              ))}
+            </dl>
           </div>
 
-          {/* Featured Image */}
           {caseStudy.featuredImage && (
-            <div className="mb-12 overflow-hidden rounded-2xl">
-              <img
-                src={caseStudy.featuredImage}
-                alt={caseStudy.title}
-                className="w-full"
-              />
+            <div className="overflow-hidden rounded-section bg-line">
+              <img src={caseStudy.featuredImage} alt={caseStudy.title} className="w-full" />
             </div>
           )}
 
-          {/* Problem / Overview */}
-          {caseStudy.problem && (
-            <div className="mb-12">
-              <h2 className="mb-4 text-2xl font-semibold text-foreground">
-                Overview
-              </h2>
-              <div
-                className="prose prose-lg max-w-none text-muted-foreground"
-                dangerouslySetInnerHTML={{ __html: caseStudy.problem }}
-              />
-            </div>
-          )}
-
-          {/* Solution */}
-          {caseStudy.solution && (
-            <div className="mb-12">
-              <h2 className="mb-4 text-2xl font-semibold text-foreground">
-                Solution
-              </h2>
-              <div
-                className="prose prose-lg max-w-none text-muted-foreground"
-                dangerouslySetInnerHTML={{ __html: caseStudy.solution }}
-              />
-            </div>
-          )}
-
-          {/* Gallery */}
-          {galleryImages.length > 1 && (
-            <div className="mb-12">
-              <h2 className="mb-6 text-2xl font-semibold text-foreground">
-                Gallery
-              </h2>
-              <div className="grid gap-6 sm:grid-cols-2">
-                {galleryImages.slice(1).map((image, index) => (
-                  <div
-                    key={index}
-                    className="overflow-hidden rounded-xl bg-muted"
-                  >
-                    <img
-                      src={image}
-                      alt={`${caseStudy.title} - Image ${index + 2}`}
-                      className="w-full"
-                    />
+          <div className="grid gap-12 lg:grid-cols-[420fr_800fr] lg:gap-25">
+            <aside className="flex flex-col gap-5">
+              {caseStudy.excerpt && <p className="t-lead text-body">{caseStudy.excerpt}</p>}
+              {caseStudy.tags.length > 0 && (
+                <div className="flex flex-col gap-3">
+                  <p className="text-xs text-muted">Techniques &amp; tools</p>
+                  <div className="flex flex-wrap gap-2">
+                    {caseStudy.tags.map((tag) => (
+                      <Tag key={tag}>{tag}</Tag>
+                    ))}
                   </div>
-                ))}
-              </div>
+                </div>
+              )}
+            </aside>
+
+            <div className="flex flex-col gap-12">
+              {caseStudy.problem && (
+                <section className="flex flex-col gap-4">
+                  <h2 className="t-title text-ink">The challenge</h2>
+                  <div className="richtext" dangerouslySetInnerHTML={{ __html: caseStudy.problem }} />
+                </section>
+              )}
+              {caseStudy.solution && (
+                <section className="flex flex-col gap-4">
+                  <h2 className="t-title text-ink">The solution</h2>
+                  <div className="richtext" dangerouslySetInnerHTML={{ __html: caseStudy.solution }} />
+                </section>
+              )}
+            </div>
+          </div>
+
+          {gallery.length > 0 && (
+            <div className="grid gap-5 sm:grid-cols-2">
+              {gallery.map((url, index) => (
+                <div key={url} className="overflow-hidden rounded-section bg-line">
+                  <img src={url} alt={`${caseStudy.title} — image ${index + 1}`} loading="lazy" className="w-full" />
+                </div>
+              ))}
             </div>
           )}
 
-          {/* Navigation */}
-          <div className="mt-16 flex items-center justify-between border-t border-border pt-8">
+          <nav aria-label="More case studies" className="flex items-center justify-between gap-6 border-t border-line pt-8">
             {prev ? (
-              <Button href={`/work/${prev.slug}`} variant="outline">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Previous Project
-              </Button>
+              <Link href={`/work/${prev.slug}`} className="group flex max-w-[45%] flex-col gap-1">
+                <span className="inline-flex items-center gap-2 text-xs text-muted">
+                  <ArrowLeft aria-hidden="true" strokeWidth={1.5} className="size-4" />
+                  Previous
+                </span>
+                <span className="text-base font-medium text-ink group-hover:text-brand">{prev.title}</span>
+              </Link>
             ) : (
-              <div />
+              <span />
             )}
-            {next ? (
-              <Button href={`/work/${next.slug}`} variant="outline">
-                Next Project
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Button>
-            ) : (
-              <div />
+            {next && (
+              <Link href={`/work/${next.slug}`} className="group flex max-w-[45%] flex-col items-end gap-1 text-right">
+                <span className="inline-flex items-center gap-2 text-xs text-muted">
+                  Next
+                  <ArrowRight aria-hidden="true" strokeWidth={1.5} className="size-4" />
+                </span>
+                <span className="text-base font-medium text-ink group-hover:text-brand">{next.title}</span>
+              </Link>
             )}
-          </div>
+          </nav>
         </Container>
-      </Section>
+      </article>
+
+      <ClosingInvitation />
     </>
   );
 }

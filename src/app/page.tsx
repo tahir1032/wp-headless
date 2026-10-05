@@ -1,54 +1,45 @@
 import type { Metadata } from "next";
 import Hero from "@/components/home/Hero";
-import TrustBar from "@/components/home/TrustBar";
-import Services from "@/components/home/Services";
-import AutomationVisualizer from "@/components/home/AutomationVisualizer";
-import RecentWork from "@/components/home/RecentWork";
-import Process from "@/components/home/Process";
-import Testimonials from "@/components/home/Testimonials";
-import ClosingCTA from "@/components/home/ClosingCTA";
-
-export const revalidate = 3600;
+import Bottleneck from "@/components/home/Bottleneck";
+import Foundation from "@/components/home/Foundation";
+import Workflow from "@/components/home/Workflow";
+import Toolkit from "@/components/home/Toolkit";
+import Audience from "@/components/home/Audience";
+import HumanDirection from "@/components/home/HumanDirection";
+import Faq from "@/components/home/Faq";
+import ContactSection from "@/components/contact/ContactSection";
+import ClosingInvitation from "@/components/home/ClosingInvitation";
 
 export const metadata: Metadata = {
-  title: "Tahir Hafeez — Senior Web Developer & GoHighLevel Architect",
+  title: { absolute: "Tahir Hafeez — Web Development for Ambitious Teams" },
   description:
-    "Senior Web Developer and GoHighLevel Specialist with 5+ years of experience. Custom WordPress & WooCommerce development, high-converting GHL funnels, and automated pipeline workflows for clients worldwide.",
+    "WordPress sites, WooCommerce stores, GoHighLevel automation, API integration, and hosting support. Start a conversation — I respond to every message personally within 24 hours.",
   keywords: [
     "web developer for hire",
-    "GoHighLevel specialist",
-    "GoHighLevel automation developer",
     "custom WordPress development",
-    "WordPress plugin developer",
-    "GHL funnel setup",
     "WooCommerce developer",
+    "GoHighLevel specialist",
+    "GHL automation developer",
+    "WordPress plugin developer",
     "headless WordPress Next.js",
     "freelance web developer",
   ],
   alternates: { canonical: "/" },
-  openGraph: {
-    title: "Tahir Hafeez | Senior Web Developer & GHL Architect",
-    description:
-      "5+ years. 80+ projects. Custom WordPress development, WooCommerce stores, GoHighLevel funnels, and automation systems delivered for clients across the US, UK, AU, ZA, and UAE.",
-  },
-  twitter: {
-    title: "Tahir Hafeez | Senior Web Developer & GHL Architect",
-    description:
-      "5+ years. 80+ projects. Custom WordPress development, WooCommerce stores, GoHighLevel funnels, and automation systems delivered for clients across the US, UK, AU, ZA, and UAE.",
-  },
 };
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <TrustBar />
-      <Services />
-      <AutomationVisualizer />
-      <RecentWork />
-      <Process />
-      <Testimonials />
-      <ClosingCTA />
+      <Bottleneck />
+      <Foundation />
+      <Workflow />
+      <Toolkit />
+      <Audience />
+      <HumanDirection />
+      <Faq />
+      <ContactSection />
+      <ClosingInvitation />
     </>
   );
 }

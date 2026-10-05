@@ -1,8 +1,13 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Link from "next/link";
+import { ChevronDown } from "lucide-react";
+import SectionLabel from "@/components/ui/SectionLabel";
+import { ButtonArrow, buttonClasses } from "@/components/ui/ButtonLink";
 import { LINKEDIN_URL } from "@/lib/site-config";
 
+// Option values must match ALLOWED_SERVICES / ALLOWED_BUDGETS in the WordPress plugin (class-contact.php).
 const SERVICE_GROUPS = [
   {
     label: "Web Development",
@@ -72,16 +77,13 @@ const SERVICE_GROUPS = [
 
 const OTHER_SERVICE_OPTION = "Other / Not Sure Yet — Let's Talk";
 
-const BUDGET_OPTIONS = [
-  "Under $500",
-  "$500–$1,000",
-  "$1,000–$3,000",
-  "$3,000–$5,000",
-  "$5,000+",
-  "Not sure yet",
-];
+const BUDGET_OPTIONS = ["Under $500", "$500–$1,000", "$1,000–$3,000", "$3,000–$5,000", "$5,000+", "Not sure yet"];
 
 type Status = { state: "idle" | "sending" | "success" | "error"; message?: string };
+
+const LABEL = "text-sm leading-none font-medium text-body";
+const FIELD =
+  "w-full rounded-card border border-line bg-white p-4 text-base leading-snug text-ink placeholder:text-muted transition-colors focus:border-brand focus:outline-none";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<Status>({ state: "idle" });
@@ -93,7 +95,7 @@ export default function ContactForm() {
 
     // Honeypot: real users never fill this (visually hidden field below).
     if (data.get("website")) {
-      setStatus({ state: "success", message: "Thanks! Your message has been sent." });
+      setStatus({ state: "success" });
       form.reset();
       return;
     }
@@ -105,18 +107,18 @@ export default function ContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          name: data.get("dzName"),
-          email: data.get("dzEmail"),
+          name: data.get("name"),
+          email: data.get("email"),
           phone: data.get("phone"),
           service: data.get("service"),
           budget: data.get("budget"),
-          message: data.get("dzMessage"),
+          message: data.get("message"),
         }),
       });
       const json = await res.json();
 
       if (res.ok && json.success) {
-        setStatus({ state: "success", message: json.message || "Thanks! Your message has been sent." });
+        setStatus({ state: "success" });
         form.reset();
       } else {
         setStatus({ state: "error", message: json.message || "Something went wrong. Please try again." });
@@ -128,16 +130,16 @@ export default function ContactForm() {
 
   if (status.state === "success") {
     return (
-      <div className="rounded-md bg-cleangray p-7.5 sm:p-10">
-        <h3 className="text-2xl sm:text-3xl font-semibold mb-3">Message received — thank you! 🎉</h3>
-        <p className="text-lg text-softgray font-light">
-          I&apos;ve got your details and I&apos;ll be back in touch within 24 hours. While you wait, feel
-          free to browse my{" "}
-          <a href="/work" className="text-primary font-medium underline underline-offset-4">
+      <div role="status" className="flex flex-col gap-4 rounded-section bg-white p-6 sm:p-10">
+        <SectionLabel>Message received</SectionLabel>
+        <h3 className="t-title text-ink">Thank you — I’ll be in touch within 24 hours.</h3>
+        <p className="text-base leading-[26px] text-body">
+          While you wait, browse my{" "}
+          <Link href="/work" className="text-brand underline underline-offset-4">
             recent work
-          </a>{" "}
+          </Link>{" "}
           or connect with me on{" "}
-          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-primary font-medium underline underline-offset-4">
+          <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="text-brand underline underline-offset-4">
             LinkedIn
           </a>
           .
@@ -147,116 +149,127 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="dz-form" onSubmit={handleSubmit}>
-      {/* Honeypot field - hidden from real users, left blank by them */}
-      <input
-        type="text"
-        name="website"
-        tabIndex={-1}
-        autoComplete="off"
-        className="hidden"
-        aria-hidden="true"
-      />
+    <form onSubmit={handleSubmit} className="flex flex-col gap-6.25 rounded-section bg-white p-5 sm:p-10">
+      <SectionLabel>Tell me about your project</SectionLabel>
+      <p className="text-base leading-[26px] text-body">
+        Fill in the details below and I’ll come back to you within 24 hours with a clear plan and an honest quote.
+      </p>
+
+      {/* Honeypot field: hidden from real users, left blank by them */}
+      <input type="text" name="website" tabIndex={-1} autoComplete="off" className="hidden" aria-hidden="true" />
+
+      <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-2.5">
+          <label htmlFor="contact-name" className={LABEL}>
+            Your name
+          </label>
+          <input required id="contact-name" name="name" type="text" autoComplete="name" placeholder="John Smith" className={FIELD} />
+        </div>
+
+        <div className="flex flex-col gap-2.5">
+          <label htmlFor="contact-email" className={LABEL}>
+            Email address
+          </label>
+          <input
+            required
+            id="contact-email"
+            name="email"
+            type="email"
+            autoComplete="email"
+            placeholder="john@yourbusiness.com"
+            className={FIELD}
+          />
+        </div>
+
+        <div className="flex flex-col gap-2.5">
+          <label htmlFor="contact-phone" className={LABEL}>
+            WhatsApp or phone (optional)
+          </label>
+          <input
+            id="contact-phone"
+            name="phone"
+            type="tel"
+            autoComplete="tel"
+            inputMode="tel"
+            maxLength={20}
+            pattern="[0-9+()\- ]*"
+            placeholder="+1 234 567 8900"
+            className={FIELD}
+          />
+        </div>
+
+        <div className="flex flex-col gap-2.5">
+          <label htmlFor="contact-service" className={LABEL}>
+            What do you need?
+          </label>
+          <div className="relative">
+            <select required id="contact-service" name="service" defaultValue="" className={`${FIELD} appearance-none pr-11 invalid:text-muted`}>
+              <option value="" disabled>
+                Select a service...
+              </option>
+              {SERVICE_GROUPS.map((group) => (
+                <optgroup key={group.label} label={group.label}>
+                  {group.options.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </optgroup>
+              ))}
+              <option value={OTHER_SERVICE_OPTION}>{OTHER_SERVICE_OPTION}</option>
+            </select>
+            <ChevronDown aria-hidden="true" strokeWidth={1.5} className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-muted" />
+          </div>
+        </div>
+
+        <div className="flex flex-col gap-2.5">
+          <label htmlFor="contact-message" className={LABEL}>
+            Tell me about your project
+          </label>
+          <textarea
+            required
+            id="contact-message"
+            name="message"
+            rows={6}
+            placeholder="Describe what you’re building, what problem you’re trying to solve, and any details that will help me understand what you need. The more detail, the better my response."
+            className={`${FIELD} min-h-40 resize-y leading-[26px]`}
+          />
+        </div>
+
+        <div className="flex flex-col gap-2.5">
+          <label htmlFor="contact-budget" className={LABEL}>
+            Rough budget range (optional)
+          </label>
+          <div className="relative">
+            <select id="contact-budget" name="budget" defaultValue="" className={`${FIELD} appearance-none pr-11`}>
+              <option value="">Select a range...</option>
+              {BUDGET_OPTIONS.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            <ChevronDown aria-hidden="true" strokeWidth={1.5} className="pointer-events-none absolute top-1/2 right-4 size-4 -translate-y-1/2 text-muted" />
+          </div>
+        </div>
+      </div>
 
       {status.state === "error" && (
-        <div className="dzFormMsg">
-          <div className="alert dz-alert alert-danger">{status.message}</div>
-        </div>
+        <p role="alert" className="rounded-card border border-red-200 bg-red-50 p-4 text-sm text-red-700">
+          {status.message}
+        </p>
       )}
 
-      <div className="row">
-        <div className="sm:w-1/2 w-full">
-          <div className="mb-7.5 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
-            <label htmlFor="fullname" className="block text-mediumgray font-normal text-base">Your name</label>
-            <input required type="text" name="dzName" id="fullname" placeholder="John Smith" className="text-lg placeholder:text-primary text-primary w-full" />
-          </div>
-        </div>
-        <div className="sm:w-1/2 w-full">
-          <div className="mb-7.5 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
-            <label htmlFor="emailaddress" className="block text-mediumgray font-normal text-base">Email address</label>
-            <input required autoComplete="email" type="email" name="dzEmail" id="emailaddress" placeholder="john@yourbusiness.com" className="text-lg placeholder:text-primary text-primary w-full" />
-          </div>
-        </div>
-        <div className="sm:w-1/2 w-full">
-          <div className="mb-7.5 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
-            <label htmlFor="inputPhone" className="block text-mediumgray font-normal text-base">WhatsApp or phone (optional)</label>
-            <input
-              name="phone"
-              type="tel"
-              id="inputPhone"
-              placeholder="+1 234 567 8900"
-              maxLength={15}
-              inputMode="numeric"
-              autoComplete="tel"
-              aria-label="WhatsApp or phone (optional)"
-              onInput={(e) => {
-                e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "").slice(0, 15);
-              }}
-              className="text-lg placeholder:text-primary text-primary w-full"
-            />
-          </div>
-        </div>
-        <div className="sm:w-1/2 w-full">
-          <div className="relative custom-select mb-7.5 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
-            <div data-label="Service">
-              <label htmlFor="sortingSelect" className="sr-only">What do you need?</label>
-              <select required name="service" defaultValue="" className="dynamic-select w-full" id="sortingSelect">
-                <option value="" disabled>Select a service...</option>
-                {SERVICE_GROUPS.map((group) => (
-                  <optgroup key={group.label} label={group.label}>
-                    {group.options.map((opt) => (
-                      <option key={opt} value={opt}>{opt}</option>
-                    ))}
-                  </optgroup>
-                ))}
-                <option value={OTHER_SERVICE_OPTION}>{OTHER_SERVICE_OPTION}</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div className="w-full">
-          <div className="relative custom-select mb-7.5 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
-            <div data-label="Budget">
-              <label htmlFor="budgetSelect" className="sr-only">Rough budget range (optional)</label>
-              <select name="budget" defaultValue="" className="dynamic-select w-full" id="budgetSelect">
-                <option value="">Rough budget range (optional)</option>
-                {BUDGET_OPTIONS.map((opt) => (
-                  <option key={opt} value={opt}>{opt}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-
-        <div className="w-full">
-          <div className="mb-3 sm:py-5.75 sm:px-11.25 p-5 bg-cleangray rounded-md">
-            <label htmlFor="message" className="block text-mediumgray font-normal text-base">Tell me about your project</label>
-            <textarea
-              required
-              placeholder="Describe what you're building, what problem you're trying to solve, and any details that will help me understand what you need. The more detail, the better my response."
-              name="dzMessage"
-              id="message"
-              className="text-lg placeholder:text-textgray text-primary min-h-50 h-full w-full"
-            ></textarea>
-          </div>
-        </div>
-        <div className="w-full">
-          <button
-            aria-label="Send Message"
-            type="submit"
-            disabled={status.state === "sending"}
-            className="bg-primary py-4 px-6.25 text-white rounded-full flex group cursor-pointer disabled:opacity-60"
-          >
-            <span className="font-medium">{status.state === "sending" ? "Sending..." : "Send Message"}</span>
-            <span className="overflow-hidden ml-2.5 inline-flex items-center justify-center">
-              <svg className="group-hover:animate-toTopFromBottom" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5.83337 14.1667L14.1667 5.83334" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M5.83337 5.83334H14.1667V14.1667" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </button>
-          <p className="text-sm text-mediumgray mt-3.75">I&apos;ll reply within 24 hours. Your information is never shared.</p>
-        </div>
+      <div className="flex flex-col gap-4 pt-2 sm:flex-row sm:items-center sm:gap-6.25">
+        <button
+          type="submit"
+          disabled={status.state === "sending"}
+          className={`${buttonClasses("primary")} cursor-pointer self-start disabled:cursor-wait disabled:opacity-60`}
+        >
+          {status.state === "sending" ? "Sending..." : "Send Message"}
+          <ButtonArrow />
+        </button>
+        <p className="text-sm text-muted">I’ll reply within 24 hours. Your information is never shared.</p>
       </div>
     </form>
   );

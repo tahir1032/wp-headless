@@ -1,32 +1,5 @@
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
 
-interface ContainerProps {
-  children: ReactNode;
-  className?: string;
-  size?: "default" | "narrow" | "wide";
-}
-
-export default function Container({
-  children,
-  className,
-  size = "default",
-}: ContainerProps) {
-  const sizeClasses = {
-    narrow: "max-w-4xl",
-    default: "max-w-6xl",
-    wide: "max-w-7xl",
-  };
-
-  return (
-    <div
-      className={cn(
-        "mx-auto w-full px-4 sm:px-6 lg:px-8",
-        sizeClasses[size],
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
+export default function Container({ className, children }: { className?: string; children: React.ReactNode }) {
+  return <div className={cn("mx-auto w-full max-w-[1440px] px-4 sm:px-6 lg:px-15", className)}>{children}</div>;
 }

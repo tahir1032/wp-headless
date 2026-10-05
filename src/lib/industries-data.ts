@@ -1,102 +1,129 @@
+import {
+  Briefcase,
+  Building2,
+  CalendarDays,
+  Car,
+  Dumbbell,
+  Flower2,
+  Globe,
+  GraduationCap,
+  Hammer,
+  HandHeart,
+  HardHat,
+  HeartPulse,
+  Hospital,
+  House,
+  Laptop,
+  Megaphone,
+  Newspaper,
+  Palette,
+  Scale,
+  ShoppingCart,
+  Store,
+  Target,
+  Utensils,
+  type LucideIcon,
+} from "lucide-react";
+
 export interface Industry {
-  icon: string;
+  icon: LucideIcon;
   title: string;
   description: string;
 }
 
 export const WORDPRESS_INDUSTRIES: Industry[] = [
   {
-    icon: "fa-cart-shopping",
+    icon: ShoppingCart,
     title: "E-Commerce & Retail",
     description:
       "WooCommerce stores built to sell — product pages, payment gateways, shipping rules, discount systems, and custom checkout flows that turn browsers into buyers.",
   },
   {
-    icon: "fa-building",
+    icon: Building2,
     title: "Business & Corporate",
     description:
       "Professional company websites that build credibility, communicate services clearly, and generate qualified leads — built for businesses that mean serious business.",
   },
   {
-    icon: "fa-hospital",
+    icon: Hospital,
     title: "Healthcare & Medical",
     description:
       "Trust-building websites for clinics, hospitals, healthcare providers, and medical brands — with appointment booking, service pages, and patient-focused design.",
   },
   {
-    icon: "fa-house",
+    icon: House,
     title: "Real Estate & Property",
     description:
       "Property listing platforms with search and filter, map integration, agent profiles, and lead capture — built for agencies, developers, and property managers.",
   },
   {
-    icon: "fa-graduation-cap",
+    icon: GraduationCap,
     title: "Education & Training",
     description:
       "Course platforms, university websites, school portals, and LMS-powered learning environments — designed to enrol students and deliver content seamlessly.",
   },
   {
-    icon: "fa-utensils",
+    icon: Utensils,
     title: "Hospitality, Food & Travel",
     description:
       "Restaurant, hotel, and travel websites with booking systems, menu pages, availability calendars, and local experience content that drives reservations.",
   },
   {
-    icon: "fa-spa",
+    icon: Flower2,
     title: "Coaching, Wellness & Lifestyle",
     description:
       "Websites for coaches, fitness trainers, yoga studios, nutritionists, and wellness professionals — with booking, course delivery, and programme sales built in.",
   },
   {
-    icon: "fa-laptop-code",
+    icon: Laptop,
     title: "Digital, Tech & SaaS",
     description:
       "Modern websites and landing pages for software companies, SaaS products, AI businesses, and tech startups — built to communicate value and convert sign-ups.",
   },
   {
-    icon: "fa-palette",
+    icon: Palette,
     title: "Media, Creative & Entertainment",
     description:
       "Portfolio sites, agency websites, photography studios, music artists, and publishing platforms — designed to showcase work and attract the right clients.",
   },
   {
-    icon: "fa-calendar-days",
+    icon: CalendarDays,
     title: "Events & Entertainment",
     description:
       "Event company websites, conference platforms, wedding venues, and entertainment businesses — with ticketing, registration, and event management built in.",
   },
   {
-    icon: "fa-hand-holding-heart",
+    icon: HandHeart,
     title: "Non-Profit & Charity",
     description:
       "Mission-driven websites for charities, non-profits, and community organisations — with donation integration, volunteer sign-up, and impact reporting sections.",
   },
   {
-    icon: "fa-scale-balanced",
+    icon: Scale,
     title: "Legal, Finance & Professional Services",
     description:
       "High-trust websites for law firms, financial advisors, accountants, and consultants — structured to communicate expertise and convert visitors into clients.",
   },
   {
-    icon: "fa-car",
+    icon: Car,
     title: "Automotive",
     description:
       "Vehicle listing sites for dealerships, auto repair shop websites, and automotive service providers — with search tools, booking systems, and financing calculators.",
   },
   {
-    icon: "fa-helmet-safety",
+    icon: HardHat,
     title: "Construction & Manufacturing",
     description:
       "Project showcase and service websites for builders, contractors, manufacturers, and industrial businesses — built to attract commercial clients and B2B enquiries.",
   },
   {
-    icon: "fa-newspaper",
+    icon: Newspaper,
     title: "Blogging & Publishing",
     description:
       "SEO-optimised content platforms, news portals, and multi-author publishing sites — built for high traffic, monetisation, and long-term content growth.",
   },
   {
-    icon: "fa-globe",
+    icon: Globe,
     title: "Multi-Purpose & Custom Builds",
     description:
       "Complex WordPress builds that don't fit one category — multisite networks, custom web applications, REST API integrations, and bespoke plugin development for unique business needs.",
@@ -105,61 +132,61 @@ export const WORDPRESS_INDUSTRIES: Industry[] = [
 
 export const GHL_INDUSTRIES: Industry[] = [
   {
-    icon: "fa-bullseye",
+    icon: Target,
     title: "Coaches & Course Creators",
     description:
       "Sales funnels, discovery call booking, course platform setup, payment integration, and automated client nurture sequences — a complete GHL system for coaches and online educators.",
   },
   {
-    icon: "fa-heart-pulse",
+    icon: HeartPulse,
     title: "Healthcare & Wellness",
     description:
       "Patient intake forms, appointment booking automation, confirmation and reminder sequences, and post-visit follow-up workflows for clinics, therapists, and wellness professionals.",
   },
   {
-    icon: "fa-house",
+    icon: House,
     title: "Real Estate & Property",
     description:
       "Lead capture funnels, automated buyer and seller follow-up sequences, appointment booking, and CRM pipeline setup for real estate agents, developers, and property managers.",
   },
   {
-    icon: "fa-briefcase",
+    icon: Briefcase,
     title: "Professional Services",
     description:
       "Consultation funnels, proposal follow-up automations, client onboarding sequences, and CRM pipeline management for lawyers, accountants, consultants, and IT service providers.",
   },
   {
-    icon: "fa-store",
+    icon: Store,
     title: "Local Businesses & Hospitality",
     description:
       "Booking automations, missed call text-back, SMS follow-up sequences, and review request campaigns for restaurants, salons, hotels, and local service businesses.",
   },
   {
-    icon: "fa-cart-shopping",
+    icon: ShoppingCart,
     title: "E-Commerce & Retail",
     description:
       "Abandoned cart follow-up, post-purchase sequences, re-engagement broadcasts, and loyalty automation for online stores and product-based businesses.",
   },
   {
-    icon: "fa-graduation-cap",
+    icon: GraduationCap,
     title: "Education & Training",
     description:
       "Student enrolment funnels, onboarding automations, course access setup, and completion follow-up sequences for training providers and online course creators.",
   },
   {
-    icon: "fa-bullhorn",
+    icon: Megaphone,
     title: "Marketing & Digital Agencies",
     description:
       "White-label GHL setup, snapshot creation and deployment, client onboarding automation, and full sub-account configuration for agencies managing multiple clients on GHL.",
   },
   {
-    icon: "fa-dumbbell",
+    icon: Dumbbell,
     title: "Fitness, Health & Nutrition",
     description:
       "Lead capture funnels, trial offer automations, client onboarding, check-in sequences, and member retention campaigns for gyms, personal trainers, and nutrition coaches.",
   },
   {
-    icon: "fa-house-chimney",
+    icon: Hammer,
     title: "Construction & Home Services",
     description:
       "Estimate follow-up automation, job completion review requests, seasonal broadcast campaigns, and missed call text-back for builders, contractors, and home service businesses.",

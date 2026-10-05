@@ -12,3 +12,13 @@ export const WHATSAPP_LINK_PREFILLED = `${WHATSAPP_LINK}?text=${encodeURICompone
 export const LINKEDIN_URL = process.env.NEXT_PUBLIC_LINKEDIN_URL ?? "https://linkedin.com/in/muhammad-tahir-hafeez";
 
 export const SITE_URL = "https://www.tahirhafeez.com";
+
+export const NAV_LINKS = [
+  { label: "Home", href: "/" },
+  { label: "Work", href: "/work" },
+  { label: "Studio", href: "/studio" },
+  { label: "Industries", href: "/industries" },
+  { label: "Contact", href: "/contact-us" },
+];
+
+export const CONTACT_PATH = "/contact-us";

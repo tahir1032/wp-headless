@@ -1,91 +1,65 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
+import SectionIntro from "@/components/ui/SectionIntro";
 import WorkCard from "@/components/work/WorkCard";
-import ClosingCTA from "@/components/home/ClosingCTA";
+import ClosingInvitation from "@/components/home/ClosingInvitation";
 import { getCaseStudies } from "@/lib/wordpress";
+import { CONTACT_PATH } from "@/lib/site-config";
 
 export const revalidate = 3600;
 
 export const metadata: Metadata = {
-  title: "Work & Portfolio — Tahir Hafeez WordPress & GHL Projects",
+  title: "Work — WordPress, WooCommerce & GHL Projects",
   description:
-    "Browse 80+ WordPress and GoHighLevel projects by Tahir Hafeez — including custom WordPress development, WooCommerce stores, GHL funnels, plugin development, and API integration work for clients worldwide.",
+    "Selected WordPress, WooCommerce, and GoHighLevel projects by Tahir Hafeez — custom sites, online stores, funnels, plugins, and API integrations for clients worldwide.",
   keywords: [
     "WordPress development portfolio",
     "GoHighLevel projects",
     "WooCommerce store examples",
     "WordPress plugin development examples",
     "GHL funnel examples",
-    "hire web developer",
-    "WordPress freelancer portfolio",
   ],
   alternates: { canonical: "/work" },
-  openGraph: {
-    title: "Portfolio — Tahir Hafeez | WordPress & GHL Projects",
-    description:
-      "Custom WordPress sites, WooCommerce stores, GoHighLevel funnels, and automation systems. Real projects. Real clients. Real results across healthcare, e-commerce, real estate, and more.",
-  },
-  twitter: {
-    title: "Portfolio — Tahir Hafeez | WordPress & GHL Projects",
-    description:
-      "Custom WordPress sites, WooCommerce stores, GoHighLevel funnels, and automation systems. Real projects. Real clients. Real results across healthcare, e-commerce, real estate, and more.",
-  },
 };
 
 export default async function WorkPage() {
-  const workItems = await getCaseStudies(100);
+  const caseStudies = await getCaseStudies(100);
 
   return (
     <>
-      <Section className="pt-24 pb-16">
-        <Container>
-          <div className="mx-auto max-w-3xl text-center">
-            <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
-              Work & Portfolio
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground sm:text-xl">
-              80+ projects delivered across WordPress, GoHighLevel, and custom
-              web development — for clients worldwide.
-            </p>
-          </div>
-        </Container>
-      </Section>
+      <section className="pt-10 lg:pt-15">
+        <Container className="flex flex-col gap-12 lg:gap-15">
+          <SectionIntro
+            as="h1"
+            label="Selected work"
+            heading="Real projects. Real clients. Real results."
+            description="80+ projects delivered across WordPress, WooCommerce, and GoHighLevel — for teams in the US, UK, Australia, South Africa, and the UAE."
+          />
 
-      <Section className="py-0 pb-16">
-        <Container>
-          {workItems.length > 0 ? (
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {workItems.map((item) => (
-                <WorkCard
-                  key={item.slug}
-                  title={item.title}
-                  excerpt={item.excerpt}
-                  slug={item.slug}
-                  featuredImage={item.featuredImage}
-                  categories={item.tags}
-                  date={item.date}
-                />
+          {caseStudies.length > 0 ? (
+            <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {caseStudies.map((caseStudy) => (
+                <li key={caseStudy.slug}>
+                  <WorkCard caseStudy={caseStudy} />
+                </li>
               ))}
-            </div>
+            </ul>
           ) : (
-            <div className="rounded-2xl border border-dashed border-border bg-muted p-16 text-center">
-              <p className="text-lg text-muted-foreground">
+            <div className="rounded-section bg-line p-10 text-center lg:p-15">
+              <p className="t-lead text-body">
                 Case studies are being prepared. Check back soon or{" "}
-                <a
-                  href="/contact-us"
-                  className="font-medium text-primary hover:underline"
-                >
-                  contact me
-                </a>{" "}
-                to discuss your project.
+                <Link href={CONTACT_PATH} className="text-brand underline underline-offset-4">
+                  start a conversation
+                </Link>{" "}
+                about your project.
               </p>
             </div>
           )}
         </Container>
-      </Section>
+      </section>
 
-      <ClosingCTA />
+      <ClosingInvitation />
     </>
   );
 }

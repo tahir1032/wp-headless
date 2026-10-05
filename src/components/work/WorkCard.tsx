@@ -1,73 +1,56 @@
-"use client";
-
-import { motion } from "framer-motion";
 import Link from "next/link";
-import { ExternalLink } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ArrowUpRight } from "lucide-react";
+import { LogoMark } from "@/components/ui/Logo";
+import type { CaseStudy } from "@/types";
 
-interface WorkCardProps {
-  title: string;
-  excerpt?: string;
-  slug: string;
-  featuredImage?: string;
-  categories: string[];
-  date: string;
-}
+export default function WorkCard({ caseStudy }: { caseStudy: CaseStudy }) {
+  const { slug, title, excerpt, featuredImage, platform, date, tags } = caseStudy;
 
-export default function WorkCard({
-  title,
-  excerpt,
-  slug,
-  featuredImage,
-  categories,
-  date,
-}: WorkCardProps) {
   return (
     <Link
       href={`/work/${slug}`}
-      className="group block overflow-hidden rounded-2xl border border-border bg-card transition-all hover:border-primary/50 hover:shadow-lg"
+      className="group flex h-full flex-col gap-5 rounded-section border border-line bg-white p-3 transition-colors hover:border-brand"
     >
-      {featuredImage ? (
-        <div className="aspect-video overflow-hidden bg-muted">
+      <div className="aspect-[4/3] overflow-hidden rounded-panel bg-line">
+        {featuredImage ? (
+          // WordPress media can come from any host, so a plain <img> avoids next/image remotePatterns config.
+          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={featuredImage}
-            alt={title}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            alt=""
+            loading="lazy"
+            className="size-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
           />
-        </div>
-      ) : (
-        <div className="flex aspect-video items-center justify-center bg-muted">
-          <span className="text-sm text-muted-foreground">No image</span>
-        </div>
-      )}
-      <div className="p-6">
-        <div className="mb-3 flex items-center justify-between">
-          {categories.length > 0 && (
-            <div className="flex flex-wrap gap-2">
-              {categories.slice(0, 2).map((cat) => (
-                <span
-                  key={cat}
-                  className="text-xs font-medium text-primary"
-                >
-                  {cat}
-                </span>
-              ))}
-            </div>
-          )}
-          <span className="text-xs text-muted-foreground">{date}</span>
-        </div>
-        <h3 className="text-xl font-semibold text-foreground transition-colors group-hover:text-primary">
-          {title}
-        </h3>
-        {excerpt && (
-          <p className="mt-2 line-clamp-2 text-sm text-muted-foreground">
-            {excerpt}
-          </p>
+        ) : (
+          <div className="flex size-full items-center justify-center">
+            <LogoMark className="size-12 opacity-30" />
+          </div>
         )}
-        <div className="mt-4 flex items-center text-sm font-medium text-primary">
-          View Case Study
-          <ExternalLink className="ml-1 h-4 w-4" />
+      </div>
+
+      <div className="flex flex-1 flex-col gap-3 px-2 pb-3">
+        <div className="flex items-center justify-between gap-3 text-xs">
+          <span className="text-brand">{platform}</span>
+          <span className="text-muted">{date}</span>
         </div>
+        <h2 className="flex items-start justify-between gap-4 text-xl leading-snug font-medium text-ink">
+          {title}
+          <ArrowUpRight
+            aria-hidden="true"
+            strokeWidth={1.5}
+            className="mt-1 size-4 shrink-0 text-brand transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+          />
+        </h2>
+        {excerpt && <p className="line-clamp-3 text-sm leading-[21px] text-body">{excerpt}</p>}
+        {tags.length > 0 && (
+          <ul className="mt-auto flex flex-wrap gap-2 pt-2">
+            {tags.slice(0, 3).map((tag) => (
+              <li key={tag} className="rounded-full border border-line px-3 py-1.5 text-xs leading-none font-medium text-body">
+                {tag}
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </Link>
   );

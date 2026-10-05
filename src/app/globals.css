@@ -1,1 +1,121 @@
-@import "../styles/tailwind.css";
+@import "tailwindcss";
+
+/* Design tokens — taken from the Figma file (tahirhafeez.fig). */
+@theme {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --color-brand: #0000ee;
+  --color-ink: #292929;
+  --color-body: #52525b;
+  --color-muted: #71717a;
+  --color-line: #e4e4e7;
+
+  --radius-card: 10px;
+  --radius-panel: 15px;
+  --radius-section: 24px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+  }
+
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+  }
+
+  ::selection {
+    @apply bg-brand text-white;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-brand;
+  }
+}
+
+@layer components {
+  /* Type scale. Desktop sizes match Figma; mobile sizes step down. */
+  .t-display {
+    font-size: 40px;
+    line-height: 1.15;
+    letter-spacing: -1.4px;
+    font-weight: 500;
+  }
+
+  .t-heading {
+    font-size: 34px;
+    line-height: 1.18;
+    letter-spacing: -1.2px;
+    font-weight: 500;
+  }
+
+  .t-title {
+    font-size: 24px;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+
+  .t-lead {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  @media (width >= 64rem) {
+    .t-display {
+      font-size: 60px;
+      line-height: 72px;
+      letter-spacing: -2.4px;
+    }
+
+    .t-heading {
+      font-size: 48px;
+      line-height: 57.6px;
+      letter-spacing: -1.8px;
+    }
+
+    .t-title {
+      font-size: 29px;
+    }
+
+    .t-lead {
+      font-size: 18px;
+      line-height: 28.8px;
+    }
+  }
+
+  /* HTML coming from WordPress (case study problem / solution fields). */
+  .richtext {
+    @apply text-base leading-[26px] text-body;
+  }
+
+  .richtext > * + * {
+    @apply mt-4;
+  }
+
+  .richtext a {
+    @apply text-brand underline underline-offset-4;
+  }
+
+  .richtext ul {
+    @apply list-disc pl-5;
+  }
+
+  .richtext ol {
+    @apply list-decimal pl-5;
+  }
+
+  .richtext li + li {
+    @apply mt-2;
+  }
+
+  .richtext strong {
+    @apply font-medium text-ink;
+  }
+
+  .richtext h2,
+  .richtext h3,
+  .richtext h4 {
+    @apply text-xl font-medium text-ink;
+  }
+}

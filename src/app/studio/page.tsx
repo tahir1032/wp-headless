@@ -1,291 +1,217 @@
 import type { Metadata } from "next";
-import ServicesShowcase from "@/components/shell/ServicesShowcase";
-import MissionPromiseApproach from "@/components/shell/MissionPromiseApproach";
-import BannerCTAButton from "@/components/shell/BannerCTAButton";
-import ContactForm from "@/components/contact/ContactForm";
-import WhatsAppCard from "@/components/contact/WhatsAppCard";
-import EmailCard from "@/components/contact/EmailCard";
-import { WORDPRESS_INDUSTRIES, GHL_INDUSTRIES } from "@/lib/industries-data";
-
-const INDUSTRY_TEASER = [
-  ...WORDPRESS_INDUSTRIES.filter((i) =>
-    ["E-Commerce & Retail", "Healthcare & Medical", "Real Estate & Property", "Digital, Tech & SaaS", "Business & Corporate", "Legal, Finance & Professional Services"].includes(i.title),
-  ),
-  ...GHL_INDUSTRIES.filter((i) => ["Coaches & Course Creators", "Marketing & Digital Agencies"].includes(i.title)),
-];
+import { Check, Code, Plug, Server, Workflow } from "lucide-react";
+import Container from "@/components/ui/Container";
+import SectionIntro from "@/components/ui/SectionIntro";
+import ButtonLink from "@/components/ui/ButtonLink";
+import Tag from "@/components/ui/Tag";
+import ClosingInvitation from "@/components/home/ClosingInvitation";
+import { CONTACT_PATH } from "@/lib/site-config";
 
 export const metadata: Metadata = {
-  title: "About Tahir Hafeez — Web Developer & GHL Expert",
+  title: "Studio — Meet Tahir Hafeez",
   description:
-    "Meet Tahir Hafeez — a web developer and GoHighLevel specialist with 5 years of professional experience delivering custom websites, WooCommerce stores, plugin development, and GHL automation systems for clients worldwide.",
+    "Meet Tahir Hafeez — a web developer and GoHighLevel specialist with 5 years of experience delivering custom WordPress sites, WooCommerce stores, plugin development, and GHL automation systems for clients worldwide.",
   keywords: [
-    "web developer about",
     "experienced web developer",
     "GoHighLevel expert",
     "WordPress plugin developer for hire",
     "WooCommerce specialist",
     "freelance WordPress consultant",
-    "web developer portfolio",
   ],
   alternates: { canonical: "/studio" },
-  openGraph: {
-    title: "About Tahir Hafeez | WordPress & GoHighLevel Expert",
-    description:
-      "5 years of WordPress expertise. 80+ projects. Custom development, WooCommerce, plugin development, GHL funnels, and API integration — delivered with precision for clients across four continents.",
-  },
-  twitter: {
-    title: "About Tahir Hafeez | WordPress & GoHighLevel Expert",
-    description:
-      "5 years of WordPress expertise. 80+ projects. Custom development, WooCommerce, plugin development, GHL funnels, and API integration — delivered with precision for clients across four continents.",
-  },
 };
 
-const WHEEL_IMAGES = [
-  1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 10, 11, 20, 14, 1,
+const STATS = [
+  { value: "5+", label: "Years building for the web" },
+  { value: "80+", label: "Projects delivered" },
+  { value: "5", label: "Countries served — US, UK, AU, ZA, UAE" },
 ];
 
-const CHECK_ICON = (
-  <svg width="18" height="15" viewBox="0 0 18 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M16.1594 0.0378643C13.0147 1.0701 9.00581 3.83073 5.30896 8.55982L3.12447 6.13526C2.78839 5.75117 2.16425 5.75117 1.82817 6.13526L0.2198 7.93567C-0.0922715 8.29575 -0.0682664 8.82388 0.267811 9.13595L5.21294 13.889C5.62104 14.2731 6.29319 14.1771 6.58126 13.673C9.22186 8.89589 12.0545 5.34308 16.8556 1.26214C17.4317 0.758029 16.9036 -0.20219 16.1594 0.0378643Z"
-      fill="white"
-    />
-  </svg>
-);
+const BIO = [
+  "I’m Muhammad Tahir Hafeez — a web developer and GoHighLevel specialist with 5 years of professional experience building websites and digital systems for businesses that take growth seriously.",
+  "My work spans the full stack: React and Next.js frontends, PHP and Node.js backends, WordPress themes and plugins built from scratch, WooCommerce stores with complex payment and shipping setups, ACF data structures, Gutenberg blocks, REST API integrations, headless WordPress, and performance and security work. On the GoHighLevel side, I build complete automation systems — funnels, email and SMS campaigns, payments, course platforms, and CRM pipelines that take manual work off your plate.",
+  "My clients range from healthcare providers and e-commerce brands to digital agencies, real estate platforms, educational institutions, and AI consulting firms. What they share is a need for technical work delivered with precision, transparency, and accountability.",
+  "Every engagement begins with your business goal — not a template. Clean code, honest timelines, fixed-price proposals, and post-launch support aren’t extras; they’re the baseline.",
+];
+
+const SERVICES = [
+  {
+    icon: Code,
+    title: "Web development",
+    description:
+      "End-to-end development tailored to your business — custom frontends, backend systems, WordPress themes and plugins, WooCommerce stores, and headless builds. Built for speed, security, and long-term maintainability.",
+    items: ["Frontend & backend development", "WordPress theme & plugin development", "WooCommerce stores, payments & add-ons"],
+  },
+  {
+    icon: Workflow,
+    title: "GoHighLevel systems",
+    description:
+      "GoHighLevel set up around your sales process — funnels, automated email and SMS, payment collection, course delivery, landing pages, and CRM pipelines that work around the clock.",
+    items: ["Funnels & high-converting landing pages", "Email / SMS automation & campaigns", "GHL payments, courses & CRM pipelines"],
+  },
+  {
+    icon: Plug,
+    title: "API & plugin integration",
+    description:
+      "Connect your site to the platforms you already use — custom REST APIs, CRM connections, Zapier and webhook workflows, payment gateways, and headless WordPress for modern frontends.",
+    items: ["REST API & webhook development", "HubSpot, Mailchimp & ActiveCampaign", "Headless WordPress with React / Next.js"],
+  },
+  {
+    icon: Server,
+    title: "Hosting & tech management",
+    description:
+      "Server and hosting management from setup to ongoing care — cPanel, DNS, SSL, Core Web Vitals, security hardening, database tuning, and migrations.",
+    items: ["cPanel, DNS & SSL", "Speed, caching & Core Web Vitals", "Migrations, backups & security hardening"],
+  },
+];
+
+const PRINCIPLES = [
+  {
+    title: "Mission",
+    description:
+      "Engineer web solutions that move businesses forward — not just satisfy a brief. Every system and integration serves one objective: measurable results for the client.",
+  },
+  {
+    title: "Promise",
+    description:
+      "Clarity from day one. Fixed scope, fixed price, no hidden costs. Regular progress updates and post-launch support as standard. You’ll always know where your project stands.",
+  },
+  {
+    title: "Approach",
+    description:
+      "Discovery before development. I learn your business, users, and goals first — then build to last. Every site is tested for speed, security, and Core Web Vitals before it goes live.",
+  },
+];
 
 const TECH_STACK = [
-  // WordPress ecosystem
-  { name: "WordPress", image: "/images/tech-badges/1.webp" },
-  { name: "WooCommerce", image: "/images/tech-badges/2.webp" },
-  { name: "Elementor Pro", image: "/images/tech-badges/3.webp" },
-  { name: "WP Rocket", image: "/images/tech-badges/4.webp" },
-  { name: "Yoast SEO", image: "/images/tech-badges/5.webp" },
-  { name: "ACF", image: "/images/tech-badges/12.webp" },
-  { name: "Avada", image: "/images/tech-badges/13.webp" },
-  { name: "Divi", image: "/images/tech-badges/14.webp" },
-  { name: "MemberPress", image: "/images/tech-badges/18.webp" },
-  { name: "LearnDash", image: "/images/tech-badges/16.webp" },
-  { name: "LearnPress", image: "/images/tech-badges/17.webp" },
-  // GoHighLevel
-  { name: "GoHighLevel", image: "/images/tech-badges/15.webp" },
-  // Frontend
-  { name: "React", icon: "fa-brands fa-react" },
-  { name: "Next.js" },
-  { name: "HTML5", icon: "fa-brands fa-html5" },
-  { name: "CSS3", icon: "fa-brands fa-css3-alt" },
-  { name: "Tailwind CSS" },
-  { name: "JavaScript", icon: "fa-brands fa-js" },
-  { name: "TypeScript" },
-  // Backend & infrastructure
-  { name: "Node.js", icon: "fa-brands fa-node-js" },
-  { name: "PHP", image: "/images/tech-badges/8.webp" },
-  { name: "MySQL", image: "/images/tech-badges/9.webp" },
-  { name: "cPanel", image: "/images/tech-badges/10.webp" },
-  { name: "Cloudflare", image: "/images/tech-badges/11.webp" },
-  // Tools
-  { name: "Git", icon: "fa-brands fa-git-alt" },
-  { name: "GitHub", icon: "fa-brands fa-github" },
-  { name: "Figma", icon: "fa-brands fa-figma" },
-];
-
-const CHOOSE_US = [
-  {
-    text: "5 years of full-stack web development expertise — frontend with React and Next.js, backend with PHP, WordPress theme and plugin development, WooCommerce, REST APIs, headless builds, and performance engineering across 80+ live projects.",
-    delay: "bounceInDown",
-  },
-  {
-    text: "GoHighLevel authority most developers don't possess — full-stack GHL implementation including funnels, automation sequences, payment systems, course delivery, landing pages, and CRM pipeline architecture.",
-    delay: "bounceInLeft",
-  },
-  {
-    text: "Transparent, professional communication throughout — fixed-price proposals, clear milestones, no scope creep, and honest answers — so you always know exactly what you're getting and when.",
-    delay: "bounceInRight",
-  },
-  {
-    text: "A proven track record across industries and markets — healthcare, e-commerce, real estate, education, digital agencies, and AI consulting — delivering to clients in the US, UK, Australia, South Africa, and UAE.",
-    delay: "bounceInUp",
-  },
+  "WordPress",
+  "WooCommerce",
+  "GoHighLevel",
+  "ACF",
+  "Elementor Pro",
+  "Divi",
+  "Avada",
+  "MemberPress",
+  "LearnDash",
+  "LearnPress",
+  "WP Rocket",
+  "Yoast SEO",
+  "React",
+  "Next.js",
+  "TypeScript",
+  "JavaScript",
+  "Tailwind CSS",
+  "HTML5",
+  "CSS3",
+  "PHP",
+  "Node.js",
+  "MySQL",
+  "cPanel",
+  "Cloudflare",
+  "Git",
+  "GitHub",
+  "Figma",
 ];
 
 export default function StudioPage() {
   return (
     <>
-      <section className="pt-30 lg:pb-25 pb-5">
-        <div className="container-full lg:px-10 px-5">
-          <div className="grid grid-cols-12">
-            <div className="2xl:col-span-5 col-span-12">
-              <h1
-                className="4xl:text-13xl 3xl:text-10xl 2xl:text-[120px]/30 xl:text-8xl md:text-7xxxl sm:text-7xl/7.5 text-4xl/5 wow bounceInLeft max-xl:mb-10"
-                data-wow-delay="2.5s"
-              >
-                Meet the Developer
-              </h1>
-              <p className="text-lg sm:text-xl font-normal text-mediumgray max-w-125 mt-5 wow bounceInLeft" data-wow-delay="2.7s">
-                5 years of WordPress expertise. GoHighLevel authority. Delivering results for businesses worldwide.
-              </p>
-              <div className="mt-7.5 wow bounceInLeft" data-wow-delay="2.9s">
-                <BannerCTAButton />
-              </div>
-            </div>
-            <div className="2xl:col-span-7 col-span-12">
-              <div className="grid grid-cols-12 gap-5">
-                <div className="md:col-span-4 col-span-12 dz-hover-item wow bounceInRight" data-wow-delay="3s">
-                  <a className="dz-hover-img rounded-2lg relative size-full" data-displacement="/images/studio/1.webp" data-intensity="0.6" data-speedin="1" data-speedout="1">
-                    <img className="rounded w-full h-77.5 object-cover" src="/images/studio/1.webp" alt="img" loading="lazy" />
-                  </a>
+      <section className="pt-10 pb-20 lg:pt-15 lg:pb-25">
+        <Container className="flex flex-col gap-12 lg:gap-15">
+          <SectionIntro
+            as="h1"
+            label="Studio"
+            heading="Meet the developer."
+            description="WordPress expertise. GoHighLevel depth. One person accountable for your project from first brief to launch."
+          />
+
+          <div className="grid gap-12 lg:grid-cols-[420fr_800fr] lg:gap-25">
+            <dl className="flex flex-col gap-5">
+              {STATS.map((stat) => (
+                <div key={stat.label} className="flex flex-col gap-2 rounded-section bg-line p-6">
+                  <dt className="order-2 text-sm text-body">{stat.label}</dt>
+                  <dd className="t-display order-1 text-brand">{stat.value}</dd>
                 </div>
-                <div className="md:col-span-8 col-span-12 dz-hover-item wow bounceInRight" data-wow-delay="2.3s">
-                  <a className="dz-hover-img rounded-2lg relative size-full" data-displacement="/images/studio/2.webp" data-intensity="0.6" data-speedin="2" data-speedout="2">
-                    <img className="rounded w-full h-77.5 object-cover" src="/images/studio/2.webp" alt="img" loading="lazy" />
-                  </a>
-                </div>
-              </div>
-              <div className="wrapper overflow-hidden border-l mt-5 border-primary pl-4.75 space-y-5">
-                <p className="introline text-lg font-normal text-black">
-                  I&apos;m Muhammad Tahir Hafeez — a web developer and GoHighLevel specialist with 5 years of professional experience building websites and digital systems for businesses that take growth seriously.
+              ))}
+            </dl>
+
+            <div className="flex flex-col gap-5 border-l border-brand pl-5 sm:pl-7.5">
+              {BIO.map((paragraph) => (
+                <p key={paragraph} className="t-lead text-body first:text-ink">
+                  {paragraph}
                 </p>
-                <p className="introline text-lg font-normal text-black">
-                  My work spans the full web development stack: custom frontend development with React and Next.js, backend systems with PHP and Node.js, WordPress theme and plugin development from scratch, advanced WooCommerce stores with complex payment and shipping configurations, ACF-powered custom data structures, Gutenberg block development, REST API and third-party integrations, headless WordPress architectures, and rigorous performance and security optimization. On the GoHighLevel side, I architect complete business automation systems — sales funnels, multi-step email and SMS campaigns, payment collection, course platforms, landing pages, and CRM pipelines that eliminate manual work and accelerate revenue.
-                </p>
-                <p className="introline text-lg font-normal text-black">
-                  My clients range from healthcare providers and e-commerce brands to digital agencies, real estate platforms, educational institutions, and AI consulting firms. What they share is a need for technical work delivered with precision, transparency, and accountability — every time.
-                </p>
-                <p className="introline text-lg font-normal text-black">
-                  Every engagement begins with understanding your business goal — not picking a template. Clean code, honest timelines, fixed-price proposals, and post-launch support are not extras; they are the baseline. I communicate clearly, deliver on schedule, and build work that holds up under real-world conditions.
-                </p>
-              </div>
+              ))}
+              <ButtonLink href={CONTACT_PATH} className="mt-3 self-start">
+                Start a Conversation
+              </ButtonLink>
             </div>
           </div>
-        </div>
+        </Container>
       </section>
 
-      <div className="size-full overflow-hidden">
-        <div>
-          <img className="size-full object-cover" src="/images/studio.webp" alt="img" loading="lazy" />
-        </div>
-      </div>
-
-      <div className="py-15 text-center border-b border-lightgray">
-        <div className="container-fluid flex flex-wrap items-center justify-center gap-5">
-          <h3 className="text-xl sm:text-2xl font-medium">If you&apos;ve read this far — let&apos;s just talk.</h3>
-          <a
-            href="/contact-us"
-            className="inline-flex items-center gap-2.5 bg-primary text-white py-3 px-5.5 rounded-full group overflow-hidden"
-          >
-            <span className="font-medium">Start a Conversation</span>
-            <span className="overflow-hidden inline-flex items-center justify-center">
-              <svg className="group-hover:animate-toTopFromBottom" width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M7 17L17 7" stroke="#fff" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-                <path d="M17 17V7H7" stroke="#fff" strokeWidth="1.25" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </span>
-          </a>
-        </div>
-      </div>
-
-      <MissionPromiseApproach />
-
-      <section className="2xl:py-50 py-20">
-        <div className="container">
-          <div className="pxl-heading-scroll-effect">
-            <h2 className="2xl:text-8xl lg:text-7xxxl/25 md:text-7xl/25 sm:text-5xl/20 text-4xl/15 font-semibold capitalize text-center mb-12.5 heading-text">
-              Why Clients Choose Me
-            </h2>
-          </div>
-          <ul className="flex flex-col items-center justify-center gap-3.75 sm:text-2xl text-base font-light">
-            {CHOOSE_US.map((item) => (
-              <li key={item.text} className={`py-2.5 sm:pr-7.5 pr-2.5 pl-2.5 bg-cleangray rounded-full flex items-center gap-2.5 wow ${item.delay}`} data-wow-delay="0.1s">
-                <a className="sm:size-12.5 size-10 bg-primary flex items-center justify-center rounded-full">{CHECK_ICON}</a>
-                {item.text}
+      <section id="services" className="bg-line py-20 lg:py-25">
+        <Container className="flex flex-col gap-10">
+          <SectionIntro
+            label="Services"
+            heading="What I can build for you."
+            description="Four disciplines, one point of contact. Pick one, or combine them into a single connected system."
+          />
+          <ul className="grid gap-5 md:grid-cols-2">
+            {SERVICES.map(({ icon: Icon, title, description, items }) => (
+              <li key={title} className="flex flex-col gap-5 rounded-section bg-white p-5 sm:p-7.5">
+                <div className="flex items-start justify-between gap-4">
+                  <h3 className="t-title text-ink">{title}</h3>
+                  <Icon aria-hidden="true" strokeWidth={1.5} className="size-6 shrink-0 text-brand" />
+                </div>
+                <p className="text-base leading-[26px] text-body">{description}</p>
+                <hr className="mt-auto border-line" />
+                <ul className="flex flex-col gap-3">
+                  {items.map((item) => (
+                    <li key={item} className="flex items-center gap-3 text-sm text-body">
+                      <Check aria-hidden="true" strokeWidth={1.5} className="size-4 shrink-0 text-brand" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </li>
             ))}
           </ul>
-        </div>
+        </Container>
       </section>
 
-      <section className="pb-20">
-        <div className="container">
-          <div className="pxl-heading-scroll-effect">
-            <h2 className="2xl:text-8xl lg:text-7xxxl/25 md:text-7xl/25 sm:text-5xl/20 text-4xl/15 font-semibold capitalize text-center mb-12.5 heading-text">
-              Industries I Work In
-            </h2>
-          </div>
-          <ul className="flex flex-wrap items-center justify-center gap-3.75">
-            {INDUSTRY_TEASER.map((industry) => (
-              <li key={industry.title}>
-                <a
-                  href="/industries"
-                  className="py-2.5 pr-5 pl-2.5 bg-cleangray rounded-full flex items-center gap-2.5 text-base font-light hover:bg-primary hover:text-white duration-500"
-                >
-                  <span className="size-9 bg-primary rounded-full flex items-center justify-center shrink-0">
-                    <i className={`fa-solid ${industry.icon} text-white text-sm`}></i>
-                  </span>
-                  {industry.title}
-                </a>
+      <section className="bg-ink py-20 lg:py-25">
+        <Container className="flex flex-col gap-12 lg:gap-15">
+          <SectionIntro inverse label="How I work" heading="Clear scope. Honest timelines. Work that holds up." />
+          <ol className="grid gap-10 md:grid-cols-3 lg:gap-7.5">
+            {PRINCIPLES.map((principle, index) => (
+              <li key={principle.title} className="flex flex-col gap-5 border-t border-body pt-5">
+                <span className="text-sm text-line">{String(index + 1).padStart(2, "0")}</span>
+                <h3 className="t-title text-white">{principle.title}</h3>
+                <p className="text-base leading-[26px] text-line">{principle.description}</p>
               </li>
             ))}
-          </ul>
-        </div>
+          </ol>
+        </Container>
       </section>
 
-      <section className="pb-20">
-        <div className="container">
-          <div className="pxl-heading-scroll-effect">
-            <h2 className="2xl:text-8xl lg:text-7xxxl/25 md:text-7xl/25 sm:text-5xl/20 text-4xl/15 font-semibold capitalize text-center mb-12.5 heading-text">
-              Tech Stack
-            </h2>
-          </div>
-          <ul className="flex flex-wrap items-center justify-center gap-3.75">
+      <section className="pt-20 lg:pt-25">
+        <Container className="flex flex-col gap-10">
+          <SectionIntro
+            label="Tech stack"
+            heading="Tools I use every day."
+            description="Chosen for reliability and long-term maintenance — not trends."
+          />
+          <ul className="flex flex-wrap gap-3">
             {TECH_STACK.map((tech) => (
-              <li
-                key={tech.name}
-                className="py-2.5 px-5 bg-cleangray rounded-full flex items-center gap-2.5 text-base font-light"
-              >
-                {tech.image && (
-                  <img src={tech.image} alt="" className="size-5 rounded-full object-cover" loading="lazy" />
-                )}
-                {tech.icon && <i className={`${tech.icon} text-primary`}></i>}
-                {tech.name}
+              <li key={tech}>
+                <Tag className="px-4 py-2.5 text-sm">{tech}</Tag>
               </li>
             ))}
           </ul>
-        </div>
+        </Container>
       </section>
 
-      <div className="slider-section bottom-0 w-full 4xl:h-150 sm:h-127 h-90 relative">
-        <div className="wheel">
-          {WHEEL_IMAGES.map((n, i) => (
-            <div key={i} className="wheel__card">
-              <img src={`/images/image-scroll/${n}.webp`} className="rounded-sm w-full h-auto" alt="img" loading="lazy" />
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <ServicesShowcase />
-
-      <section className="border-t border-lightgray py-25">
-        <div className="container-fluid">
-          <div className="text-center max-w-175 mx-auto mb-15">
-            <h2 className="text-2xl sm:text-4xl font-semibold mb-5">Like my approach? Let&apos;s talk about your project.</h2>
-            <p className="text-base sm:text-lg text-mediumgray">
-              Every engagement starts with a conversation about your goals — not a sales pitch. Tell me
-              what you&apos;re building, or reach out directly however works best for you.
-            </p>
-          </div>
-          <div className="grid grid-cols-12 gap-7.5">
-            <div className="lg:col-span-7 col-span-12">
-              <div className="bg-cleangray rounded-md p-7.5 sm:p-10">
-                <ContactForm />
-              </div>
-            </div>
-            <div className="lg:col-span-5 col-span-12 flex flex-col gap-5">
-              <WhatsAppCard />
-              <EmailCard />
-            </div>
-          </div>
-        </div>
-      </section>
+      <ClosingInvitation />
     </>
   );
 }
